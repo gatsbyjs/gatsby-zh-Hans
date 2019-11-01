@@ -1,7 +1,7 @@
 
 # Gatsby 简体中文文档
 
-这是 Gatsby 官方简体中文文档仓库
+这是 Gatsby 简体中文文档仓库
 
 请认真参阅 [Translation Progress Issue](https://github.com/gatsbyjs/gatsby-zh-Hans/issues/1) 后开始翻译。
 
