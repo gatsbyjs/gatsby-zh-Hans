@@ -1,5 +1,5 @@
 ---
-title: Gatsby 贡献指南
+title: Gatsby 贡献者行为准则
 ---
 
 ## 我们的承诺
