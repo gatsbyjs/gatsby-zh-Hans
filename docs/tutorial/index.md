@@ -34,7 +34,6 @@ Gatsby主题是将所有默认配置（共享功能模块，数据源，设计�
 
 ## 更多
 
-There are many use cases for Gatsby, some of which aren't covered in the first set of tutorials to keep you focused while learning. Gatsby's Additional Tutorials section is a collection of resources showing how to complete even more Gatsby tasks step-by-step, such as using source plugins for images and CMS content.
 为了使您在学习时保持专注，第一部分的教程中并未涵盖到所有内容。 [其他Gatsby教程](/tutorial/additional-tutorials/)部分是一系列的资源，指导您如何逐步完成更多的Gatsby任务，例如将数据源插件应用于image图像或CMS内容。
 
 深入了解[其他Gatsby教程](/tutorial/additional-tutorials/)。
