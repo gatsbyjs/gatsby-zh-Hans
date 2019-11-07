@@ -282,7 +282,6 @@ export default () => (
 
 ## 连接不同页面
 
-You'll often want to link between pages — Let's look at routing in a Gatsby site.
 你会经常需要把页面连接到别的页面——让我们来看看 Gatsby 网站的路由功能。
 
 ### ✋ 使用 `<Link />` 组件
