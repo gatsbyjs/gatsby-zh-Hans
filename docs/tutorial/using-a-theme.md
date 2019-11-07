@@ -1,20 +1,20 @@
 ---
-title: Using a Theme
+title: 使用主题
 ---
 
-In this tutorial, you'll learn how to use Gatsby themes by creating a new site using the official Gatsby blog theme.
+在这篇指南中，你将学会如何使用 Gatsby 主题。我们将使用官方的博客主题创建一个新的站点。
 
-## Create a new site using the blog theme starter
+## 使用博客主题 starter 创建新站点
 
-Creating a site using a theme starter starts the same way as using a regular Gatsby starter:
+使用主题 starter 创建新站点和使用常规 Gatsby starter 的方法一样。
 
 ```shell
 gatsby new my-blog https://github.com/gatsbyjs/gatsby-starter-blog-theme
 ```
 
-## Run the site
+## 运行站点
 
-Creating a new site from the starter installed all of the blog theme's dependencies for you. Next, run the site and see what you have:
+通过上面的方式创建新站点 ，博客主题的依赖已经全部安装好了。 接下来运行站点，看看它长什么样子吧。
 
 ```shell
 cd my-blog
@@ -23,13 +23,13 @@ gatsby develop
 
 ![Default screen when starting a project using gatsby blog starter](./images/starter-blog-theme-default.png)
 
-## Replace your avatar
+## 替换你的头像
 
-The blog theme starter ships with a solid gray image for the avatar. Add your own avatar by choosing the image you want, and overwriting the file located at `/content/assets/avatar.png`.
+这个博客主题的 starter 使用一张存灰度图像作为头像。选一张你自己的头像图片，覆盖 `/content/assets/avatar.png`这个文件。
 
-## Update your site metadata
+## 更新站点的 metadata
 
-Customize the information on your site by replacing the site metadata in the `gatsby-config.js` file.
+修改 `gatsby-config.js` 文件中的 `siteMetadata`，定制化自己的站点信息。
 
 ```javascript:title=gatsby-config.js
 module.exports = {
@@ -61,13 +61,14 @@ module.exports = {
 }
 ```
 
-## Replace the content of the bio
+## 替换掉个人简介内容
 
-When using Gatsby themes, you can take advantage of something called component shadowing. This allows you to override the default component included in the theme with a custom one you've created.
+使用Gatsby主题时，您可以利用称为组件遮蔽（Gatsby 会优先使用自定义的同名组件渲染）的功能。 这使您可以使用已创建的自定义组件覆盖主题中包含的默认组件。
 
-The Gatsby blog theme package has a component that contains the content of the site author's biography. The file path to that component (in the blog theme package, not your site) is `gatsby-theme-blog/src/components/bio-content.js`. You can find this path by looking through the theme in your site's `node_modules/gatsby-theme-blog` directory.
+Gatsby博客主题包中包含一个组件，其内容为网站作者的传记内容。 该组件（在博客主题包中，而不是您的站点中）的文件路径是`gatsby-theme-blog/src/components/bio-content.js`。 通过浏览`node_modules/gatsby-theme-blog`这个目录下的内容，您可以找到此路径
 
-If you look at the file tree of your site, you'll see it looks like this:
+
+如果你看一下站点的文件结构，你将会看到下面这样的内容
 
 ```
 my-blog
@@ -87,61 +88,60 @@ my-blog
 └── package.json
 ```
 
-In the `src` directory of the site, there's a `gatsby-theme-blog` directory. Any file placed in that directory with a path that matches the path of a file in the blog theme directory will completely shadow the theme.
+`src` 目录下有一个名为 `gatsby-theme-blog` 的目录，该目录下符合名称匹配规则（与主题内的文件同名）的文件，将会遮蔽主题原有的组件。
 
-> 💡 The name of the directory (here `gatsby-theme-blog`) must exactly mirror the name of the published theme package, which in this case is [`gatsby-theme-blog`](https://www.npmjs.com/package/gatsby-theme-blog).
+> 💡 这个目录的名称 (`gatsby-theme-blog`) 必须于主题发布包的名称完全相同，这本例中名称为：[`gatsby-theme-blog`](https://www.npmjs.com/package/gatsby-theme-blog)。
 
-Open up the `bio-content.js` file and make some content edits:
+打开 `bio-content.js` 文件，然后做一些编辑。
 
 ```jsx:title=bio-content.js
 export default () => (
   {/* highlight-start */}
   <Fragment>
-    This is my updated bio.
+    这里是我的自己的 bio
     <br />
-    It's shadowing the content from the theme.
+    这样将会覆盖原有主题中的 bio
   </Fragment>
   {/* highlight-end */}
 )
 ```
 
-At this point, you should have an updated avatar, updated site details, and an updated bio:
+进行到这里，你应该已经更新了头像、站点详情、个人简介。
 
 ![Screenshot of project with current tutorial edits](./images/starter-blog-theme-edited.png)
 
-## Add your own blog content
+## 添加自己的博客内容
 
-Now you can add your first blog post, and get rid of the demo content in the starter.
+现在你可以添加自己的博客文章了，和 starter 中的演示内容说再见吧。
+### 创建一篇新文章
 
-### Create a new blog post
-
-Create a new file in `my-blog/content/posts`. Name it whatever you'd like (with a `.md` or `.mdx` file extension), and add some content! Here's an example:
+在 `my-blog/content/posts` 目录下创建文件。 取一个自己想要的名字(以 `.md` 或者 `.mdx` 文件扩展名结尾)，添加一些内容，下面是例子。
 
 ```mdx:title=my-blog/content/posts/my-first-post.mdx
 ---
-title: My first post
+title: 我的第一篇文章
 date: 2019-07-03
 ---
 
-This will be my very first post on this blog!
+这里是文章内容
 ```
 
-### Delete the demo posts
+### 删除演示用的文章
 
-Delete the two demo posts in the `/content/posts` directory:
+删除 `/content/posts` 目录下的2篇演示文章
 
 - `my-blog/content/posts/hello-world.mdx`
 - `my-blog/content/posts/my-second-post.mdx`
 
-Restart the dev server, and you'll see your updated blog content:
+重启开发服务，你将看到新的文章内容。
 
 ![Screenshot of project with updated post content](./images/starter-blog-theme-updated-content.png)
 
-## Change the color theme
+## 修改主题颜色
 
-The blog theme ships with a default Gatsby purple theme, but you can override and customize the theming of your site to your heart's content. In this tutorial, you'll change a few colors.
+这个博客主题默认是以紫色作为主题色，但是你可以重载修改为自己喜欢的颜色。在这个指南中你会修改一部分颜色。
 
-Open up `/src/gatsby-theme-blog/gatsby-plugin-theme-ui/colors.js`, and uncomment the code in that file.
+打开 `/src/gatsby-theme-blog/gatsby-plugin-theme-ui/colors.js`，取消被注释的代码。
 
 ```javascript:title=colors.js
 {/* highlight-start */}
@@ -166,14 +166,13 @@ export default merge(defaultThemeColors, {
 })
 ```
 
-Now, instead of a purple theme, you have a blue theme instead:
-
+现在主题色从紫色变成了蓝色。
 ![Screenshot of project with updated color theme](./images/starter-blog-theme-updated-colors.png)
 
-In this file, you're pulling in the default color theme (imported as `defaultThemeColors` here), and overriding certain color keys.
+在这个文件中，你会拉取默认的主题 (`defaultThemeColors`)，合并覆盖部分颜色。
 
-To see what other theme colors you can customize, check out the `colors.js` file in the official blog theme (`node_modules/gatsby-theme-blog/src/gatsby-plugin-theme-ui/colors.js`)
+想看看那些颜色你可以修改，查看官方博客主题中的 `colors.js` 文件  (`node_modules/gatsby-theme-blog/src/gatsby-plugin-theme-ui/colors.js`)
 
-## Wrapping up
+## 总结
 
-This was a step-by-step introduction to using a Gatsby theme through looking at a specific example. Note that different themes will be built differently, to accept different customization options. To dive deeper, check out the [Gatsby Theme docs](/docs/themes/).
+通过展示这些例子，我们一步一步的介绍了如何使用 Gatsby 主题。值得注意的是，不同的主题会暴露不同的配置选项。想深入了解，可以查看 [Gatsby 主题文档](/docs/themes/)。
