@@ -369,7 +369,7 @@ ls public
 surge public/
 ```
 
-运行结束后，你应该会再终端中看到类似这样的内容：
+运行结束后，你应该会在终端中看到类似这样的内容：
 
 ![使用 Surge 发布 Gatsby 网站的截图](surge-deployment.png)
 
