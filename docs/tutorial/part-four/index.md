@@ -1,106 +1,84 @@
 ---
-title: Data in Gatsby
+title: Gatsby 中的数据
 typora-copy-images-to: ./
 disableTableOfContents: true
 ---
 
-Welcome to Part Four of the tutorial! Halfway through! Hope things are starting
-to feel pretty comfortable 😀
+欢迎来到教程的第 4 章！你已经完成一半啦！希望你觉得事情开始变得轻松起来 😀
 
-## Recap of the first half of the tutorial
+## 回顾教程的上半部分
 
-So far, you've been learning how to use React.js—how powerful it is to be able to
-create your _own_ components to act as custom building blocks for websites.
+目前，你已经学习了如何使用 React.js，并了解到创建你 _自己_ 的组件作为站点的构建模块是多么有效。
 
-You’ve also explored styling components using CSS Modules.
+你还通过使用 CSS 模块探索了样式组件。
 
-## What's in this tutorial?
+## 教程里还有什么?
 
-In the next four parts of the tutorial (including this one), you'll be diving into the Gatsby data layer, which is a powerful feature of Gatsby that lets you easily build sites from Markdown, WordPress, headless CMSs, and other data sources of all flavors.
+在接下来的 4 章教程中（包含本章），你将深入 Gatsby 的数据层。它是一个非常强大的功能，使你能够轻松地从 Markdown、WordPress、headless CMS 和其他各种各样的数据源来构建站点。
 
-**NOTE:** Gatsby’s data layer is powered by GraphQL. For an in-depth tutorial on
-GraphQL, we recommend [How to GraphQL](https://www.howtographql.com/).
+**注意：** Gatsby 的数据层是由 GraphQL 驱动的。如果你想看 GraphQL 的深入教程，我们推荐这个网站：[如何 GraphQL](https://www.howtographql.com/)。
 
-## Data in Gatsby
+## Gatsby 中的数据
 
-A website has four parts: HTML, CSS, JS, and data. The first half of the
-tutorial focused on the first three. Now let’s learn how to use data in Gatsby
-sites.
+一个网站有四个部分：HTML、CSS、JS 和 数据。教程的上半部分专注于前三项。现在让我们学习怎么使用 Gatsby 站点中的数据。
 
-**What is data?**
+**什么是数据?**
 
-A very computer science-y answer would be: data is things like `"strings"`,
-integers (`42`), objects (`{ pizza: true }`), etc.
+一个非常计算机科学风格的答案是：数据就是 `"字符串"（strings）`、整数 （`42`）、 对象 （`{ pizza: true }`）等等.
 
-For the purpose of working in Gatsby, however, a more useful answer is
-"everything that lives outside a React component".
+但是在 Gatsby 里面，一个更有用的答案是：“所有在 React 组件外的东西”。
 
-So far, you've been writing text and adding images _directly_ in components.
-Which is an _excellent_ way to build many websites. But, often you want to store
-data _outside_ components and then bring the data _into_ the component as
-needed.
+目前你已经 _直接_ 在组件里面添加了一些文字和图片。这对于许多网站来说是一个 _非常好_ 的构建方式。但是，你会经常想要在组件 _外面_ 存储数据并按照需要把输入传入到组件 _里面_。
 
-If you're building a site with WordPress (so other contributors
-have a nice interface for adding & maintaining content) and Gatsby, the _data_
-for the site (pages and posts) are in WordPress and you _pull_ that data, as
-needed, into your components.
+如果你正在用 WordPress（它为其他贡献者添加和维护内容提供了一个非常漂亮的界面）和 Gatsby 构建一个站点，网站的 _数据_（页面和文章）都在 WordPress 里面，你只要按需把数据 _提取_ 到你的组件里。
 
-Data can also live in file types like Markdown, CSV, etc. as well as databases
-and APIs of all sorts.
+数据也可以在 Markdown、CSV之类的文件格式里，甚至数据库、API 等各种各样的形式。
 
-**Gatsby's data layer lets you pull data from these (and any other source)
-directly into your components**—in the shape and form you want.
+**Gatsby 的数据层让你从这些（或其他任意）数据源中直接提取数据到你的组件里**——以你想要的形态存放。
 
-## Using Unstructured Data vs GraphQL
+## 对比非结构化数据与 GraphQL
 
-### Do I have to use GraphQL and source plugins to pull data into Gatsby sites?
+### 我必须用 GraphQL 和数据源插件来把数据提取到 Gatsby 站点吗？
 
-Absolutely not! You can use the node `createPages` API to pull unstructured data into Gatsby pages directly, rather than through the GraphQL data layer. This is a great choice for small sites, while GraphQL and source plugins can help save time with more complex sites.
+当然不是！你可以直接用节点 `createPages` API 把非结构化数据提取到 Gatsby 页面，而不是通过 GraphQL 数据层。这对于小型网站来说是一个非常好的选择。但是 GraphQL 和数据源插件可以帮你在构建复杂网站的时候节省时间。
 
-See the [Using Gatsby without GraphQL](/docs/using-gatsby-without-graphql/) guide to learn how to pull data into your Gatsby site using the node `createPages` API and to see an example site!
+阅读 [在不用 GraphQL 的情况下使用 Gatsby ](/docs/using-gatsby-without-graphql/) 这篇指南来学习如何使用节点 `createPages` API 来提取数据到你的 Gatsby 站点里！它包含了一个示例网站。
 
-### When do I use unstructured data vs GraphQL?
+### 什么时候用非结构化数据？什么时候用 GraphQL？
 
-If you're building a small site, one efficient way to build it is to pull in unstructured data as outlined in this guide, using `createPages` API, and then if the site becomes more complex later on, you move on to building more complex sites, or you'd like to transform your data, follow these steps:
+如果你构建的是一个小型网站，一个非常高效的搭建的方式就是使用上面提到的 `createPages` API 提取非结构化数据。然后当这个站点变得越来越复杂，或者你要开发其他更加复杂的网站，亦或者你想要转换数据，做这几步：
 
-1.  Check out the [Plugin Library](/plugins/) to see if the source plugins and/or transformer plugins you'd like to use already exist
-2.  If they don't exist, read the [Plugin Authoring](/docs/creating-plugins/) guide and consider building your own!
+1.  浏览 [插件库](/plugins/)，寻找你想用的数据源插件或转换插件
+2.  如果找不到，阅读 [插件编写](/docs/creating-plugins/) 指南，考虑创建一个你自己的插件！
 
-### How Gatsby's data layer uses GraphQL to pull data into components
+### Gatsby 的数据层是如何用 GraphQL 来把数据提取到组件里的
 
-There are many options for loading data into React components. One of the most
-popular and powerful of these is a technology called
-[GraphQL](http://graphql.org/).
+把数据加载到 React 组件里有许多方式。[GraphQL](http://graphql.org/) 是一个非常受欢迎且强大的技术。
 
-GraphQL was invented at Facebook to help product engineers _pull_ needed data into
-components.
+GraphQL 是 Facebook 发明的，它能帮助项目工程师 _提取_ 所需数据到组件里。
 
-GraphQL is a **q**uery **l**anguage (the _QL_ part of its name). If you're
-familiar with SQL, it works in a very similar way. Using a special syntax, you describe
-the data you want in your component and then that data is given
-to you.
+GraphQL 是一种 **q**uery **l**anguage（查询语言）（名字中 QL 的由来）。如果你熟悉 SQL，它们的使用方式很像。通过一种特殊的语法，你就能描述你想要的组件中的数据，然后它就能把数据传给你。
 
-Gatsby uses GraphQL to enable components to declare the data they need.
+Gatsby 使用 GraphQL 来使组件能够声明其所需的数据。
 
-## Create a new example site
+## 创建一个新的示例站点
 
-Create another new site for this part of the tutorial. You're going to build a Markdown blog called "Pandas Eating Lots". It's dedicated to showing off the best pictures and videos of pandas eating lots of food. Along the way, you'll be dipping your toes into GraphQL and Gatsby's Markdown support.
+在教程的这一部分，你要创建另一个新站点。你将建立一个名为 “Pandas Eating Lots” 的 Markdown 博客网站。这个博客的目的是展示一些性感熊猫在线吃竹的图片和视频。在此过程中，你将逐步深入 GraphQL 和 Gatsby 的 Markdown 支持。
 
-Open a new terminal window and run the following commands to create a new Gatsby site in a directory called `tutorial-part-four`. Then navigate to the new directory:
+打开一个新的终端窗口，然后在名为 “tutorial-part-four” 的目录中运行以下命令，创建一个新的Gatsby网站。然后导航到这个新目录：
 
 ```shell
 gatsby new tutorial-part-four https://github.com/gatsbyjs/gatsby-starter-hello-world
 cd tutorial-part-four
 ```
 
-Then install some other needed dependencies at the root of the project. You'll use the Typography theme
-"Kirkham", and you'll try out a CSS-in-JS library, ["Emotion"](https://emotion.sh/):
+然后在项目的根目录安装其他一些所需的依赖项。你将使用 Typography 主题 “Kirkham”，和一个 CSS-in-JS 的库 ["Emotion"](https://emotion.sh/):
 
 ```shell
 npm install --save gatsby-plugin-typography typography react-typography typography-theme-kirkham gatsby-plugin-emotion @emotion/core
 ```
 
-Set up a site similar to what you ended with in [Part Three](/tutorial/part-three). This site will have a layout component and two page components:
+建立一个和 [第 3 章](/tutorial/part-three) 中建立的站点相似的新站点. 这个站点要有一个布局组件和两个页面组件:
 
 ```jsx:title=src/components/layout.js
 import React from "react"
@@ -184,7 +162,7 @@ export default typography
 export const rhythm = typography.rhythm
 ```
 
-`gatsby-config.js` (must be in the root of your project, not under src)
+`gatsby-config.js` (必须在项目根目录, 不是 src 目录)
 
 ```javascript:title=gatsby-config.js
 module.exports = {
@@ -200,21 +178,21 @@ module.exports = {
 }
 ```
 
-Add the above files and then run `gatsby develop`, per usual, and you should see the following:
+添加以上文件然后照常运行 `gatsby develop`，你应该会看到：
 
-![start](start.png)
+![开始页](start.png)
 
-You have another small site with a layout and two pages.
+你有了另一个小型网站，包含一个布局和两个页面。
 
-Now you can start querying 😋
+现在我们来开始查询数据 😋
 
-## Your first GraphQL query
+## 你的第一个 GraphQL 查询语句
 
-When building sites, you'll probably want to reuse common bits of data -- like the _site title_ for example. Look at the `/about/` page. You'll notice that you have the site title (`Pandas Eating Lots`) in both the layout component (the site header) as well as in the `<h1 />` of the `about.js` page (the page header).
+建立网站时，您可能需要重用一些常用的数据——比如 _网站标题_。查看 `/about/`页面，你会发现布局组件（网站标题）以及 `about.js` 页面的 `<h1 />` 页面标题）中都有网站标题（`Pandas Eating Lots`）。
 
-But what if you want to change the site title in the future? You'd have to search for the title across all your components and edit each instance. This is both cumbersome and error-prone, especially for larger, more complex sites. Instead, you can store the title in one location and reference that location from other files; change the title in a single place, and Gatsby will _pull_ your updated title into files that reference it.
+但是如果你以后想更改站点名称怎么办？你必须在所有组件中搜索标题并修改每处地方。这既麻烦又容易出错，尤其是对于大型的复杂的站点。相反，你可以将标题存储在一个位置，并从其他文件引用该位置。你只要在这一个地方更改标题，Gatsby 就会将更新后的标题提取到引用它的文件中。
 
-The place for these common bits of data is the `siteMetadata` object in the `gatsby-config.js` file. Add your site title to the `gatsby-config.js` file:
+这些常用数据的存放位置就是 `gatsby-config.js` 文件中的 `siteMetadata` 对象。添加你的网站标题到 `gatsby-config.js` 文件里：
 
 ```javascript:title=gatsby-config.js
 module.exports = {
@@ -235,11 +213,11 @@ module.exports = {
 }
 ```
 
-Restart the development server.
+重启开发服务器。
 
-### Use a page query
+### 使用页面查询（page query）
 
-Now the site title is available to be queried; Add it to the `about.js` file using a [page query](/docs/page-query):
+现在网站标题能被查询到了。用 [页面查询](/docs/page-query) 把它添加到 `about.js` 文件里：
 
 ```jsx:title=src/pages/about.js
 import React from "react"
@@ -270,11 +248,11 @@ export const query = graphql`
 // highlight-end
 ```
 
-It worked! 🎉
+成功了！🎉
 
-![Page title pulling from siteMetadata](site-metadata-title.png)
+![从 siteMetadata 中提取的页面标题](site-metadata-title.png)
 
-The basic GraphQL query that retrieves the `title` in your `about.js` changes above is:
+在以上 `about.js` 文件的改动中，获取 `title` 的基础 GraphQL 查询语句是：
 
 ```graphql:title=src/pages/about.js
 {
@@ -286,16 +264,17 @@ The basic GraphQL query that retrieves the `title` in your `about.js` changes ab
 }
 ```
 
-> 💡 In [part five](/tutorial/part-five/#introducing-graphiql), you'll meet a tool that lets us interactively explore the data available through GraphQL, and help formulate queries like the one above.
+> 💡 在 [第 5 章教程](/tutorial/part-five/#introducing-graphiql) 中，你将看到一个工具，它使我们可以交互式地通过 GraphQL 浏览可获得的数据，并帮我们编写类似于上面的查询语句。
 
 Page queries live outside of the component definition -- by convention at the end of a page component file -- and are only available on page components.
 
-### Use a StaticQuery
+页面查询定义在组件之外（一般在页面组件文件的最后），并且只在页面组件中可用。
 
-[StaticQuery](/docs/static-query/) is a new API introduced in Gatsby v2 that allows non-page components (like your `layout.js` component), to retrieve data via GraphQL queries.
-Let's use its newly introduced hook version — [`useStaticQuery`](/docs/use-static-query/).
+### 使用 StaticQuery（静态查询）
 
-Go ahead and make some changes to your `src/components/layout.js` file to use the `useStaticQuery` hook and a `{data.site.siteMetadata.title}` reference that uses this data. When you are done, your file will look like this:
+[StaticQuery](/docs/static-query/) 是 Gatsby v2 中引入的新 API，这个 API 允许非页面组件（比如你的 `layout.js` 组件）通过 GraphQL 查询语句来获得数据。让我们使用最新引入的 hook 版本 — [`useStaticQuery`](/docs/use-static-query/).
+
+我们继续对 `src/components/layout.js` 文件内容做一些更改。用 `useStaticQuery` hook 和一个 `{data.site.siteMetadata.title}` 引用来使用这个数据。改完后你的文件将如下所示：
 
 ```jsx:title=src/components/layout.js
 import React from "react"
@@ -354,26 +333,21 @@ export default ({ children }) => {
 // highlight-end
 ```
 
-Another success! 🎉
+又成功了！🎉
 
-![Page title and layout title both pulling from siteMetadata](site-metadata-two-titles.png)
+![均从 siteMetadata 中提取的页面标题和布局标题](site-metadata-two-titles.png)
 
-Why use two different queries here? These examples were quick introductions to
-the query types, how they are formatted, and where they can be used. For now,
-keep in mind that only pages can make page queries. Non-page components, such as
-Layout, can use StaticQuery. [Part 7](/tutorial/part-seven/) of the tutorial explains these in greater
-depth.
+为什么在这里使用两种不同的查询语句？这些例子是对查询类型、格式设置以及在何处使用的简要介绍。目前你只要记住：只有页面可以进行页面查询。非页面组件（例如 Layout）可以使用 StaticQuery。本教程的 [第 7 章](/tutorial/part-seven/) 会对此进行更深入的说明。
 
-But let's restore the real title.
+让我们改回真正的标题。
 
-One of the core principles of Gatsby is that _creators need an immediate connection to what they're creating_ ([hat tip to Bret Victor](http://blog.ezyang.com/2012/02/transcript-of-inventing-on-principle/)). In other words, when you make any change to code you should immediately see the effect of that change. You manipulate an input of Gatsby and you see the new output showing up on the screen.
+Gatsby 的核心原则之一是 _创作者需要与他们创造的东西有实时联系_（[感谢 Bret Victor](http://blog.ezyang.com/2012/02/transcript-of-inventing-on-principle/)）。换句话说，当你对代码进行任何更改时，你应该立马看到该更改的效果。你在 Gatsby 中改变输入，在屏幕上就能看到新的输出。
 
-So almost everywhere, changes you make will immediately take effect. Edit the `gatsby-config.js` file again, this time changing the `title` back to "Pandas Eating Lots". The change should show up very quickly in your site pages.
 
-![Both titles say Pandas Eating Lots](pandas-eating-lots-titles.png)
+因此几乎在任何时候，你所做的更改都会立即生效。再次编辑 `gatsby-config.js` 文件，这次将 `title` 改回 “Pandas Eating Lots”。所做的更改应很快显示在你的网站页面上。
 
-## What's coming next?
+![两个标题都是 Pandas Eating Lots](pandas-eating-lots-titles.png)
 
-Next, you'll be learning about how to pull data into your Gatsby site using
-GraphQL with source plugins in [part five](/tutorial/part-five/) of the
-tutorial.
+## 接下来
+
+下面你会在教程的 [第 5 章](/tutorial/part-five/) 中学习到如何使用 GraphQL 和数据源插件提取到你的 Gatsby 站点之中。
