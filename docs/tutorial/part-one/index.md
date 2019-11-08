@@ -78,7 +78,7 @@ export default () => (
 )
 ```
 
-![更多有热重载的改动](03-more-hot-reloading.png)
+![更多有热重载的改动](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-one/03-more-hot-reloading.png)
 
 4.  增加一张图片。 (这里我们随意选取了 Unsplash 上的一张图片).
 
@@ -95,7 +95,7 @@ export default () => (
 )
 ```
 
-![增加图片](04-add-image.png)
+![增加图片](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-one/04-add-image.png)
 
 ### 等等…… HTML 在 JavaScript 文件里?
 
@@ -167,9 +167,9 @@ export default () => (
 )
 ```
 
-2.  访问这个页面 http://localhost:8000/about/.
+2.  访问这个页面 http://localhost:8000/about/。
 
-![新的 About 页面](05-about-page.png)
+![新的 About 页面](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-one/05-about-page.png)
 
 仅仅在 `src/pages/about.js` 文件中放入了一个 React 组件，你就有了一个通过 `/about` 访问的新页面。
 
@@ -200,7 +200,7 @@ export default () => (
 )
 ```
 
-![添加 Header 组件](06-header-component.png)
+![添加 Header 组件](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-one/06-header-component.png)
 
 在浏览器里，“About Gatsby” 这个标题文本现在应该被替换成了 “This is a header.”。但是你不想要 “About” 页面显示 “This is a header.” 作为标题，你要的是：“About Gatsby”。
 
@@ -226,7 +226,7 @@ export default () => (
 )
 ```
 
-![传递标题数据](07-pass-data-header.png)
+![传递标题数据](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-one/07-pass-data-header.png)
 
 你应该重新看到了你想要的 “About Gatsby” 标题！
 
@@ -270,7 +270,7 @@ export default () => (
 )
 ```
 
-![复制 header 来展示可复用性](08-duplicate-header.png)
+![复制 header 来展示可复用性](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-one/08-duplicate-header.png)
 
 现在你就有了第二个 header。你所做的仅是利用 props 传入不同的数据，并没有重写任何代码。
 
@@ -305,7 +305,7 @@ export default () => (
 
 当你点击主页上新的 "Contact" 连接，你会看到……
 
-![Gatsby 的 404 开发页面](09-dev-404.png)
+![Gatsby 的 404 开发页面](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-one/09-dev-404.png)
 
 ……Gatsby 的 404 开发页面。为什么？因为你在尝试连接到一个并不存在的页面。
 
@@ -371,7 +371,7 @@ surge public/
 
 运行结束后，你应该会在终端中看到类似这样的内容：
 
-![使用 Surge 发布 Gatsby 网站的截图](surge-deployment.png)
+![使用 Surge 发布 Gatsby 网站的截图](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-one/surge-deployment.png)
 
 打开最后一行显示的网址（在这张图里是 `lowly-pain.surge.sh`），你就能看到你新发布的网站了！干的漂亮！
 
