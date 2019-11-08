@@ -1,14 +1,14 @@
 ---
-title: Theme Tutorials
+title: 主题教程
 ---
 
-Gatsby themes are a new way to encapsulate, re-use, and compose Gatsby functionality.
+Gatsby 主题是新推出的功能。它提供了一种方式，可以帮助你封装、复用和组合 Gatsby 中的内容。
 
-In this section, you'll find tutorials for:
+在本节中，你将找到以下内容的教程：
 
-1. Setting up a site using a single theme (the blog theme)
-2. Setting up a site which composes multiple themes (the blog theme, and the notes theme)
+1. 使用单个主题搭建站点（博客主题）
+2. 使用多个主题混合搭建站点 （博客主题和笔记主题）
 
-To learn more about themes in general, you may be interested to check out the [themes section of the docs](/docs/themes), as well.
+想了解更多有关主题的信息，你可以看看 [主题部分的文档](/docs/themes)
 
 <GuideList slug={props.slug} />
