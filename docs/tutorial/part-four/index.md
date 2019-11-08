@@ -343,7 +343,6 @@ export default ({ children }) => {
 
 Gatsby 的核心原则之一是 _创作者需要与他们创造的东西有实时联系_（[感谢 Bret Victor](http://blog.ezyang.com/2012/02/transcript-of-inventing-on-principle/)）。换句话说，当你对代码进行任何更改时，你应该立马看到该更改的效果。你在 Gatsby 中改变输入，在屏幕上就能看到新的输出。
 
-
 因此几乎在任何时候，你所做的更改都会立即生效。再次编辑 `gatsby-config.js` 文件，这次将 `title` 改回 “Pandas Eating Lots”。所做的更改应很快显示在你的网站页面上。
 
 ![两个标题都是 Pandas Eating Lots](pandas-eating-lots-titles.png)
