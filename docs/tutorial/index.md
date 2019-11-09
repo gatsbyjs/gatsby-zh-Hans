@@ -34,7 +34,7 @@ Gatsby 主题是将所有默认配置（共享功能模块，数据源，设计�
 
 ## 更多
 
-为了使您在学习时保持专注，第一部分的教程中并未涵盖到所有内容。 [其他 Gatsby 教程](/tutorial/additional-tutorials/)部分是一系列的资源，指导您如何逐步完成更多的Gatsby任务，例如将数据源插件应用于 image 图像或 CMS 内容。
+为了使您在学习时保持专注，第一部分的教程中并未涵盖到所有内容。[其他 Gatsby 教程](/tutorial/additional-tutorials/)部分是一系列的资源，指导您如何逐步完成更多的Gatsby任务，例如将数据源插件应用于 image 图像或 CMS 内容。
 
 深入了解[其他 Gatsby 教程](/tutorial/additional-tutorials/)。
 
