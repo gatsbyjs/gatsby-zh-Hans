@@ -90,7 +90,7 @@ gatsby develop
 
 加载网站后，如果你使用 Chrome 开发人员工具检查生成的 HTML，你会发现排版插件向 `<head>` 元素添加了一个带生成的 CSS 样式的 `<style>` 元素：
 
-![typography-styles](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-three/typography-styles.png)
+![typography-styles](./typography-styles.png)
 
 ### ✋ 进行一些内容和样式更改
 
@@ -112,7 +112,7 @@ export default () => (
 
 你的网站现在应如下所示：
 
-![no-layout](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-three/no-layout.png)
+![no-layout](./no-layout.png)
 
 让我们快速改进。许多网站在页面中间居中显示一列文本。 要创建此样式，请将以下样式添加到 `src/pages/index.js` 中的 `<div>` 元素中。
 
@@ -131,7 +131,7 @@ export default () => (
 )
 ```
 
-![with-layout2](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-three/with-layout2.png)
+![with-layout2](./with-layout2.png)
 
 很好。你已经安装并配置了第一个 Gatsby 插件！
 
@@ -204,7 +204,7 @@ export default () => (
 )
 ```
 
-![with-layout2](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-three/with-layout2.png)
+![with-layout2](./with-layout2.png)
 
 太好了，布局有效！首页的内容仍居中。
 
@@ -231,7 +231,7 @@ export default ({ children }) => (
 
 如果你进入三个页面中的任何一个页面，都会看到添加的是相同的标题，例如 `/about/` 页面：
 
-![with-title](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-three/with-title.png)
+![with-title](./with-title.png)
 
 ### ✋ 在页面之间添加导航链接
 
@@ -268,7 +268,7 @@ export default ({ children }) => (
 )
 ```
 
-![with-navigation2](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-three/with-navigation2.png)
+![with-navigation2](./part-three/with-navigation2.png)
 
 很好！ 一个三个子页面的网站，具有基本的全局导航。
 

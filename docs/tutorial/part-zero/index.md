@@ -50,7 +50,7 @@ _注意：Gatsby 支持的最低 Node.js 版本是 Node v8.0.0，可以随时使
 
 每个命令的输出结果应为版本号。 你的版本号可能与下面显示的版本不同！ 如果输入的命令没有显示版本号，请返回并确保 Node.js 是否已安装成功。
 
-![命令行检查 node 和 npm 的版本](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-zero/01-node-npm-versions.png)
+![命令行检查 node 和 npm 的版本](./01-node-npm-versions.png)
 
 ## 安装Git
 
@@ -72,7 +72,7 @@ _**注意**: 当你首次安装并运行 Gatsby 时，会看到一条通知你�
 
 要查看可用的命令，请运行 `gatsby --help`。
 
-![命令行查看 gatsby 命令](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-zero/05-gatsby-help.png)
+![命令行查看 gatsby 命令](./05-gatsby-help.png)
 
 > 💡 如果由于权限问题而无法成功运行 Gatsby CLI，则可能需要查看 [有关修复npm权限的文档](https://docs.npmjs.com/getting-started/fixing-npm-permissions) 或 [本指南](https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md)。
 
@@ -116,7 +116,7 @@ gatsby develop
 
 在浏览器中打开一个新标签，然后打开网址 [**http://localhost:8000**](http://localhost:8000/)。
 
-![查看首页](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-zero/04-home-page.png)
+![查看首页](./04-home-page.png)
 
 恭喜！ 这是你第一个 Gatsby 网站的开始！ 🎉
 
