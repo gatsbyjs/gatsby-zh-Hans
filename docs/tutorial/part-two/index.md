@@ -125,7 +125,7 @@ gatsby develop
 
 在浏览器中查看，应该会看到淡紫色背景并已应用了 “hello world” 模板的启动页面：
 
-![Lavender Hello World!](./global-css.png)
+![Lavender Hello World!](global-css.png)
 
 > 提示：本教程这一部分重点介绍了最快和最直接的设置 Gatsby 网站 CSS 样式的方法 - 使用 `gatsby-browser.js` 直接导入标准 CSS 样式文件。 在大多数情况下，添加全局样式的最佳方法是使用公共的布局组件。[查看文档](/docs/global-css/) 了解有关该方法的更多信息。
 
@@ -192,7 +192,7 @@ export default () => (
 
 现在，如果你访问 `http://localhost:8000/about-css-modules/`，则页面应如下所示：
 
-![使用 CSS 模块设置页面](./css-modules-basic.png)
+![使用 CSS 模块设置页面](css-modules-basic.png)
 
 #### ✋ 使用 CSS 模块为组件设置样式
 
@@ -299,7 +299,7 @@ export default () => (
 
 现在完成的页面应如下所示：
 
-![带有 CSS 模块的用户列表页面](./css-modules-userlist.png)
+![带有 CSS 模块的用户列表页面](css-modules-userlist.png)
 
 ### CSS-in-JS
 
