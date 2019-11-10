@@ -69,7 +69,7 @@ export default () => (
 
 ### 扩展链接
 
-指向 [MDN] 或者 [Wikipedia]的扩展链接，如果其中文版本的翻译质量不错，则可以链接到中文版本的地址，否则还是保留原来的英文链接。
+指向 [MDN] 或者 [Wikipedia] 的扩展链接，如果其中文版本的翻译质量不错，则可以链接到中文版本的地址，否则还是保留原来的英文链接。
 
 [mdn]: https://developer.mozilla.org/en-US/
 [wikipedia]: https://en.wikipedia.org/wiki/Main_Page
