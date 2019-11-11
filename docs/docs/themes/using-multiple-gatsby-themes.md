@@ -1,16 +1,16 @@
 ---
-title: Using Multiple Gatsby Themes
+title: 使用多个 Gatsby 主题
 ---
 
-Gatsby themes are intended to be composable. This means you can install multiple themes alongside each other.
+Gatsby 主题的宗旨就是可组合。这意味着你可以同时安装多个主题。
 
-The `gatsby-starter-theme` composes two Gatsby themes: `gatsby-theme-blog` and `gatsby-theme-notes`
+`gatsby-starter-theme` 由两个主题组合而成：`gatsby-theme-blog` 和 `gatsby-theme-notes`
 
 ```shell
 gatsby new my-notes-blog https://github.com/gatsbyjs/gatsby-starter-theme
 ```
 
-The starter includes both theme packages (`gatsby-theme-blog` and `gatsby-theme-notes`) in the starter's `gatsby-config.js` file.
+这个 Starter 包含了2个主题包（`gatsby-theme-blog` 和 `gatsby-theme-notes`），在 Starter 的 `gatsby-config.js` 文件中你可以找到它们。
 
 ```javascript:title=gatsby-config.js
 module.exports = {
@@ -32,14 +32,14 @@ module.exports = {
 }
 ```
 
-In the default setup, a blog will be served from the root path (`/`), and the notes content will be served from `/notes`.
+默认配置中，博客内容将会存在于根目录下(`/`)，笔记内容将会存在于 `/notes` 路径下。
 
-Run `gatsby develop` to start a development server and view your the site:
+运行 `gatsby develop` 启动开发服务器，然后便可查看自己的站点：
 
 ![The homepage of the site created by gatsby-theme-starter](../images/gatsby-theme-starter-home.png)
 
 ![The `notes` route of a site created by gatsby-theme starter](../images/gatsby-theme-starter-notes.png)
 
-## Tutorial
+## 教程
 
-For a step-by-step tutorial, see the ["Using Multiple Themes Together" tutorial](/tutorial/using-multiple-themes-together).
+关于更加详细的分步教程，你可以在[教程：“同时使用多个主题"](/tutorial/using-multiple-themes-together)中查阅。
