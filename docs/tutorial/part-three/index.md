@@ -1,57 +1,57 @@
 ---
-title: Creating Nested Layout Components
+title: 创建嵌套的布局组件
 typora-copy-images-to: ./
 disableTableOfContents: true
 ---
 
-Welcome to part three!
+欢迎来到 Gatsby 第三部分教程！
 
-## What's in this tutorial?
+## 本教程的内容
 
-In this part, you'll learn about Gatsby plugins and creating "layout" components.
+在这一部分中，您将学习 Gatsby 插件的使用和创建 “布局” 组件。
 
-Gatsby plugins are JavaScript packages that help add functionality to a Gatsby site. Gatsby is designed to be extensible, which means plugins are able to extend and modify just about everything Gatsby does.
+Gatsby 插件是用于向 Gatsby 网站添加功能的 JavaScript 包。 Gatsby 被设计为可扩展的，这意味着插件也是像 Gatsby 一样是可以扩展和修改的。
 
-Layout components are for sections of your site that you want to share across multiple pages. For example, sites will commonly have a layout component with a shared header and footer. Other common things to add to layouts are a sidebar and/or navigation menu. On this page for example, the header at the top is part of gatsbyjs.org's layout component.
+布局组件用于您要在多个页面上共享的网站公共部分。例如，站点通常有公共的页眉和页脚的布局组件。其他常见的要添加到布局的公共的内容是是侧边栏或导航菜单。例如，在此页面上，顶部标题是　gatsbyjs.org　的布局组件的一部分。
 
-Let's dive into part three.
+让我们深入了解第三部分教程。
 
-## Using plugins
+## 使用插件
 
-You’re probably familiar with the idea of plugins. Many software systems support adding custom plugins to add new functionality or even modify the core workings of the software. Gatsby plugins work the same way.
+您很可能已经熟悉插件的概念。许多软件系统都支持添加自定义插件来添加新功能，甚至可以修改软件的核心功能。Gatsby 插件的工作方式也一样。
 
-Community members (like you!) can contribute plugins (small amounts of JavaScript code) that others can then use when building Gatsby sites.
+社区成员（像您一样！）可以贡献插件（只需少量 JavaScript 代码），其他人可以在构建 Gatsby 网站时使用你的插件。
 
-> There are already hundreds of plugins! Explore the Gatsby [Plugin Library](/plugins/).
+> 目前已经有数百个插件！ 了解 Gatsby [插件库](/plugins/)。
 
-Our goal with plugins is to make them straightforward to install and use. You will likely be using plugins in almost every Gatsby site you build. While working through the rest of the tutorial you’ll have many opportunities to practice installing and using plugins.
+我们的插件的目标是使它们易于安装和使用。您可能会在几乎所有构建的 Gatsby 网站中使用到插件。在学习本教程的其余部分时，您将有很多机会练习安装和使用插件。
 
-For an initial introduction to using plugins, we'll install and implement the Gatsby plugin for Typography.js.
+对于使用插件的初步介绍，我们将为 Typography.js 安装并使用 Gatsby 插件。
 
-[Typography.js](https://kyleamathews.github.io/typography.js/) is a JavaScript library which generates global base styles for your site's typography. The library has a [corresponding Gatsby plugin](/packages/gatsby-plugin-typography/) to streamline using it in a Gatsby site.
+[Typography.js](https://kyleamathews.github.io/typography.js/) 是一个 JavaScript 库，可为您网站的排版生成全局基本样式。该库具有一个 [相应的Gatsby插件](/packages/gatsby-plugin-typography)，可以在 Gatsby 网站中配合使用。
 
-### ✋ Create a new Gatsby site
+### ✋ 新建一个 Gatsby 网站
 
-As we mentioned in [part two](/tutorial/part-two/), at this point it's probably a good idea to close the terminal window(s) and project files from previous parts of the tutorial, to keep things clean on your desktop. Then open a new terminal window and run the following commands to create a new Gatsby site in a directory called `tutorial-part-three` and then move to this new directory:
+正如我们在 [第二部分](/tutorial/part-two/) 中提到的那样，此时最好关闭本教程前面部分的命令行终端窗口和项目文件，以使您桌面的内容保持整洁。 然后打开一个新的命令行终端窗口并运行以下命令，在名为 `tutorial-part-three` 的目录中创建一个新的 Gatsby 站点，然后定位到该新目录：
 
 ```shell
 gatsby new tutorial-part-three https://github.com/gatsbyjs/gatsby-starter-hello-world
 cd tutorial-part-three
 ```
 
-### ✋ Install and configure `gatsby-plugin-typography`
+### ✋ 安装和配置 `gatsby-plugin-typography`
 
-There are two main steps to using a plugin: Installing and configuring.
+使用插件有两个主要步骤：安装和配置。
 
-1. Install the `gatsby-plugin-typography` NPM package.
+1. 命令行使用 npm 安装 `gatsby-plugin-typography` 依赖包。
 
 ```shell
 npm install --save gatsby-plugin-typography react-typography typography typography-theme-fairy-gates
 ```
 
-> Note: Typography.js requires a few additional packages, so those are included in the instructions. Additional requirements like this will be listed in the "install" instructions of each plugin.
+> 注意：Typography.js 需要一些其他的 javascript 依赖包，因此说明中包括了这些 javascript 依赖包。每个插件的安装指引中都会列出类似的其他要求。
 
-2. Edit the file `gatsby-config.js` at the root of your project to the following:
+2. 编辑项目根目录下的文件 `gatsby-config.js` ，如下：
 
 ```javascript:title=gatsby-config.js
 module.exports = {
@@ -66,11 +66,11 @@ module.exports = {
 }
 ```
 
-The `gatsby-config.js` is another special file that Gatsby will automatically recognize. This is where you add plugins and other site configuration.
+`gatsby-config.js` 文件是 Gatsby 会自动识别的另一个特殊文件。 要在这里添加插件和网站配置。
 
-> Check out the [doc on gatsby-config.js](/docs/gatsby-config/) to read more, if you wish.
+> 如果需要，请查看 [关于 gatsby-config.js 的文档](/docs/gatsby-config/) 以了解更多信息。
 
-3. Typography.js needs a configuration file. Create a new directory called `utils` in the `src` directory. Then add a new file called `typography.js` to `utils` and copy the following into the file:
+3. Typography.js 需要一个配置文件。 在 `src` 目录中创建一个名为 `utils` 的新目录。 然后在 `utils` 中添加一个名为 `typography.js` 的新文件，并将以下内容复制到该文件中：
 
 ```javascript:title=src/utils/typography.js
 import Typography from "typography"
@@ -82,20 +82,19 @@ export const { scale, rhythm, options } = typography
 export default typography
 ```
 
-4. Start the development server.
+4. 启动开发服务器。
 
 ```shell
 gatsby develop
 ```
 
-Once you load the site, if you inspect the generated HTML using the Chrome developer tools, you’ll see that the typography plugin added a `<style>` element to the `<head>` element with its generated CSS:
+加载网站后，如果您使用 Chrome 开发人员工具检查生成的 HTML，您会发现排版插件向 `<head>` 元素添加了一个带生成的 CSS 样式的 `<style>` 元素：
 
 ![typography-styles](typography-styles.png)
 
-### ✋ Make some content and style changes
+### ✋ 进行一些内容和样式更改
 
-Copy the following into your `src/pages/index.js` so you can see the
-effect of the CSS generated by Typography.js better.
+将以下内容复制到您的 `src/pages/index.js` 文件中，以便您更好的看到 Typography.js 生成的 CSS 样式的效果。
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -111,12 +110,11 @@ export default () => (
 )
 ```
 
-Your site should now look like this:
+您的网站现在应如下所示：
 
 ![no-layout](no-layout.png)
 
-Let's make a quick improvement. Many sites have a single column of text centered in the middle of the page. To create this, add the following styles to the
-`<div>` in `src/pages/index.js`.
+让我们快速改进。许多网站在页面中间居中显示一列文本。 要创建此样式，请将以下样式添加到 `src/pages/index.js` 中的 `<div>` 元素中。
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -135,11 +133,11 @@ export default () => (
 
 ![with-layout2](with-layout2.png)
 
-Sweet. You've installed and configured your very first Gatsby plugin!
+很好。您已经安装并配置了第一个 Gatsby 插件！
 
-## Creating layout components
+## 创建布局组件
 
-Now let's move on to learning about layout components. To get ready for this part, add a couple new pages to your project: an about page and a contact page.
+现在让我们继续学习布局组件。为了准备好这一部分，请在项目中添加几个新页面：“关于我们” 页面和 “联系我们” 页面。
 
 ```jsx:title=src/pages/about.js
 import React from "react"
@@ -165,19 +163,19 @@ export default () => (
 )
 ```
 
-Let's see what the new about page looks like:
+让我们看看 “关于我们” 页面的新外观：
 
 ![about-uncentered](about-uncentered.png)
 
-Hmm. It would be nice if the content of the two new pages were centered like the index page. And it would be nice to have some sort of global navigation so it's easy for visitors to find and visit each of the sub-pages.
+嗯，如果两个新页面的内容像首页一样居中，那就对了。拥有某种全局导航会很好，因此访问者可以轻松找到并访问每个子页面。
 
-You'll tackle these changes by creating your first layout component.
+您将通过创建第一个布局组件来实现这些效果。
 
-### ✋ Create your first layout component
+### ✋ 创建您的第一个布局组件
 
-1. Create a new directory at `src/components`.
+1. 创建一个新目录 `src/components`。
 
-2. Create a very basic layout component at `src/components/layout.js`:
+2. 在上面的目录中创建一个非常基本的布局组件文件 `src/components/layout.js`：
 
 ```jsx:title=src/components/layout.js
 import React from "react"
@@ -189,7 +187,7 @@ export default ({ children }) => (
 )
 ```
 
-3. Import this new layout component into your `src/pages/index.js` page component:
+3. 将此新的布局组件引入到您的 `src/pages/index.js` 页面组件中：
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -208,17 +206,17 @@ export default () => (
 
 ![with-layout2](with-layout2.png)
 
-Sweet, the layout is working! The content of your index page is still centered.
+太好了，布局有效！首页的内容仍居中。
 
-But try navigating to `/about/`, or `/contact/`. The content on those pages still won't be centered.
+但是，请尝试导航至 `/about/` 或 `/contact/`。 这些页面上的内容仍不会居中。
 
-4. Import the layout component in `about.js` and `contact.js` (as you did for `index.js` in the previous step).
+4. 将布局组件引入 `about.js` 和 `contact.js` 中（就像上一步 `index.js` 文件一样）。
 
-The content of all three of your pages is centered thanks to this single shared layout component!
+有了这个公共布局组件，您所有三个页面的内容都居中！
 
-### ✋ Add a site title
+### ✋ 添加网站标题
 
-1. Add the following line to your new layout component:
+1. 将以下代码添加到新的布局组件：
 
 ```jsx:title=src/components/layout.js
 import React from "react"
@@ -231,13 +229,13 @@ export default ({ children }) => (
 )
 ```
 
-If you go to any of your three pages, you'll see the same title added, e.g. the `/about/` page:
+如果您进入三个页面中的任何一个页面，都会看到添加的是相同的标题，例如 `/about/` 页面：
 
 ![with-title](with-title.png)
 
-### ✋ Add navigation links between pages
+### ✋ 在页面之间添加导航链接
 
-1. Copy the following into your layout component file:
+1. 将以下内容复制到布局组件文件中：
 
 ```jsx:title=src/components/layout.js
 import React from "react"
@@ -272,10 +270,10 @@ export default ({ children }) => (
 
 ![with-navigation2](with-navigation2.png)
 
-And there you have it! A three page site with basic global navigation.
+很好！ 一个三个子页面的网站，具有基本的全局导航。
 
-_Challenge:_ With your new "layout component" powers, trying adding headers, footers, global navigation, sidebars, etc. to your Gatsby sites!
+_扩展：_ 使用新的 “布局组件” 功能，尝试向 Gatsby 网站添加页眉、页脚、全局导航和侧边栏等！
 
-## What's coming next?
+## 下一步
 
-Continue on to [part four of the tutorial](/tutorial/part-four/) where you'll start learning about Gatsby's data layer and programmatically creating pages!
+继续阅读 [本教程的第四部分](/tutorial/part-four/)，您将在此开始学习 Gatsby 的数据层并以编码的方式创建页面！
