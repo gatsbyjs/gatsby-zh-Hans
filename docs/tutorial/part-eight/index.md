@@ -1,94 +1,94 @@
 ---
-title: Preparing a Site to Go Live
+title: 让网站准备好上线
 typora-copy-images-to: ./
 disableTableOfContents: true
 ---
 
-Wow! You've come a long way! You've learned how to:
+哇哦！你已经完成这么多了！你学到了如何：
 
-- create new Gatsby sites
-- create pages and components
-- style components
-- add plugins to a site
-- source & transform data
-- use GraphQL to query data for pages
-- programmatically create pages from your data
+- 创建一个新的 Gatsby 站点
+- 创建页面和组件
+- 为组件添加样式
+- 为网站添加插件
+- 使用数据源和转换数据
+- 使用 GraphQL 来查询页面数据
+- 以编程的方式利用数据创建页面
 
-In this final section, you're going to walk through some common steps for preparing a site to go live by introducing a powerful site diagnostic tool called [Lighthouse](https://developers.google.com/web/tools/lighthouse/). Along the way, we'll introduce a few more plugins you'll often want to use in your Gatsby sites.
+在这最后一章中，你将学习到一些让网站准备好上线的步骤。我们将介绍一个强大的站点诊断工具 [Lighthouse](https://developers.google.com/web/tools/lighthouse/)，并在过程中介绍一些你通常希望在 Gatsby 网站中使用的插件。
 
-## Audit with Lighthouse
+## 使用 Lighthouse 审查
 
-Quoting from the [Lighthouse website](https://developers.google.com/web/tools/lighthouse/):
+引用自 [Lighthouse 官方介绍页面](https://developers.google.com/web/tools/lighthouse/)：
 
-> Lighthouse is an open-source, automated tool for improving the quality of web pages. You can run it against any web page, public or requiring authentication. It has audits for performance, accessibility, progressive web apps (PWAs), and more.
+> Lighthouse 是一个开源的自动化工具，用于改进网络应用的质量。你可以将其作为一个 Chrome 扩展程序运行，或从命令行运行。 你为 Lighthouse 提供一个你要审查的网址，它将针对此页面运行一连串的测试，然后生成一个有关页面性能的报告。
 
-Lighthouse is included in Chrome DevTools. Running its audit -- and then addressing the errors it finds and implementing the improvements it suggests -- is a great way to prepare your site to go live. It helps give you confidence that your site is as fast and accessible as possible.
+Chrome 开发者工具中包含了 Lighthouse。运行审查功能然后解决发现的错误并执行建议的改进措施，是使网站能正常运行的好方法。它使你确保自己的网站尽可能快速，尽可能高可用。
 
-Try it out!
+试试看它吧！
 
-First, you need to create a production build of your Gatsby site. The Gatsby development server is optimized for making development fast; But the site that it generates, while closely resembling a production version of the site, isn't as optimized.
+首先，你需要使用生产环境打包。Gatsby 的开发服务器是为了快速开发而优化过的，虽然这个版本与生产版本极其相似，但是优化完全不一样。
 
-### ✋ Create a production build
+### ✋ 创建一个生产环境版本
 
-1.  Stop the development server (if it's still running) and run the following command:
+1.  停止开发服务器（如果它正在运行）并执行以下命令：
 
 ```shell
 gatsby build
 ```
 
-> 💡 As you learned in [part 1](/tutorial/part-one/), this does a production build of your site and outputs the built static files into the `public` directory.
+> 💡 和你在 [第 1 章](/tutorial/part-one/) 中学到的一样，这个命令会构建网站的生产版本，并把静态文件输出到 `public` 目录中。
 
-2.  View the production site locally. Run:
+2.  在本地查看你的生产环境版本。运行：
 
 ```shell
 gatsby serve
 ```
 
-Once this starts, you can view your site at [`localhost:9000`](http://localhost:9000).
+当启动完成后，你可以个在 [`localhost:9000`](http://localhost:9000) 这个页面访问你的网站。
 
-### Run a Lighthouse audit
+### 运行一次 Lighthouse 审查
 
-Now you're going to run your first Lighthouse test.
+现在你将要第一次运行 Lighthouse 测试。
 
-1.  If you haven't already done so, open the site in Chrome Incognito Mode so no extensions interfere with the test. Then, open up the Chrome DevTools.
+1.  如果你还没有这么做过，请：在 Chrome 隐身模式下打开你的网站，这样就没有浏览器扩展干扰测试。然后打开 Chrome 开发者工具。
 
-2.  Click on the "Audits" tab where you'll see a screen that looks like:
+2.  点击 “Audits” 标签，然后你会在屏幕上看到这样的内容：
 
-![Lighthouse audit start](./lighthouse-audit.png)
+![开始 Lighthouse 审查](./lighthouse-audit.png)
 
-3.  Click "Perform an audit..." (All available audit types should be selected by default). Then click "Run audit". (It'll then take a minute or so to run the audit). Once the audit is complete, you should see results that look like this:
+3.  点击 “Perform an audit...” （所有可用的审查类型应该默认被选中了）。然后点击 “Run audit”（然后就会运行一个一分钟左右的审查）。审查完成时，你应该能看到像这样的结果：
 
-![Lighthouse audit results](./lighthouse-audit-results.png)
+![Lighthouse 审查结果](./lighthouse-audit-results.png)
 
-As you can see, Gatsby's performance is excellent out of the box but you're missing some things for PWA, Accessibility, Best Practices, and SEO that will improve your scores (and in the process make your site much more friendly to visitors and search engines).
+如你所见，Gatsby 网站开箱即用，性能已经非常好了。但 PWA、可访问性（Accessibility）、最佳实践（Best Practices）和 SEO 等方面还有提高的空间，分数还能更高。在提高后你的网站将对访问者和搜索引擎更加友好。
 
-## Add a manifest file
+## 增加一个清单（manifest）文件
 
-Looks like you have a pretty lackluster score in the "Progressive Web App" category. Let's address that.
+看起来你的网站在 “渐进式 Web 应用”（Progressive Web App）类别中的得分很低。让我们来解决这个问题。
 
-But first, what exactly _are_ PWAs?
+首先我们要搞清楚：什么是 PWA？
 
-They are regular websites that take advantage of modern browser functionality to augment the web experience with app-like features and benefits. Check out [Google's overview](https://developers.google.com/web/progressive-web-apps/) of what defines a PWA experience.
+它是一个利用现代浏览器功能，利用像 app 一样的功能和好处，来丰富网络体验的常规网站。查看 [Google概述](https://developers.google.com/web/progressive-web-apps/) 中定义的 PWA 网站体验。
 
-Inclusion of a web app manifest is one of the three generally accepted [baseline requirements for a PWA](https://alistapart.com/article/yes-that-web-project-should-be-a-pwa#section1).
+包含 Web 应用清单文件是 [PWA 的三个公认基准要求](https://alistapart.com/article/yes-that-web-project-should-be-a-pwa#section1) 之一。
 
-Quoting [Google](https://developers.google.com/web/fundamentals/web-app-manifest/):
+[Google](https://developers.google.com/web/fundamentals/web-app-manifest/) 提到：
 
-> The web app manifest is a simple JSON file that tells the browser about your web application and how it should behave when 'installed' on the user's mobile device or desktop.
+> Web 应用的清单是一个简单的 JSON 文件。它告诉浏览器 Web 应用的信息，以及当用户 “安装” Web 应用时它要如何呈现。
 
-[Gatsby's manifest plugin](/packages/gatsby-plugin-manifest/) configures Gatsby to create a `manifest.webmanifest` file on every site build.
+[Gatsby 的清单插件](/packages/gatsby-plugin-manifest/) 能为每一个 Gatsby 网站的构建配置一个 `manifest.webmanifest` 文件。
 
-### ✋ Using `gatsby-plugin-manifest`
+### ✋ 使用 `gatsby-plugin-manifest`
 
-1.  Install the plugin:
+1.  安装插件:
 
 ```shell
 npm install --save gatsby-plugin-manifest
 ```
 
-2. Add a favicon for your app under `src/images/icon.png`. For the purposes of this tutorial you can use [this example icon](https://raw.githubusercontent.com/gatsbyjs/gatsby/master/docs/tutorial/part-eight/icon.png), should you not have one available. The icon is necessary to build all images for the manifest. For more information, look at the docs for [`gatsby-plugin-manifest`](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-manifest/README.md).
+2. 添加一个网站图标（favicon） `src/images/icon.png` 到你的应用里。就本章教程所构建的应用而言，如果你手头没有可用的图标，你可以使用 [这个示例图标](https://raw.githubusercontent.com/gatsbyjs/gatsby/master/docs/tutorial/part-eight/icon.png)。这个图标是为清单文件构建所有图像所必需的。详情请查这篇文档 [`gatsby-plugin-manifest`](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-plugin-manifest/README.md)。
 
-3. Add the plugin to the `plugins` array in your `gatsby-config.js` file.
+3. 在 `gatsby-config.js` 文件里，把插件添加到 `plugins` 数组中。
 
 ```javascript:title=gatsby-config.js
 {
@@ -111,23 +111,23 @@ npm install --save gatsby-plugin-manifest
 }
 ```
 
-That's all you need to get started with adding a web manifest to a Gatsby site. The example given reflects a base configuration -- Check out the [plugin reference](/packages/gatsby-plugin-manifest/?=gatsby-plugin-manifest#automatic-mode) for more options.
+这就是开始向 Gatsby 网站添加网络清单所需的全部了。给出的示例包含基本的配置——请查看 [插件应用](/packages/gatsby-plugin-manifest/?=gatsby-plugin-manifest#automatic-mode) 来了解更多配置选项。
 
-## Add offline support
+## 添加离线支持
 
-Another requirement for a website to qualify as a PWA is the use of a [service worker](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API). A service worker runs in the background, deciding to serve network or cached content based on connectivity, allowing for a seamless, managed offline experience.
+网站要成为 PWA 的另一个要求是使用 [service workder](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API)。Service worker 在后台运行，根据应用与网络的连通性来决定使用网络还是内容缓存，从而实现无缝的离线体验。
 
-[Gatsby's offline plugin](/packages/gatsby-plugin-offline/) makes a Gatsby site work offline and more resistant to bad network conditions by creating a service worker for your site.
+[Gatsby 的离线插件](/packages/gatsby-plugin-offline/) 使 Gatsby 站点能够离线运行，并通过创建一个 service worker 使你的站点在糟糕网络状况下受到的影响更小。
 
-### ✋ Using `gatsby-plugin-offline`
+### ✋ 使用 `gatsby-plugin-offline`
 
-1.  Install the plugin:
+1.  安装插件：
 
 ```shell
 npm install --save gatsby-plugin-offline
 ```
 
-2.  Add the plugin to the `plugins` array in your `gatsby-config.js` file.
+2.  在 `gatsby-config.js` 文件里，把插件添加到 `plugins` 数组中。
 
 ```javascript:title=gatsby-config.js
 {
@@ -152,27 +152,27 @@ npm install --save gatsby-plugin-offline
 }
 ```
 
-That's all you need to get started with service workers with Gatsby.
+这就是在 Gatsby 中开始使用 service worker 所需的全部了。
 
-> 💡 The offline plugin should be listed _after_ the manifest plugin so that the offline plugin can cache the created `manifest.webmanifest`.
+> 💡 离线插件应该放在清单插件 _之后_。以便离线插件可以缓存清单插件创建的 `manifest.webmanifest`。
 
-## Add page metadata
+## 添加页面元数据（metadata）
 
-Adding metadata to pages (such as a title or description) is key in helping search engines like Google understand your content and decide when to surface it in search results.
+为页面添加元数据（比如 title 和 description），是帮助 Google 之类的搜索引擎理解页面内容，决定什么时候出现在搜索结果里的关键。
 
-[React Helmet](https://github.com/nfl/react-helmet) is a package that provides a React component interface for you to manage your [document head](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head).
+[React Helmet](https://github.com/nfl/react-helmet) 是一个提供了 React 组件接口的包，帮助你管理 [document head](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head)。
 
-Gatsby's [react helmet plugin](/packages/gatsby-plugin-react-helmet/) provides drop-in support for server rendering data added with React Helmet. Using the plugin, attributes you add to React Helmet will be added to the static HTML pages that Gatsby builds.
+Gatsby 的 [React Helmet 插件](/packages/gatsby-plugin-react-helmet/) 为 React Helmet 添加的服务端渲染的数据提供了直接支持。使用该插件，你添加到 React Helmet 的属性将被添加到 Gatsby 构建的静态 HTML 页面中。
 
-### ✋ Using `React Helmet` and `gatsby-plugin-react-helmet`
+### ✋ 使用 `React Helmet` 和 `gatsby-plugin-react-helmet`
 
-1.  Install both packages:
+1.  安装这两个插件：
 
 ```shell
 npm install --save gatsby-plugin-react-helmet react-helmet
 ```
 
-2.  Make sure you have a `description` and an `author` configured inside your `siteMetadata` object. Also, add the `gatsby-plugin-react-helmet` plugin to the `plugins` array in your `gatsby-config.js` file.
+2.  确保你的 `siteMetadata` 对象中配置好了 `description` 和 `author`。 并在 `gatsby-config.js` 文件里添加 `gatsby-plugin-react-helmet` 插件到 `plugins` 数组中。
 
 ```javascript:title=gatsby-config.js
 module.exports = {
@@ -205,7 +205,7 @@ module.exports = {
 }
 ```
 
-3. In the `src/components` directory, create a file called `seo.js` and add the following:
+3. 在 `src/components` 目录里, 创建一个名为 `seo.js` 的文件并添加以下内容：
 
 ```jsx:title=src/components/seo.js
 import React from "react"
@@ -291,9 +291,9 @@ SEO.propTypes = {
 export default SEO
 ```
 
-The above code sets up defaults for your most common metadata tags and provides you an `<SEO>` component to work with in the rest of your project. Pretty cool, right?
+上面的代码为你最常用的元数据标签（tag）设置了默认值，并提供了一个 `<SEO>` 组件，可在项目的其余部分中使用。很棒吧？
 
-4.  Now, you can use the `<SEO>` component in your templates and pages and pass props to it. For example, add it to your `blog-post.js` template like so:
+4.  现在你可以在模版和页面中使用 `<SEO>` 组件，并把 props 传进去。比如像这样添加到 `blog-post.js` 模版里：
 
 ```jsx:title=src/templates/blog-post.js
 import React from "react"
@@ -331,44 +331,44 @@ export const query = graphql`
 `
 ```
 
-The above example is based off the [Gatsby Starter Blog](/starters/gatsbyjs/gatsby-starter-blog/). By passing props to the `<SEO>` component, you can dynamically change the metadata for a post. In this case, the blog post `title` and `excerpt` (if it exists in the blog post markdown file) will be used instead of the default `siteMetadata` properties in your `gatsby-config.js` file.
+上面的例子基于 [Gatsby Starter 博客](/starters/gatsbyjs/gatsby-starter-blog/)。通过向`<SEO>` 组件传入 props，你可以实时更改博文的元数据。在这种情况下，将使用博客标题 `title` 和 `excerpt`（如果存在于博客帖子markdown文件中）代替 `gatsby-config.js` `文件中默认 `siteMetadata` 属性。
 
-Now, if you run the Lighthouse audit again as laid out above, you should get close to--if not a perfect-- 100 score!
+现在如果你再运行 Lighthouse 审查，你应该能拿到近乎完美的 100 分！
 
-> 💡 For further reading and examples, check out [Adding an SEO Component](/docs/add-seo-component/) and the [React Helmet docs](https://github.com/nfl/react-helmet#example)!
+> 💡 更多文档和例子：[添加一个 SEO 组件](/docs/add-seo-component/)，以及 [React Helmet 文档](https://github.com/nfl/react-helmet#example)。
 
-## Keep making it better
+## 不断改善
 
-In this section, we've shown you a few Gatsby-specific tools to improve your site's performance and prepare to go live.
+在本章教程中，我们向你展示了一些 Gatsby 独有的工具，这些工具可以改善网站的性能并让网站准备好上线。
 
-Lighthouse is a great tool for site improvements and learning -- Continue looking through the detailed feedback it provides and keep making your site better!
+Lighthouse 是一个用于改进和学习网站的非常好的工具——继续查看它提供的详细反馈，并不断改善你的网站！
 
-## Next Steps
+## 接下来
 
-### Official Documentation
+### 官方文档
 
-- [Official Documentation](https://www.gatsbyjs.org/docs/): View our Official Documentation for _[Quick Start](https://www.gatsbyjs.org/docs/quick-start/)_, _[Detailed Guides](https://www.gatsbyjs.org/docs/preparing-your-environment/)_, _[API References](https://www.gatsbyjs.org/docs/gatsby-link/)_, and much more.
+- [官方文档](https://www.gatsbyjs.org/docs/)：查看我们的官方文档 _[快速开始](https://www.gatsbyjs.org/docs/quick-start/)_、_[详细指导](https://www.gatsbyjs.org/docs/preparing-your-environment/)_、_[API 参考](https://www.gatsbyjs.org/docs/gatsby-link/)_、等等。
 
-### Official Plugins
+### 官方插件
 
-- [Official Plugins](https://github.com/gatsbyjs/gatsby/tree/master/packages): The complete list of all the Official Plugins maintained by Gatsby.
+- [官方插件](https://github.com/gatsbyjs/gatsby/tree/master/packages): 一个包含了所有 Gatsby 自己维护的官方插件的完整列表。
 
-### Official Starters
+### 官方 Starters
 
-1.  [Gatsby's Default Starter](https://github.com/gatsbyjs/gatsby-starter-default): Kick off your project with this default boilerplate. This barebones starter ships with the main Gatsby configuration files you might need. _[working example](http://gatsbyjs.github.io/gatsby-starter-default/)_
-2.  [Gatsby's Blog Starter](https://github.com/gatsbyjs/gatsby-starter-blog): Gatsby starter for creating an awesome and blazing-fast blog. _[working example](http://gatsbyjs.github.io/gatsby-starter-blog/)_
-3.  [Gatsby's Hello-World Starter](https://github.com/gatsbyjs/gatsby-starter-hello-world): Gatsby Starter with the bare essentials needed for a Gatsby site. _[working example](https://gatsby-starter-hello-world-demo.netlify.com/)_
+1.  [Gatsby 的默认 Starter](https://github.com/gatsbyjs/gatsby-starter-default)：使用此默认样板启动你的项目。这个入门 Starter 包含了你可能需要的主要 Gatsby 配置文件。_[效果演示](http://gatsbyjs.github.io/gatsby-starter-default/)_
+2.  [Gatsby 的博客 Starter](https://github.com/gatsbyjs/gatsby-starter-blog)：能创建一个又好又快的博客的 Gatsby starter。_[效果演示](http://gatsbyjs.github.io/gatsby-starter-blog/)_
+3.  [Gatsby 的 Hello-World Starter](https://github.com/gatsbyjs/gatsby-starter-hello-world): 一个最基础的能让 Gatsby 网站运行的 Gatsby starter。_[效果演示](https://gatsby-starter-hello-world-demo.netlify.com/)_
 
-## That's all, folks
+## 咱们终于全整完了
 
-Well, not quite; just for this tutorial. There are [Additional Tutorials](/tutorial/additional-tutorials/) to check out for more guided use cases.
+呃……并不完全是。只是教程结束了。还有一些 [其他教程](/tutorial/additional-tutorials/)，它们也囊括了一些很有意义的用例。
 
-This is just the beginning. Keep going!
+这只是开始。让我们继续探索和使用了不起的 Gatsby！
 
-- Did you build something cool? Share it on Twitter, tag [#buildwithgatsby](https://twitter.com/search?q=%23buildwithgatsby), and [@mention us](https://twitter.com/gatsbyjs)!
-- Did you write a cool blog post about what you learned? Share that, too!
-- Contribute! Take a stroll through [open issues](https://github.com/gatsbyjs/gatsby/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) on the gatsby repo and [become a contributor](/contributing/how-to-contribute/).
+- 你创建了一个很酷的网站？分享到 Twitter，添加话题 [#buildwithgatsby](https://twitter.com/search?q=%23buildwithgatsby)，并 [艾特我们](https://twitter.com/gatsbyjs)。
+- 你为你所学的东西写了一篇博客？也同样分享出来吧！
+- 你能为 Gatsby 贡献一份力？逛逛我们 Gatsby 仓库的 [open issues](https://github.com/gatsbyjs/gatsby/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)，并 [成为一名贡献者](/contributing/how-to-contribute/)。
 
-Check out the ["how to contribute"](/contributing/how-to-contribute/) docs for even more ideas.
+看看 ["如何贡献"](/contributing/how-to-contribute/) 文档来获得更多灵感。
 
-We can't wait to see what you do 😄.
+我们迫不及待想看到你做了什么 😄。
