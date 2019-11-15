@@ -120,7 +120,7 @@ You can now view gatsbyjs.org in the browser.
 | `--open-tracing-config-file` | 追踪器配置文件（和 OpenTracing 兼容）。参见 [性能追踪](/docs/performance-tracing/) |
 | `--no-color`, `--no-colors`  | 禁用终端打印彩色输出                                                                          |
 
-出了上面这些构建选线，这里有更多的选项[构建环境变量](/docs/environment-variables/#build-variables) 用于更加高级的配置，去调整构建的运行。例如，设置 `CI=true` 环境变量将会为[哑终端](https://en.wikipedia.org/wiki/Computer_terminal#Dumb_terminals)定制输出。
+除了上面这些构建选项，这里有更多的选项[构建环境变量](/docs/environment-variables/#build-variables) 用于更加高级的配置，去调整构建的运行。例如，设置 `CI=true` 环境变量将会为[哑终端](https://en.wikipedia.org/wiki/Computer_terminal#Dumb_terminals)定制输出。
 
 ### `serve`
 
@@ -206,7 +206,7 @@ Gatsby 将提示你键入命令并进行浏览。 当显示以下内容时：`ga
 
 ### 禁用彩色输出
 
-出了显式的 `--no-color` 选项，CLI 还考虑到了 `NO_COLOR` 环境变量的存在（参见 [no-color.org](https://no-color.org/)）。
+除了显式的 `--no-color` 选项，CLI 还考虑到了 `NO_COLOR` 环境变量的存在（参见 [no-color.org](https://no-color.org/)）。
 
 ## 如何为你的下一个项目更改默认的包管理器？
 
