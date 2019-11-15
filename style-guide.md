@@ -97,6 +97,8 @@ React 元素是 [不可变的](https://zh.wikipedia.org/zh-cn/%E4%B8%8D%E5%8F%AF
 | 词汇   | 翻译 | 注释 |
 | ------ | ----------- | ----------------- |
 | Plugin | 插件        | |
+| Source plugin | 数据源插件 | |
+| Transformer plugin | 数据转换插件 | |
 | Theme  | 主题        ||
 | Query  | 查询         |作动词时译为 `查询`，作名词时译为 `查询语句`，具体视语境而定。|
 | Site   | 网站/站点     |二者均可|

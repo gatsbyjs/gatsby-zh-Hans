@@ -1,45 +1,33 @@
 ---
-title: Programmatically create pages from data
+title: 以编程的方式利用数据创建页面
 typora-copy-images-to: ./
 disableTableOfContents: true
 ---
 
-> This tutorial is part of a series about Gatsby’s data layer. Make sure you’ve gone through [part 4](/tutorial/part-four/), [part 5](/tutorial/part-five/), and [part 6](/tutorial/part-six/) before continuing here.
+> 本章教程是 Gatsby 数据层系列的一部分。在继续之前，确保你已经读过一遍 [第 4 章](/tutorial/part-four/)、[第 5 章](/tutorial/part-five/) 和 [第 6 章](/tutorial/part-six/) 教程。
 
-## What's in this tutorial?
+## 这章教程里有什么?
 
-In the previous tutorial, you created a nice index page that queries markdown
-files and produces a list of blog post titles and excerpts. But you don't want to just see excerpts, you want actual pages for your
-markdown files.
+在前一章教程中，你创建了一个漂亮的索引页面。这个页面能够展示出一个博文标题和摘要列表。但你不只是想要看到摘要，你想看到你的 Markdown 文件的真正博文页面。
 
-You could continue to create pages by placing React components in `src/pages`. However, you'll
-now learn how to _programmatically_ create pages from _data_. Gatsby is _not_
-limited to making pages from files like many static site generators. Gatsby lets
-you use GraphQL to query your _data_ and _map_ the query results to _pages_—all at build
-time. This is a really powerful idea. You'll be exploring its implications and
-ways to use it for the remainder of this part of the tutorial.
+你可以通过将 React 组件放置在 `src/pages` 目录中来继续创建页面。但是接下来，你将学习如何通过 _以编程的方式_ 利用 _数据_ 创建页面。Gatsby _并不_ 仅限于使用文件（例如许多静态网站生成器）制作页面。Gatsby 同样可以在构建时使用 GraphQL 查询 _数据_ 并将查询结果 _映射_ 到 _页面_ 中。这是一个非常好的想法。你将探索这个想法的具体含义和使用方法。
 
-Let's get started.
+让我们开始吧。
 
-## Creating slugs for pages
+## 为页面创建 slug
 
-Creating new pages has two steps:
+创建一个新页面，一共有两步:
 
-1.  Generate the "path" or "slug" for the page.
-2.  Create the page.
+1.  生成页面的 “路径”（path）或 slug。
+2.  创建页面。
 
-_**Note**: Often data sources will directly provide a slug or pathname for content — when working with one of those systems (e.g. a CMS), you don't need to create the slugs yourself as you do with markdown files._
+_**注意**: 通常，数据源会直接为内容提供一个 slug 或路径名——使用这些系统之一（例如CMS）时，你不需要像创建 Markdown 文件那样自己创建 slug。_
 
-To create your markdown pages, you'll learn to use two Gatsby APIs:
-[`onCreateNode`](/docs/node-apis/#onCreateNode) and
-[`createPages`](/docs/node-apis/#createPages). These are two workhorse APIs
-you'll see used in many sites and plugins.
+为了创建你的 Markdown 页面，你需要学习如何使用这两个 Gatsby API：[`onCreateNode`](/docs/node-apis/#onCreateNode) 和 [`createPages`](/docs/node-apis/#createPages)。你将在许多站点和插件中看到这两个主要的API
 
-We do our best to make Gatsby APIs simple to implement. To implement an API, you export a function
-with the name of the API from `gatsby-node.js`.
+我们已经尽力使 Gatsby API 易于实现。要实现 API，请在 `gatsby-node.js` 文件中导出（export）以 API 为名称的函数。
 
-So, here's where you'll do that. In the root of your site, create a file named
-`gatsby-node.js`. Then add the following.
+所以你要这么做：在站点的根目录下，创建一个名为 `gatsby-node.js` 的文件并添加以下代码。
 
 ```javascript:title=gatsby-node.js
 exports.onCreateNode = ({ node }) => {
@@ -47,15 +35,13 @@ exports.onCreateNode = ({ node }) => {
 }
 ```
 
-This `onCreateNode` function will be called by Gatsby whenever a new node is created (or updated).
+每当创建新节点（或更新）时，Gatsby 都会调用 `onCreateNode` 函数。
 
-Stop and restart the development server. As you do, you'll see quite a few newly
-created nodes get logged to the terminal console.
+停止并重启开发服务器，你会看到终端控制台显示出条很多新创建的节点记录。
 
-In the next section, you will use this API to add slugs for your Markdown pages to `MarkdownRemark`
-nodes.
+在下一部分中，你将会使用这个 API 来把 slug 添加到你的 Markdown页面。 
 
-Change your function so it now only logs `MarkdownRemark` nodes.
+修改你的函数使其仅仅记录 `MarkdownRemark` 节点。
 
 ```javascript:title=gatsby-node.js
 exports.onCreateNode = ({ node }) => {
@@ -67,11 +53,7 @@ exports.onCreateNode = ({ node }) => {
 }
 ```
 
-You want to use each markdown file name to create the page slug. So
-`pandas-and-bananas.md` will become `/pandas-and-bananas/`. But how do you get
-the file name from the `MarkdownRemark` node? To get it, you need to _traverse_
-the "node graph" to its _parent_ `File` node, as `File` nodes contain data you
-need about files on disk. To do that, modify your function again:
+你需要使用每一个 Markdown 文件的名称来创建页面 slug。`pandas-and-bananas.md` 就变成 `/pandas-and-bananas/`。但要如何从 `MarkdownRemark` 节点中获取文件名称呢？你需要 _遍历_ 一遍它的 _父节点_ `File` 的 “节点图”。因为 `File` 节点包含了磁盘中你所需要的文件数据。再次修改函数来实现它：
 
 ```javascript:title=gatsby-node.js
 // highlight-next-line
@@ -85,14 +67,11 @@ exports.onCreateNode = ({ node, getNode }) => {
 }
 ```
 
-After restarting your development server, you should see the relative paths for your two markdown
-files print to the terminal screen.
+在重启开发服务器之后，你应该能在终端看到你的两个 Markdown 文件的相对路径。
 
-![markdown-relative-path](markdown-relative-path.png)
+![Markdown 相对路径](markdown-relative-path.png)
 
-Now you'll have to create slugs. As the logic for creating slugs from file names can get
-tricky, the `gatsby-source-filesystem` plugin ships with a function for creating
-slugs. Let's use that.
+现在你需要创建 slug。由于通过文件名创建 slug 的逻辑可能会很棘手，因此 `gatsby-source-filesystem` 插件附带了创建 slug 的功能。让我们来使用它。
 
 ```javascript:title=gatsby-node.js
 const { createFilePath } = require(`gatsby-source-filesystem`) // highlight-line
@@ -104,20 +83,11 @@ exports.onCreateNode = ({ node, getNode }) => {
 }
 ```
 
-The function handles finding the parent `File` node along with creating the
-slug. Run the development server again and you should see logged to the terminal
-two slugs, one for each markdown file.
+这个函数负责查找父“文件”节点以及创建 slug。再次运行开发服务器，你应该看到终端记录了两个 slug，每个 Markdown 文件各一个。
 
-Now you can add your new slugs directly onto the `MarkdownRemark` nodes. This is
-powerful, as any data you add to nodes is available to query later with GraphQL.
-So, it'll be easy to get the slug when it comes time to create the pages.
+现在，你可以将新的 slug 直接添加到 `MarkdownRemark` 节点里。这非常有用，因为你添加到节点的任何数据都可以在以后使用 GraphQL 查询到。因此创建页面时很容易得到 slug。
 
-To do so, you'll use a function passed to your API implementation called
-[`createNodeField`](/docs/actions/#createNodeField). This function
-allows you to create additional fields on nodes created by other plugins. Only
-the original creator of a node can directly modify the node—all other plugins
-(including your `gatsby-node.js`) must use this function to create additional
-fields.
+为此，你将向 API 的实现传递一个函数，该函数称为 [`createNodeField`](/docs/actions/#createNodeField)。此功能允许你在其他插件创建的节点里创建其他字段。只有节点的原始创建者才能直接修改该节点——所有其他插件（包括你的`gatsby-node.js`）都必须使用此函数来创建额外字段。
 
 ```javascript:title=gatsby-node.js
 const { createFilePath } = require(`gatsby-source-filesystem`)
@@ -137,8 +107,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 }
 ```
 
-Restart the development server and open or refresh GraphiQL. Then run this
-GraphQL query to see your new slugs.
+重启开发服务器，打开或刷新 GraphiQL。然后运行这条 GraphQL 查询语句来查看新的 slug。
 
 ```graphql
 {
@@ -154,11 +123,11 @@ GraphQL query to see your new slugs.
 }
 ```
 
-Now that the slugs are created, you can create the pages.
+现在 slug 已经创建好了。你可以创建页面了。
 
-## Creating pages
+## 创建页面
 
-In the same `gatsby-node.js` file, add the following.
+在同一个文件  `gatsby-node.js` 中，添加以下代码。
 
 ```javascript:title=gatsby-node.js
 const { createFilePath } = require(`gatsby-source-filesystem`)
@@ -198,27 +167,20 @@ exports.createPages = async ({ graphql, actions }) => {
 // highlight-end
 ```
 
-You've added an implementation of the
-[`createPages`](/docs/node-apis/#createPages) API which Gatsby calls so plugins can add
-pages.
+你添加了 [`createPages`](/docs/node-apis/#createPages) 这个 API 的实现。Gatsby 会调用它，从而使得插件能添加页面。
 
-As mentioned in the intro to this part of the tutorial, the steps to programmatically creating pages are:
+如本章教程的导语所述，以编程的方式创建页面的步骤是：
 
-1.  Query data with GraphQL
-2.  Map the query results to pages
+1.  使用 GraphQL 查询数据
+2.  把查询结果映射到页面上
 
-The above code is the first step for creating pages from your markdown as you're
-using the supplied `graphql` function to query the markdown slugs you created.
-Then you're logging out the result of the query which should look like:
+上面的代码是从 Markdown 创建页面的第一步。你使用了我们提供的 `graphql` 函数查询你创建的 Markdown slug。然后你会在终端里看到如下查询结果：
 
-![query-markdown-slugs](query-markdown-slugs.png)
+![查询 Markdown slugs](query-markdown-slugs.png)
 
-You need one additional thing beyond a slug to create pages: a page template
-component. Like everything in Gatsby, programmatic pages are powered by React
-components. When creating a page, you need to specify which component to use.
+创建页面还需要一样东西：一个页面模板组件。与 Gatsby 中所有其他东西一样，用编程生成的页面也是依靠 React 组件的。创建页面时，需要指定所使用的组件。
 
-Create a directory at `src/templates`, and then add the following in a file named
-`src/templates/blog-post.js`.
+新建一个目录位于 `src/templates`，然后添加以下代码到一个新文件 `src/templates/blog-post.js` 中。
 
 ```jsx:title=src/templates/blog-post.js
 import React from "react"
@@ -233,7 +195,7 @@ export default () => {
 }
 ```
 
-Then update `gatsby-node.js`
+然后更新我们的 `gatsby-node.js`：
 
 ```javascript:title=gatsby-node.js
 const path = require(`path`) // highlight-line
@@ -283,19 +245,15 @@ exports.createPages = async ({ graphql, actions }) => {
 }
 ```
 
-Restart the development server and your pages will be created! An easy way to
-find new pages you create while developing is to go to a random path where
-Gatsby will helpfully show you a list of pages on the site. If you go to
-<http://localhost:8000/sdf>, you'll see the new pages you created.
+重启开发服务器后，你会看到页面已经创建好了！在开发过程中，找到新创建页面的一种简单方法是：随便转到一个不存在的路径，在该路径中 Gatsby 会帮你显示出站点的页面列表。比如转到 <http://localhost:8000/sdf>，就会看到你创建的新页面。
 
-![new-pages](new-pages.png)
+![新页面](new-pages.png)
 
-Visit one of them and you see:
+访问其中一个页面，你将会看到：
 
-![hello-world-blog-post](hello-world-blog-post.png)
+![Hello World 博文](hello-world-blog-post.png)
 
-Which is a bit boring and not what you want. Now you can pull in data from your markdown post. Change
-`src/templates/blog-post.js` to:
+看起来有点单调无聊，而且并不是你想要看到的。现在你可以从 Markdown 博文中提取数据。把 `src/templates/blog-post.js` 的文件内容替换为：
 
 ```jsx:title=src/templates/blog-post.js
 import React from "react"
@@ -332,16 +290,15 @@ export const query = graphql`
 // highlight-end
 ```
 
-And…
+见证奇迹的时刻……
 
-![blog-post](blog-post.png)
+![博文](blog-post.png)
 
-Sweet!
+哇哦!
 
-The last step is to link to your new pages from the index page.
+最后一步就是把你的新页面连接到索引页。
 
-Return to `src/pages/index.js`, query for your markdown slugs, and create
-links.
+回到 `src/pages/index.js` 文件中，查询你的 Markdown slugs，并且创建链接。
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -421,25 +378,20 @@ export const query = graphql`
 `
 ```
 
-And there you go! A working, albeit small, blog!
+走起！一个麻雀虽小但五脏俱全的博客。
 
-## Challenge
+## 一个小挑战
 
-Try playing more with the site. Try adding some more markdown files. Explore
-querying other data from the `MarkdownRemark` nodes and adding them to the
-frontpage or blog posts pages.
+好好把玩一下这个网站。添加更多 Markdown 文件，从 `MarkdownRemark` 节点中查询其他数据然后添加到主页或博文页面中。
 
-In this part of the tutorial, you've learned the foundations of building with
-Gatsby's data layer. You've learned how to _source_ and _transform_ data using
-plugins, how to use GraphQL to _map_ data to pages, and then how to build _page
-template components_ where you query for data for each page.
+在这一系列教程中，你学习到了构建 Gatsby 数据层的基础知识。你学会了如何使用插件从 _数据源_ 中获取数据并 _转换_ 数据，如何使用 GraphQL 将数据 _映射_ 到页面里，以及如何构建查询每个页面数据的 _页面模板组件_。
 
-## What's coming next?
+## 下一步
 
-Now that you've built a Gatsby site, where do you go next?
+现在你已经构建好了一个 Gatsby 站点。那下面还能做什么呢？
 
-- Share your Gatsby site on Twitter and see what other people have created by searching for #gatsbytutorial! Make sure to mention @gatsbyjs in your Tweet and include the hashtag #gatsbytutorial :)
-- You could take a look at some [example sites](https://github.com/gatsbyjs/gatsby/tree/master/examples#gatsby-example-websites)
-- Explore more [plugins](/docs/plugins/)
-- See what [other people are building with Gatsby](/showcase/)
-- Check out the documentation on [Gatsby's APIs](/docs/api-specification/), [nodes](/docs/node-interface/), or [GraphQL](/docs/graphql-reference/)
+- 把你的 Gatsby 站点分享到 Twitter。搜索 #gatsbytutorial 看看别人创建的网站是什么样的！确保你在推文里 @gatsbyjs 并添加了话题 #gatsbytutorial :)
+- 你可以看一些 [示例网站](https://github.com/gatsbyjs/gatsby/tree/master/examples#gatsby-example-websites)
+- 探索更多 [插件](/docs/plugins/)
+- 看看 [别人是怎么把 Gatsby 玩出花的](/showcase/)
+- 阅读文档 [Gatsby's APIs](/docs/api-specification/)，[节点](/docs/node-interface/) 或是 [GraphQL](/docs/graphql-reference/)
