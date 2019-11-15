@@ -120,8 +120,7 @@ You can now view gatsbyjs.org in the browser.
 | `--open-tracing-config-file` | 追踪器配置文件（和 OpenTracing 兼容）。参见 [性能追踪](/docs/performance-tracing/) |
 | `--no-color`, `--no-colors`  | 禁用终端打印彩色输出                                                                          |
 
-出了上面这些构建选线，这里有更多的选项[构建环境变量](/docs/environment-variables/#build-variables) 用于更加高级的配置，去调整构建的运行。例如，设置 `CI=true` 环境变量将会为[哑终端
-](https://en.wikipedia.org/wiki/Computer_terminal#Dumb_terminals)定制输出。
+出了上面这些构建选线，这里有更多的选项[构建环境变量](/docs/environment-variables/#build-variables) 用于更加高级的配置，去调整构建的运行。例如，设置 `CI=true` 环境变量将会为[哑终端](https://en.wikipedia.org/wiki/Computer_terminal#Dumb_terminals)定制输出。
 
 ### `serve`
 
