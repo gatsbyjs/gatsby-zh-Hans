@@ -1,19 +1,19 @@
 ---
-title: Commands (Gatsby CLI)
+title: 命令（Gatsby CLI）
 tableOfContentsDepth: 2
 ---
 
-The Gatsby command line tool (CLI) is the main entry point for getting up and running with a Gatsby application and for using functionality including like running a development server and building out your Gatsby application for deployment.
+Gatsby 命令行工具（CLI） 是启动和运行 Gatsby 应用程序以及使用诸如运行开发服务器和构建 Gatsby 应用程序进行部署等功能的主要入口点。
 
-_We provide similar documentation available with the gatsby-cli [README](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-cli/README.md), and our [cheat sheet](/docs/cheat-sheet/) has all the top CLI commands ready to print out._
+_我们为 gatsby-cli 准备了一份 [README](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-cli/README.md) 文档， 这份 [备忘录](/docs/cheat-sheet/) 中包含了一些常见的命令以方便你打印_
 
-## How to use gatsby-cli
+## 如何使用 gatsby-cli
 
-The Gatsby CLI (`gatsby-cli`) is packaged as an executable that can be used globally. The Gatsby CLI is available via [npm](https://www.npmjs.com/) and should be installed globally by running `npm install -g gatsby-cli` to use it locally.
+Gatsby CLI (`gatsby-cli`) 是一个全局可执行的 npm 包， Gatsby CLI 发布在 [npm](https://www.npmjs.com/) 上，你应该运行 `npm install -g gatsby-cli` 全局安装它以便在本地使用。
 
-Run `gatsby --help` for full help.
+运行 `gatsby --help` 查看帮助。
 
-You can also use the `package.json` script variant of these commands, typically exposed _for you_ with most [starters](/docs/starters/). For example, if you want to make the [`gatsby develop`](#develop) command available in your application, open up `package.json` and add a script like so:
+你也可以使用 `package.json` script 中自行定义这些命令，通常大多数[starters](/docs/starters/)都会_为你_暴露一些命令。例如，如果你想在你的应用中使用 [`gatsby develop`](#develop) 命令，打开`package.json` 像这样添加一份 script:
 
 ```json:title=package.json
 {
@@ -23,7 +23,7 @@ You can also use the `package.json` script variant of these commands, typically 
 }
 ```
 
-## API commands
+## API 命令
 
 ### `new`
 
@@ -31,30 +31,30 @@ You can also use the `package.json` script variant of these commands, typically 
 gatsby new [<site-name> [<starter-url>]]
 ```
 
-#### Arguments
+#### 参数
 
-| Argument    | Description                                                                                                                                                                                                     |
+| 参数    | 说明                                                                                                                                                                                                     |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| site-name   | Your Gatsby site name, which is also used to create a project directory.                                                                                                                                        |
-| starter-url | A Gatsby starter URL or local file path. Defaults to [gatsby-starter-default](https://github.com/gatsbyjs/gatsby-starter-default); see the [Gatsby starters](/docs/gatsby-starters/) docs for more information. |
+| site-name   | 你的 Gatsby 站点的名称，会创建同名目录。                                                                                                                                    |
+| starter-url | Gatsby starter URL 或者本地的文件路径。 默认使用 [gatsby-starter-default](https://github.com/gatsbyjs/gatsby-starter-default)，参见：[Gatsby starters](/docs/gatsby-starters/) |
 
-> Note: The `site-name` should only consist of letters and numbers. If you specify a `.`, `./` or a `<space>` in the name, `gatsby new` will throw an error.
+> 注: `site-name` 应该只包含字母和数字。 如果名称中使用了 `.`, `./` 或者 `<空格>`， `gatsby new` 会抛出一个错误。
 
-#### Examples
+#### 示例
 
-- Create a Gatsby site named `my-awesome-site` using the default starter:
+- 使用默认的 Starter 创建一个名为 `my-awesome-site` 的 Gatsby 站点。
 
 ```shell
 gatsby new my-awesome-site
 ```
 
-- Create a Gatsby site named `my-awesome-blog-site`, using [gatsby-starter-blog](https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-blog/):
+- 使用 Starter:[gatsby-starter-blog](https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-blog/) 创建一个名为 `my-awesome-blog-site` 的站点:
 
 ```shell
 gatsby new my-awesome-blog-site https://github.com/gatsbyjs/gatsby-starter-blog
 ```
 
-- If you leave out both of the arguments, the CLI will run an interactive shell asking for these inputs:
+- 如果你两个参数都留空不填，CLI 会运行一个可交互的 shell，向你询问一些输入：
 
 ```shell
 gatsby new
@@ -66,35 +66,35 @@ gatsby new
    (Use a different starter)
 ```
 
-See the [Gatsby starters docs](https://www.gatsbyjs.org/docs/gatsby-starters/) for more details.
+阅读 [Gatsby starters docs](https://www.gatsbyjs.org/docs/gatsby-starters/) 获取更新信息。
 
 ### `develop`
 
-Once you've installed a Gatsby site, go to the root directory of your project and start the development server:
+一旦你安装了一个 Gatsby 站点，切换到项目根目录下开启开发服务器：
 
 `gatsby develop`
 
-#### Options
+#### 选项
 
-|     Option      | Description                                     |
+|     选项      | 说明                                     |
 | :-------------: | ----------------------------------------------- |
-| `-H`, `--host`  | Set host. Defaults to localhost                 |
-| `-p`, `--port`  | Set port. Defaults to 8000                      |
-| `-o`, `--open`  | Open the site in your (default) browser for you |
-| `-S`, `--https` | Use HTTPS                                       |
+| `-H`, `--host`  | 设置主机地址。默认是 localhost                 |
+| `-p`, `--port`  | 设置端口。默认是 8000                      |
+| `-o`, `--open`  | 在浏览器中打开站点 |
+| `-S`, `--https` | 使用 HTTPS                                      |
 
-Follow the [Local HTTPS guide](/docs/local-https/)
-to find out how you can set up an HTTPS development server using Gatsby.
+参照[本地 HTTPS 指南](/docs/local-https/)，了解如何使用 Gatsby 配置一个本地 HTTPS 的开发服务器。
 
-#### Preview changes on other devices
 
-You can use the Gatsby develop command with the host option to access your dev environment on other devices on the same network, run:
+#### 在其它设备上预览修改
+
+你可以使用带 host 选项的 Gatsby 开发命令运行你的开发服务器，这样你可以通过同一网络下的其它设别访问服务，运行：
 
 ```shell
 gatsby develop -H 0.0.0.0
 ```
 
-Then the terminal will log information as usual, but will additionally include a URL that you can navigate to from a client on the same network to see how the site renders.
+终端会照常打印日志。但是会附加一个 URL，你可以通过同一网络下的其它客户端访问这个 URL，以便查看站点在其它设备上如何展示（适用于手机真机调试）。
 
 ```
 You can now view gatsbyjs.org in the browser.
@@ -103,84 +103,84 @@ You can now view gatsbyjs.org in the browser.
   On Your Network:  http://192.168.0.212:8000/ // highlight-line
 ```
 
-**Note**: you can't visit 0.0.0.0:8000 on Windows (but things will work using either localhost:8000 or the "On Your Network" URL on Windows)
+**注**：在 Windows 上你无法访问 0.0.0.0:8000 （但是在 Windows 上可以通过 localhost:8000 或者 "On Your Network" 中给出的 URL 访问）
 
 ### `build`
 
-At the root of a Gatsby site, compile your application and make it ready for deployment:
+在 Gatsby 站点的根目录下，编译你的应用为部署做好准备：
 
 `gatsby build`
 
-#### Options
+#### 选项
 
-|            Option            | Description                                                                                               |
+|            选项            | 说明                                                                                               |
 | :--------------------------: | --------------------------------------------------------------------------------------------------------- |
-|       `--prefix-paths`       | Build site with link paths prefixed (set pathPrefix in your config)                                       |
-|        `--no-uglify`         | Build site without uglifying JS bundles (for debugging)                                                   |
-| `--open-tracing-config-file` | Tracer configuration file (OpenTracing compatible). See [Performance Tracing](/docs/performance-tracing/) |
-| `--no-color`, `--no-colors`  | Disables colored terminal output                                                                          |
+|       `--prefix-paths`       | 构建站点时，使用 link paths 前缀（在你的配置中设置的 pathPrefix）                                       |
+|        `--no-uglify`         | 构建站点时，不混淆 JS 包（方便调试）
+| `--open-tracing-config-file` | 追踪器配置文件（和 OpenTracing 兼容）。参见 [性能追踪](/docs/performance-tracing/) |
+| `--no-color`, `--no-colors`  | 禁用终端打印彩色输出                                                                          |
 
-In addition to these build options, there are some optional [build environment variables](/docs/environment-variables/#build-variables) for more advanced configurations that can adjust how a build runs. For example, setting `CI=true` as an environment variable will tailor output for [dumb terminals](https://en.wikipedia.org/wiki/Computer_terminal#Dumb_terminals).
+除了上面这些构建选项，这里有更多的选项[构建环境变量](/docs/environment-variables/#build-variables) 用于更加高级的配置，去调整构建的运行。例如，设置 `CI=true` 环境变量将会为[哑终端](https://en.wikipedia.org/wiki/Computer_terminal#Dumb_terminals)定制输出。
 
 ### `serve`
 
-At the root of a Gatsby site, serve the production build of your site for testing:
+在 Gatsby 站点的根目录下，启动一个服务器用于测试你站点的生产环境版本：
 
 `gatsby serve`
 
-#### Options
+#### 选项
 
-|      Option      | Description                                                                              |
+|      选项      | 说明                                                                              |
 | :--------------: | ---------------------------------------------------------------------------------------- |
-|  `-H`, `--host`  | Set host. Defaults to localhost                                                          |
-|  `-p`, `--port`  | Set port. Defaults to 9000                                                               |
-|  `-o`, `--open`  | Open the site in your (default) browser for you                                          |
-| `--prefix-paths` | Serve site with link paths prefixed (if built with pathPrefix in your gatsby-config.js). |
+|  `-H`, `--host`  | 设置主机地址。默认是 localhost                                                          |
+|  `-p`, `--port`  | 设置端口。 默认是 9000                                                               |
+|  `-o`, `--open`  | 在浏览器中打开站点                                         |
+| `--prefix-paths` | 站点服务带有路径前缀（如果构建时你的 gatsby-config.js 使用了 pathPrefix) |
 
 ### `info`
 
-At the root of a Gatsby site, get helpful environment information which will be required when reporting a bug:
+在 Gatsby 站点根目录下，获取有用的环境信息，当你报告 bug 时，通常需要提供这些信息：
 
 `gatsby info`
 
-#### Options
+#### 选项
 
-|       Option        | Description                                             |
+|       选项        | 说明                                             |
 | :-----------------: | ------------------------------------------------------- |
-| `-C`, `--clipboard` | Automagically copy environment information to clipboard |
+| `-C`, `--clipboard` | 自动复制环境信息到剪切板 |
 
 ### `clean`
 
-At the root of a Gatsby site, wipe out the cache (`.cache` folder) and public directories:
+在 Gatsby 站点根目录下， 清空缓存（`.cache` 目录）和 `public 目录：
 
 `gatsby clean`
 
-This is useful as a last resort when your local project seems to have issues or content does not seem to be refreshing. Issues this may fix commonly include:
+当您的本地项目似乎有问题或内容似乎没有刷新时，此方法非常有用。 这通常可以解决下面这些问题：
 
-- Stale data, e.g. this file/resource/etc. isn't appearing
-- GraphQL error, e.g. this GraphQL resource should be present but is not
-- Dependency issues, e.g. invalid version, cryptic errors in console, etc.
-- Plugin issues, e.g. developing a local plugin and changes don't seem to be taking effect
+- 数据过时，例如：某个文件/资源等没有出现。
+- GraphQ 错误，例如： GraphQL 资源应该存在，但是找不到。
+- 依赖问题，例如：无效的版本，控制台中的隐秘错误等等。
+- 插件问题，例如：开发一个本地插件，但是变更似乎没有生效。
 
 ### `plugin`
 
-Run commands pertaining to gatsby plugins.
+运行与 Gatsby 插件有关的命令。
 
 #### `docs`
 
 `gatsby plugin docs`
 
-Directs you to documentation about using and creating plugins.
+指导你使用和创建插件的文档。
 
 ### Repl
 
-Get a Node.js REPL (interactive shell) with context of your Gatsby environment:
+使用你的 Gatsby 环境的上下文获取一个 Node.js 的 REPL（交互式 shell）：
 
 `gatsby repl`
 
-Gatsby will prompt you to type in commands and explore. When it shows this: `gatsby >`
+Gatsby 将提示你键入命令并进行浏览。 当显示以下内容时：`gatsby >`
 
-You can type in a command, such as one of these:
+你可以键入下面这些命令：
 
 `babelrc`
 
@@ -200,17 +200,17 @@ You can type in a command, such as one of these:
 
 `staticQueries`
 
-When combined with the [GraphQL explorer](/docs/introducing-graphiql/), these REPL commands could be very helpful for understanding your Gatsby site's data.
+当和[GraphQL explorer](/docs/introducing-graphiql/)一起使用时，这些 REPL 命令会非常有用，它有助于你理解 Gatsby 站点的数据。
 
-For more information, check out the [Gatsby REPL documentation](/docs/gatsby-repl/).
+想了解更多信息，查阅[Gatsby REPL 文档](/docs/gatsby-repl/)。
 
-### Disabling colored output
+### 禁用彩色输出
 
-In addition to the explicit `--no-color` option, the CLI respects the presence of the `NO_COLOR` environment variable (see [no-color.org](https://no-color.org/)).
+除了显式的 `--no-color` 选项，CLI 还考虑到了 `NO_COLOR` 环境变量的存在（参见 [no-color.org](https://no-color.org/)）。
 
-## How to change your default package manager for your next project?
+## 如何为你的下一个项目更改默认的包管理器？
 
-When you use `gatsby new` for the first time to create a new project, you are asked to choose your default package manager between yarn and npm.
+当你使用 `gatsby new` 首次创建一个新的项目时，你会被询问是使用 yarn 还是 npm 作为包管理器。
 
 ```shell
 Which package manager would you like to use ? › - Use arrow-keys. Return to submit.
@@ -218,12 +218,12 @@ Which package manager would you like to use ? › - Use arrow-keys. Return to su
    npm
 ```
 
-Once you’ve made your choice, the CLI won’t ask for your preference again for any subsequent project.
+一旦你做出了选择，在后续的项目中 CLI 不会再询问你的偏好。
 
-If you want to change this for your next project you have to edit the config file created automatically by the CLI.
-This file is available on your system at: `~/.config/gatsby/config.json`
+如果要为下一个项目更改此设置，则必须编辑由 CLI 自动创建的配置文件。
+这个文件位于你系统中的这个位置： `~/.config/gatsby/config.json`
 
-In it you’re going to see something like this.
+在里面你将看到这样的内容。
 
 ```json:title=config.json
 {
@@ -233,4 +233,4 @@ In it you’re going to see something like this.
 }
 ```
 
-Edit your `packageManager` value, save and you’re good to go for your next project using `gatsby new`.
+编辑你的 `packageManager` 的值，保存。然后你就可以愉快地使用 `gatsby new` 创建下一个项目了。
