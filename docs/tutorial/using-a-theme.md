@@ -25,7 +25,7 @@ gatsby develop
 
 ## 替换你的头像
 
-这个博客主题的 starter 使用一张存灰度图像作为头像。选一张你自己的头像图片，覆盖 `/content/assets/avatar.png` 这个文件。
+这个博客主题的 starter 使用一张纯灰度图像作为头像。选一张你自己的头像图片，覆盖 `/content/assets/avatar.png` 这个文件。
 
 ## 更新站点的 metadata
 
@@ -89,7 +89,7 @@ my-blog
 
 `src` 目录下有一个名为 `gatsby-theme-blog` 的目录，该目录下符合名称匹配规则（与主题内的文件同名）的文件，将会遮蔽主题原有的组件。
 
-> 💡 这个目录的名称 (`gatsby-theme-blog`) 必须于主题发布包的名称完全相同，这本例中名称为：[`gatsby-theme-blog`](https://www.npmjs.com/package/gatsby-theme-blog)。
+> 💡 这个目录的名称 (`gatsby-theme-blog`) 必须与主题发布包的名称完全相同，本例中名称为：[`gatsby-theme-blog`](https://www.npmjs.com/package/gatsby-theme-blog)。
 
 打开 `bio-content.js` 文件，然后做一些编辑：
 
@@ -97,7 +97,7 @@ my-blog
 export default () => (
   {/* highlight-start */}
   <Fragment>
-    这里是我的自己的个人介绍
+    这里是我的个人介绍
     <br />
     这样将会覆盖原有主题中的个人介绍
   </Fragment>
@@ -139,7 +139,7 @@ date: 2019-07-03
 
 ## 修改主题颜色
 
-这个博客主题默认是以紫色作为主题色，但是你可以覆盖修改为自己喜欢的颜色。在这个指南中你会修改一部分颜色。
+这个博客主题附带默认的 Gatsby 紫色主题 ，但是你可以覆盖修改为自己喜欢的颜色。在这个指南中你会修改一些颜色。
 
 打开 `/src/gatsby-theme-blog/gatsby-plugin-theme-ui/colors.js`，取消代码的注释。
 
@@ -176,4 +176,4 @@ export default merge(defaultThemeColors, {
 
 ## 总结
 
-通过展示这些例子，我们一步一步的介绍了如何使用 Gatsby 主题。值得注意的是，不同的主题会暴露不同的配置选项。想深入了解，可以查看 [Gatsby 主题文档](/docs/themes/)。
+通过展示这些例子，我们一步一步的介绍了如何使用 Gatsby 主题。值得注意的是，不同的主题会有不同的配置选项。想深入了解，可以查看 [Gatsby 主题文档](/docs/themes/)。

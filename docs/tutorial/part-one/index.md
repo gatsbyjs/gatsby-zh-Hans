@@ -167,7 +167,7 @@ export default () => (
 )
 ```
 
-2.  访问这个页面 http://localhost:8000/about/.
+2.  访问这个页面 http://localhost:8000/about/。
 
 ![新的 About 页面](05-about-page.png)
 

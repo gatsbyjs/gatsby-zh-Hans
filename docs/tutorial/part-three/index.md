@@ -8,31 +8,31 @@ disableTableOfContents: true
 
 ## 本教程的内容
 
-在这一部分中，您将学习 Gatsby 插件的使用和创建 “布局” 组件。
+在这一部分中，你将学习 Gatsby 插件的使用和创建 “布局” 组件。
 
 Gatsby 插件是用于向 Gatsby 网站添加功能的 JavaScript 包。 Gatsby 被设计为可扩展的，这意味着插件也是像 Gatsby 一样是可以扩展和修改的。
 
-布局组件用于您要在多个页面上共享的网站公共部分。例如，站点通常有公共的页眉和页脚的布局组件。其他常见的要添加到布局的公共的内容是是侧边栏或导航菜单。例如，在此页面上，顶部标题是　gatsbyjs.org　的布局组件的一部分。
+布局组件用于你要在多个页面上共享的网站公共部分。例如，站点通常有公共的页眉和页脚的布局组件。其他常见的要添加到布局的公共的内容是是侧边栏或导航菜单。例如，在此页面上，顶部标题是 gatsbyjs.org 的布局组件的一部分。
 
 让我们深入了解第三部分教程。
 
 ## 使用插件
 
-您很可能已经熟悉插件的概念。许多软件系统都支持添加自定义插件来添加新功能，甚至可以修改软件的核心功能。Gatsby 插件的工作方式也一样。
+你很可能已经熟悉插件的概念。许多软件系统都支持添加自定义插件来添加新功能，甚至可以修改软件的核心功能。Gatsby 插件的工作方式也一样。
 
-社区成员（像您一样！）可以贡献插件（只需少量 JavaScript 代码），其他人可以在构建 Gatsby 网站时使用你的插件。
+社区成员（像你一样！）可以贡献插件（只需少量 JavaScript 代码），其他人可以在构建 Gatsby 网站时使用你的插件。
 
 > 目前已经有数百个插件！ 了解 Gatsby [插件库](/plugins/)。
 
-我们的插件的目标是使它们易于安装和使用。您可能会在几乎所有构建的 Gatsby 网站中使用到插件。在学习本教程的其余部分时，您将有很多机会练习安装和使用插件。
+我们的插件的目标是使它们易于安装和使用。你可能会在几乎所有构建的 Gatsby 网站中使用到插件。在学习本教程的其余部分时，你将有很多机会练习安装和使用插件。
 
 对于使用插件的初步介绍，我们将为 Typography.js 安装并使用 Gatsby 插件。
 
-[Typography.js](https://kyleamathews.github.io/typography.js/) 是一个 JavaScript 库，可为您网站的排版生成全局基本样式。该库具有一个 [相应的Gatsby插件](/packages/gatsby-plugin-typography)，可以在 Gatsby 网站中配合使用。
+[Typography.js](https://kyleamathews.github.io/typography.js/) 是一个 JavaScript 库，可为你网站的排版生成全局基本样式。该库具有一个 [相应的Gatsby插件](/packages/gatsby-plugin-typography)，可以在 Gatsby 网站中配合使用。
 
 ### ✋ 新建一个 Gatsby 网站
 
-正如我们在 [第二部分](/tutorial/part-two/) 中提到的那样，此时最好关闭本教程前面部分的命令行终端窗口和项目文件，以使您桌面的内容保持整洁。 然后打开一个新的命令行终端窗口并运行以下命令，在名为 `tutorial-part-three` 的目录中创建一个新的 Gatsby 站点，然后定位到该新目录：
+正如我们在 [第二部分](/tutorial/part-two/) 中提到的那样，此时最好关闭本教程前面部分的命令行终端窗口和项目文件，以使你桌面的内容保持整洁。 然后打开一个新的命令行终端窗口并运行以下命令，在名为 `tutorial-part-three` 的目录中创建一个新的 Gatsby 站点，然后定位到该新目录：
 
 ```shell
 gatsby new tutorial-part-three https://github.com/gatsbyjs/gatsby-starter-hello-world
@@ -88,13 +88,13 @@ export default typography
 gatsby develop
 ```
 
-加载网站后，如果您使用 Chrome 开发人员工具检查生成的 HTML，您会发现排版插件向 `<head>` 元素添加了一个带生成的 CSS 样式的 `<style>` 元素：
+加载网站后，如果你使用 Chrome 开发人员工具检查生成的 HTML，你会发现排版插件向 `<head>` 元素添加了一个带生成的 CSS 样式的 `<style>` 元素：
 
 ![typography-styles](typography-styles.png)
 
 ### ✋ 进行一些内容和样式更改
 
-将以下内容复制到您的 `src/pages/index.js` 文件中，以便您更好的看到 Typography.js 生成的 CSS 样式的效果。
+将以下内容复制到你的 `src/pages/index.js` 文件中，以便你更好的看到 Typography.js 生成的 CSS 样式的效果。
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -110,7 +110,7 @@ export default () => (
 )
 ```
 
-您的网站现在应如下所示：
+你的网站现在应如下所示：
 
 ![no-layout](no-layout.png)
 
@@ -133,7 +133,7 @@ export default () => (
 
 ![with-layout2](with-layout2.png)
 
-很好。您已经安装并配置了第一个 Gatsby 插件！
+很好。你已经安装并配置了第一个 Gatsby 插件！
 
 ## 创建布局组件
 
@@ -169,9 +169,9 @@ export default () => (
 
 嗯，如果两个新页面的内容像首页一样居中，那就对了。拥有某种全局导航会很好，因此访问者可以轻松找到并访问每个子页面。
 
-您将通过创建第一个布局组件来实现这些效果。
+你将通过创建第一个布局组件来实现这些效果。
 
-### ✋ 创建您的第一个布局组件
+### ✋ 创建你的第一个布局组件
 
 1. 创建一个新目录 `src/components`。
 
@@ -187,7 +187,7 @@ export default ({ children }) => (
 )
 ```
 
-3. 将此新的布局组件引入到您的 `src/pages/index.js` 页面组件中：
+3. 将此新的布局组件引入到你的 `src/pages/index.js` 页面组件中：
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -212,7 +212,7 @@ export default () => (
 
 4. 将布局组件引入 `about.js` 和 `contact.js` 中（就像上一步 `index.js` 文件一样）。
 
-有了这个公共布局组件，您所有三个页面的内容都居中！
+有了这个公共布局组件，你所有三个页面的内容都居中！
 
 ### ✋ 添加网站标题
 
@@ -229,7 +229,7 @@ export default ({ children }) => (
 )
 ```
 
-如果您进入三个页面中的任何一个页面，都会看到添加的是相同的标题，例如 `/about/` 页面：
+如果你进入三个页面中的任何一个页面，都会看到添加的是相同的标题，例如 `/about/` 页面：
 
 ![with-title](with-title.png)
 
@@ -276,4 +276,4 @@ _扩展：_ 使用新的 “布局组件” 功能，尝试向 Gatsby 网站添�
 
 ## 下一步
 
-继续阅读 [本教程的第四部分](/tutorial/part-four/)，您将在此开始学习 Gatsby 的数据层并以编码的方式创建页面！
+继续阅读 [本教程的第四部分](/tutorial/part-four/)，你将在此开始学习 Gatsby 的数据层并以编码的方式创建页面！
