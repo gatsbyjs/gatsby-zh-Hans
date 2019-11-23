@@ -1,8 +1,8 @@
 ---
-title: Reference Guides
+title: 参考指南
 overview: true
 ---
 
-Dive deeper into different topics around building with Gatsby, like sourcing data, building and styling pages, deployment, and more. While the [tutorials](/tutorial/) are step-by-step instructions, reference guides are resources about the various Gatsby development techniques.
+更深入地了解关于用 Gatsby 开发的不同话题，例如采集数据，创建和修饰网页，部署等。 [教程](/tutorial/) 是逐步解释的使用说明，而参考指南是讨论各种 Gatsby 开发技巧的信息资源。
 
 <GuideList slug={props.slug} />
