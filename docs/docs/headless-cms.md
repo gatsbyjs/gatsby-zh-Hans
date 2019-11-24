@@ -11,7 +11,7 @@ _Headless CMS_ 是一个内容管理软件，它允许作者创建和管理内�
 
 现在通过使用 [数据源插件](/plugins/?=source)，Gatsby 已经可以支持很多 headless CMS 方案。这样你的内容团队能够保持对于管理员界面的熟悉和便利。同时你的开发团队获得了更好的开发体验，以及因使用 Gatsby，GraphQL 和 React 来开发前端而带来的性能表现的提升。
 
-这一节中的教程将详细介绍在当今最流行的 headless CMSes 中设置数据采集的过程。
+这一节中的教程将详细介绍采集一些目前最流行的 headless CMS 数据的设置过程。
 
 <GuideList slug={props.slug} />
 
