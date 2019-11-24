@@ -21,7 +21,7 @@ console.log(logo) // /logo.84287d09.png
 
 function Header() {
   // 引入得到的是你的图片 URL
-  return <img src={logo} alt='Logo' />
+  return <img src={logo} alt="Logo" />
 }
 
 export default Header
