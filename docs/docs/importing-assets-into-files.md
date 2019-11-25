@@ -142,4 +142,4 @@ query($slug: String!) {
 }
 ```
 
-阅读更多关于在 [`gatsby-source-filesystem`](/packages/gatsby-source-filesystem/) 里查询文件。
+[`gatsby-source-filesystem`](/packages/gatsby-source-filesystem/) 文件可以阅读到更多的相关信息。
