@@ -1,42 +1,33 @@
 ---
-title: GraphQL Concepts
+title: GraphQL 概念
 ---
 
 import LayerModel from "../../www/src/components/layer-model"
 
-There are many options for loading data into React components. One of the most
-popular and powerful of these is a technology called
-[GraphQL](http://graphql.org/).
+把数据加载到 React 组件里有许多方式。[GraphQL](http://graphql.org/) 是一个非常受欢迎且强大的技术。
 
-GraphQL was invented at Facebook to help product engineers _pull_ needed data into
-React components.
+GraphQL 是 Facebook 发明的，它能帮助项目工程师 _提取_ 所需数据到组件里。
 
-GraphQL is a **q**uery **l**anguage (the _QL_ part of its name). If you're
-familiar with SQL, it works in a very similar way. Using a special syntax, you describe
-the data you want in your component and then that data is given
-to you.
+GraphQL 是一种 **q**uery **l**anguage（查询语言）（名字中 _QL_ 的由来）。如果你熟悉 SQL，它们的使用方式很像。通过一种特殊的语法，你就能描述你想要的组件中的数据，然后它就能把数据传给你。
 
-Gatsby uses GraphQL to enable [page and StaticQuery
-components](/docs/building-with-components/) to declare what data they and their
-sub-components need. Then, Gatsby makes that data available in
-the browser when needed by your components.
+Gatsby 利用 GraphQL 来让 [page 和 StaticQuery 组件](/docs/building-with-components/) 能够声明它们和它们的子组件所需的数据。然后，Gatsby 在浏览器里让这些数据随时能被需要的组件使用。
 
-Data from any number of sources is made queryable in one unified layer, a key part of the Gatsby building process:
+数据从任何数量的数据源被查询到了一个聚合层，这个聚合层是 Gatsby 构建过程中的一个重要组成部分：
 
 <LayerModel initialLayer="Data" />
 
-## Why is GraphQL so cool?
+## 为什么 GraphQL 这么棒？
 
-For a more in-depth look, read [why Gatsby uses GraphQL](/docs/why-gatsby-uses-graphql/).
+想深入了解更多，请阅读 [为什么 Gatsby 使用 GraphQL](/docs/why-gatsby-uses-graphql/)。
 
-- Eliminate frontend data boilerplate — no need to worry about requesting & waiting for data. Just ask for the data you need with a GraphQL query and it'll show up when you need it
-- Push frontend complexity into queries — many data transformations can be done at _build-time_ within your GraphQL queries
-- It's the perfect data querying language for the often complex/nested data dependencies of modern applications
-- Improve performance by removing data bloat — GraphQL enables you to select only the data you need, not whatever an API returns
+- 淘汰前端数据模板 — 不用担心请求和等待数据。只需要在一个 Gatsby 查询里说明你想要的数据，数据就会在你需要的时候出现
+- 把前端复杂的东西都放入查询里 — 你的 GraphQL 在 _构建时_ 就可以完成很多数据转换
+- 对于经常要依赖复杂/嵌套数据的现代应用，它是一种完美的数据查询语言
+- 通过防止数据过度膨胀来提升性能 — GraphQL 允许你只选择需要的数据，无论 API 返回的是什么
 
-## What does a GraphQL query look like?
+## 一个 GraphQL 查询是什么样的？
 
-GraphQL lets you ask for the exact data you need. Queries look like JSON:
+GraphQL 允许你请求必要的数据。查询格式看起来像 JSON：
 
 ```graphql
 {
@@ -48,7 +39,7 @@ GraphQL lets you ask for the exact data you need. Queries look like JSON:
 }
 ```
 
-Which returns this:
+然后返回：
 
 ```json
 {
@@ -60,7 +51,7 @@ Which returns this:
 }
 ```
 
-A basic page component with a GraphQL query might look like this:
+一个带有 GraphQL 查询的基本页面组件可以是这样子的：
 
 ```jsx
 import React from "react"
@@ -84,67 +75,56 @@ export const query = graphql`
 `
 ```
 
-The result of the query is automatically inserted into your React component
-on the `data` prop. GraphQL and Gatsby let you ask for data and then
-immediately start using it.
+查询的结果会被自动放进 React 组件的 `data` prop 里。GraphQL 和 Gatsby 能让你请求数据然后立马就能用上。
 
-**Note:** To run GraphQL queries in non-page components you'll need to use [Gatsby's Static Query feature](/docs/static-query/).
+**注意：** 如果你要在一个非页面组件里运行 GraphQL 查询，你需要使用 [Gatsby 的静态查询功能](/docs/static-query/)。
 
-### Understanding the parts of a query
+### 了解查询的各个部分
 
-The following diagram shows a GraphQL query, with each word highlighted in a color corresponding to its name on the legend:
+下图展示了在一个 GraphQL 查询里，每个单词用颜色标出的图例名称：
 
-![GraphQL query diagram](./images/basic-query.png)
+![GraphQL 查询图解](./images/basic-query.png)
 
-#### Query operation type
+#### 查询操作类型（Query operation type）
 
-The diagram marks the word `query` as the "Operation Type", for Gatsby's uses the only operation type you will deal with is `query`, this can be omitted from your queries if you prefer (like in the above example).
+图中标记了 `query` 为 “操作类型”。因为 Gatsby 唯一使用的操作类型是 `query`，所以这个操作类型是可以省略的（就像上面的例子一样）。
 
-#### Operation name
+#### 操作名称（Operation name）
 
-`SiteInformation` is marked as the "Operation Name", which is a unique name that you assign to a query yourself. This is similar to how you would name a function or a variable, and like a function this can be omitted if you would rather the query be anonymous.
+被标记为 “操作名称” 的 `SiteInformation` 是一个你赋予给这个查询的独有名称。这个名称等同于你命名一个方程或者一个变量。如果你希望这个查询是匿名的，它也可以像方程一样被省略。
 
-#### Query fields
+#### 查询字段（Query fields）
 
-The four words `site`, `id`, `siteMetadata`, and `title` are marked as "Fields". Any top-level fields -- like `site` in the diagram -- are sometimes referred to as **root level fields**, though the name doesn't signify functional significance as all fields in GraphQL queries behave the same.
+`site`，`id`，`siteMetadata` 和 `title` 都被标记为 “字段”。任何上层字段 -- 如图中的 `site` -- 有时候被称为 **根级字段（root level fields）**。事实上，这个名字并没有暗示任何功能上的特殊性，因为在 GraphQL 查询里所有的字段都在执行同样的事请。
 
-## How to learn GraphQL
+## 如何学习 GraphQL
 
-Your experience developing with Gatsby might be the first time you've seen GraphQL! We hope you love it as much
-as we do and find it useful for all your projects.
+可能用 Gatsby 开发是让你第一次遇上了 GraphQL！我们希望你和我们一样喜爱它，也希望你能发现它可以帮助你所有的项目。
 
-When starting out with GraphQL, we recommend the following two tutorials:
+我们推荐下面的两个教程来学习 GraphQL：
 
 - https://www.howtographql.com/
 - http://graphql.org/learn/
 
-[The official Gatsby tutorial](/tutorial/part-four/) also includes an introduction to using GraphQL specifically with Gatsby.
+[官方的 Gatsby 教程](/tutorial/part-four/) 也介绍了如何在 Gatsby 里使用 GraphQL。
 
-## How do GraphQL and Gatsby work together?
+## GraphQL 和 Gatsby 如何一起工作？
 
-One of the great things about GraphQL is how flexible it is. People use GraphQL
-with [many different programming languages](http://graphql.org/code/) and for web and native apps.
+Gatsby 的一大优点是灵活性。人们可以在 [很多不同的编程语言中](http://graphql.org/code/) 以及在网页和原生应用中使用 GraphQL。
 
-Most people run GraphQL on a server to respond live to requests for
-data from clients. You define a schema (a schema is a formal way of describing
-the shape of your data) for your GraphQL server and then your GraphQL resolvers
-retrieve data from databases and/or other APIs.
+多数人在服务器里运行 GraphQL 来响应客户端的数据请求。你定义一个模式（schema，一个描述数据形状的正规方法）给你的 GraphQL 服务器，然后你的 GraphQL 解析器会向一些数据库和/或者其它 API 检索数据。
 
-Gatsby uses GraphQL at _build-time_ and _not_ for live
-sites. This is unique, and it means you don't need to run additional services (e.g. a database
-and Node.js service) to use GraphQL for production websites.
+Gatsby 是在 _构建时_ 使用 GraphQL _而不是_ 在运行中的网站使用。这种方式是独一无二的，而且你不需要再在 production 模式的网站里运行额外的服务（例如一个数据库和 node.js 服务）来使用 GraphQL。
 
-Gatsby is a great framework for building apps so it's possible and encouraged
-to pair Gatsby's native build-time GraphQL with GraphQL queries running against
-a live GraphQL server from the browser.
+用 Gatsby 这个框架来开发应用是非常实用的，所以结合 Gatsby 的原生构建 GraphQL 和 GraphQL 查询一起比在浏览器里运行 GraphQL 服务器更好。
 
-## Where does Gatsby's GraphQL schema come from?
+## Gatsby 的 GraphQL 模式是怎么来的？
 
-Most usages of GraphQL involve manually creating a GraphQL schema.
+GraphQL 的常见用法需要人工创建一个 GraphQL 模式。
 
-Gatsby uses plugins which can fetch data from different sources. That data is used to automatically _infer_ a GraphQL schema.
+Gatsby 运用了可以从不同数据源提取数据的插件。数据会自动 _推断_ 出一个 GraphQL 模式。
 
-If you give Gatsby data that looks like this:
+如果你的 Gatsby 数据是这样的：
 
 ```json
 {
@@ -152,25 +132,23 @@ If you give Gatsby data that looks like this:
 }
 ```
 
-Gatsby will create a schema that looks something like this:
+Gatsby 会生成如下模式：
 
 ```
 title: String
 ```
 
-This makes it easy to pull data from anywhere and immediately start writing
-GraphQL queries against your data.
+这样从任何地方提取数据都会变得很容易，而且你可以马上开始编写 GraphQL 查询。
 
-This _can_ cause confusion as some data sources allow you to define
-a schema even when there's not any data added for parts or all of the schema. If parts of the data haven't been added, then those parts of the schema might not be recreated in Gatsby.
+有时候一些数据源会允许你定义一个数据还没有被添加的模式，这样是 _会_ 引起混乱的，但 Gatsby 可能会跳过生成那部分的模式。
 
-## Powerful data transformations
+## 强大的数据转换
 
-GraphQL enables another unique feature of Gatsby — it lets you control data transformations with arguments to your queries. Some examples follow.
+GraphQL 也为 Gatsby 带来了其它独一无二的特色 — 它允许你在查询里用参数控制数据转换。请看下面的例子。
 
-### Formatting dates
+### 格式化日期
 
-People often store dates like "2018-01-05" but want to display the date in some other form like "January 5th, 2018". One way of doing this is to load a date-formatting JavaScript library into the browser. Or, with Gatsby's GraphQL layer, you can do the formatting at query-time like:
+人们通常喜欢保存像 “2018-01-05” 的日期格式，但希望用其它格式，例如 “January 5th, 2018”，来显示。一种方法是加载一个格式化日期的 JavaScript 库到浏览器里。或者，利用 Gatsby 的 GraphQL 层，你就可以在查询时就做格式化，就像这样：
 
 ```graphql
 {
@@ -178,11 +156,11 @@ People often store dates like "2018-01-05" but want to display the date in some 
 }
 ```
 
-See the full list of formatting options by viewing our [GraphQL reference page](/docs/graphql-reference/#dates).
+请在我们的 [GraphQL 参考页](/docs/graphql-reference/#dates) 里查看全部的格式化选项。
 
 ### Markdown
 
-Gatsby has _transformer_ plugins which can transform data from one form to another. A common example is markdown. If you install [`gatsby-transformer-remark`](/packages/gatsby-transformer-remark/), then in your queries, you can specify if you want the transformed HTML version instead of markdown:
+Gatsby 有能把数据从一个格式变成另一个格式的 _数据转换插件_。一个常见的例子是 markdown。如果你安装了 [`gatsby-transformer-remark`](/packages/gatsby-transformer-remark/)， 那么在你的查询里，你可以指定你想要的是经转换的 HTML 版本而不是 markdown：
 
 ```graphql
 markdownRemark {
@@ -190,13 +168,13 @@ markdownRemark {
 }
 ```
 
-### Images
+### 图片
 
-Gatsby has rich support for processing images. Responsive images are a big part of the modern web and typically involve creating 5+ sized thumbnails per photo. With Gatsby's [`gatsby-transformer-sharp`](/packages/gatsby-transformer-sharp/), you can _query_ your images for responsive versions. The query automatically creates all the needed responsive thumbnails and returns `src` and `srcSet` fields to add to your image element.
+Gatsby 对于图片处理有丰富的支持。响应式图片是现代网站的一大部分，每张图片通常需要创建 5 种以上不同大小的缩略图。利用 Gatsby 的 [`gatsby-transformer-sharp`](/packages/gatsby-transformer-sharp/)，你可以 _查询_ 图片的响应式版本。你的查询会自动生成全部所需的响应式缩略图，然后返回 `src` 和 `srcSet` 字段来让你添加你的图片元素。
 
-Combined with a special Gatsby image component, [gatsby-image](/packages/gatsby-image/), you have a very powerful set of primitives for building sites with images.
+结合 [gatsby-image](/packages/gatsby-image/) 这个特别的 Gatsby 图片组件，你在建立网站时就拥有了一个非常强大的图片处理基础。
 
-This is what a component using `gatsby-image` looks like:
+这是一个用了 `gatsby-image` 的组件：
 
 ```jsx
 import React from "react"
@@ -214,8 +192,8 @@ export const query = graphql`
   query {
     file(relativePath: { eq: "blog/avatars/kyle-mathews.jpeg" }) {
       childImageSharp {
-        # Specify the image processing specifications right in the query.
-        # Makes it trivial to update as your page's design changes.
+        # 在查询里就可以指定图片处理的参数。
+        # 这样即使你的页面有设计变化也不会对图片本身造成影响
         fixed(width: 125, height: 125) {
           ...GatsbyImageSharpFixed
         }
@@ -225,20 +203,20 @@ export const query = graphql`
 `
 ```
 
-See also the following blog posts:
+你也可以查看下面的博文：
 
-- [Making Website Building Fun](/blog/2017-10-16-making-website-building-fun/)
-- [Image Optimization Made Easy with Gatsby.js](https://medium.com/@kyle.robert.gill/ridiculously-easy-image-optimization-with-gatsby-js-59d48e15db6e)
+- [让建立网站变得有趣](/blog/2017-10-16-making-website-building-fun/)
+- [Gatsby.js 让优化图片变得容易](https://medium.com/@kyle.robert.gill/ridiculously-easy-image-optimization-with-gatsby-js-59d48e15db6e)
 
-## Advanced
+## 高级
 
-### Fragments
+### 片段
 
-Notice that in the above example for [querying images](#images), we used `...GatsbyImageSharpFixed`, which is a GraphQL Fragment, a reusable set of fields for query composition. You can read more about them [here](http://graphql.org/learn/queries/#fragments).
+在上面的 [图片查询](#images) 例子里，我们用了一个 Gatsby 片段 `...GatsbyImageSharpFixed`，它是一个可以重复使用的字段组合。你可以在 [这里](http://graphql.org/learn/queries/#fragments) 了解更多。
 
-If you wish to define your own fragments for use in your application, you can use named exports to export them in any JavaScript file, and they will be automatically processed by Gatsby for use in your GraphQL queries.
+如果你希望自定义片段，你可以用一些指定的 export 来把它们导出到任何 JavaScript 文件里，然后 Gatsby 会自动在你的 GraphQL 查询里处理它们。
 
-For example, if I put a fragment in a helper component, I can use that fragment in any other query:
+例如，如果我在一个 helper 组件里放一个片段，那么我就可以在任何其它查询里使用这个片段：
 
 ```jsx:title=src/components/PostItem.js
 export const markdownFrontmatterFragment = graphql`
@@ -252,7 +230,7 @@ export const markdownFrontmatterFragment = graphql`
 `
 ```
 
-They can then be used in any GraphQL query after that!
+然后它们能在任何 GraphQL 查询里被使用！
 
 ```graphql
 query($path: String!) {
@@ -262,7 +240,7 @@ query($path: String!) {
 }
 ```
 
-It’s good practice for your helper components to define and export a fragment for the data they need. For example, on your index page you might map over all of your posts to show them in a list.
+你的 helper 组件应当定义和导出一个数据所需的片段。例如，在你的 index 页面里，你可能想遍历所有的文章然后显示在一个列表里。
 
 ```jsx:title=src/pages/index.jsx
 import React from "react"
@@ -302,7 +280,7 @@ export const query = graphql`
 `
 ```
 
-If the index component becomes too large, you might want to refactor it into smaller components.
+如果 index 组件变得非常大，你可能需要把它重构成一些小组件。
 
 ```jsx:title=src/components/IndexPost.jsx
 import React from "react"
@@ -326,7 +304,7 @@ export const query = graphql`
 `
 ```
 
-Now, you can use the component together with the exported fragment in your index page.
+现在，你可以在 index 页面里与导出的片段一起使用。
 
 ```jsx:title=src/pages/index.jsx
 import React from "react"
@@ -361,20 +339,20 @@ export const query = graphql`
 `
 ```
 
-## Further reading
+## 阅读更多
 
-- [Why Gatsby Uses GraphQL](/docs/why-gatsby-uses-graphql/)
-- [The Anatomy of a GraphQL Query](https://blog.apollographql.com/the-anatomy-of-a-graphql-query-6dffa9e9e747)
+- [为什么 Gatsby 使用 GraphQL](/docs/why-gatsby-uses-graphql/)
+- [GraphQL 查询分析](https://blog.apollographql.com/the-anatomy-of-a-graphql-query-6dffa9e9e747)
 
-### Getting started with GraphQL
+### 上手 GraphQL
 
 - http://graphql.org/learn/
 - https://www.howtographql.com/
 - https://reactjs.org/blog/2015/05/01/graphql-introduction.html
 - https://services.github.com/on-demand/graphql/
 
-### Advanced readings on GraphQL
+### GraphQL 高级阅读
 
-- [GraphQL specification](https://facebook.github.io/graphql/October2016/)
-- [Interfaces and Unions](https://medium.com/the-graphqlhub/graphql-tour-interfaces-and-unions-7dd5be35de0d)
-- [Relay Compiler (which Gatsby uses to process queries)](https://facebook.github.io/relay/docs/en/compiler-architecture.html)
+- [GraphQL 规范](https://facebook.github.io/graphql/October2016/)
+- [接口和联合](https://medium.com/the-graphqlhub/graphql-tour-interfaces-and-unions-7dd5be35de0d)
+- [Relay 编译器（Gatsby 用它来处理查询）](https://facebook.github.io/relay/docs/en/compiler-architecture.html)
