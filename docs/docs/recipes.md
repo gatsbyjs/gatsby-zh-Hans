@@ -1408,7 +1408,7 @@ export const query = graphql`
 
 - [在 Gatsby 中使用 Decoupled Drupal ](/blog/2018-08-13-using-decoupled-drupal-with-gatsby/)
 - [更多从 Drupal 中获取数据的信息](/docs/sourcing-from-drupal)
-- [教程第 7 章：已编程的方式通过数据创建页面](/tutorial/part-seven/)
+- [教程第 7 章：以编程的方式通过数据创建页面](/tutorial/part-seven/)
 
 ## 6. 查询数据
 
