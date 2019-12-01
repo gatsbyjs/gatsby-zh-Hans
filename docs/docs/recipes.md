@@ -517,7 +517,7 @@ import "./styles.scss"
 import "./styles.sass"
 ```
 
-_注意: 你也可以用模块的方式使用 Sass/SCSS 文件。 像前一个关于 CSS 模块的配方所提到的一样。唯一的区别就是 .css 文件扩展名要变成 .scss 或 .sass_
+_注意: 你也可以用模块的方式使用 Sass/SCSS 文件。像前一个关于 CSS 模块的配方所提到的一样。唯一的区别就是 .css 文件扩展名要变成 .scss 或 .sass_
 
 #### 补充资源
 
@@ -591,7 +591,7 @@ module.exports = {
 
 3. 在你的 Gatsby 站点中创建一个页面 `src/pages/emotion-sample.js`，如果你还没有它的话。
 
-引入 Emotion 的 `css` 核心包。 之后你就可以使用  `css` prop 来添加 [Emotion 对象样式](https://emotion.sh/docs/object-styles) 到任何一个组件中的元素中了：
+引入 Emotion 的 `css` 核心包。之后你就可以使用  `css` prop 来添加 [Emotion 对象样式](https://emotion.sh/docs/object-styles) 到任何一个组件中的元素中了：
 
 ```jsx:title=src/pages/emotion-sample.js
 import React from "react"
@@ -640,7 +640,7 @@ export default () => (
 
 ### 使用 Google Fonts
 
-在项目中本地托管你自己的 [Google 字体](https://fonts.google.com/)，使你在网站加载时不必通过网络获取它们，从而使网站的速度指数在电脑上提高约 300 毫秒 ，在 3G 下提高约为 1 秒多。 我们还建议你限制自定义字体的使用，只应用于重要的部分，这样能提高网站性能。
+在项目中本地托管你自己的 [Google 字体](https://fonts.google.com/)，使你在网站加载时不必通过网络获取它们，从而使网站的速度指数在电脑上提高约 300 毫秒 ，在 3G 下提高约为 1 秒多。我们还建议你限制自定义字体的使用，只应用于重要的部分，这样能提高网站性能。
 
 #### 前置条件
 
@@ -690,7 +690,7 @@ _注意： 对于上面这个例子，CSS 字体引用应该是 `font-family: 'S
 
 1. 找到你想使用的 starter (_[Starter 库](/starters/?v=2)里应有尽有！_)
 
-2. 基于 starter 生成一个新站点。 在终端中运行：
+2. 基于 starter 生成一个新站点。在终端中运行：
 
 ```shell
 gatsby new {your-project-name} {link-to-starter}
@@ -714,13 +714,13 @@ gatsby develop
 
 ## 4. 处理主题
 
-Gatsby 主题将 Gatsby 的配置（共享功能，数据源，设计）抽象为可安装的程序包。 这意味着配置和功能不是直接写到你的项目中，而是通过版本化，集中管理等手段，并作为依赖项安装。 你可以无缝更新主题、将主题组合在一起，甚至可以将一个主题换成另一个兼容的主题。
+Gatsby 主题将 Gatsby 的配置（共享功能，数据源，设计）抽象为可安装的程序包。这意味着配置和功能不是直接写到你的项目中，而是通过版本化，集中管理等手段，并作为依赖项安装。你可以无缝更新主题、将主题组合在一起，甚至可以将一个主题换成另一个兼容的主题。
 
 - 更多内容请参考 什么是 Gatsby 主题？](/docs/themes/what-are-gatsby-themes)
 
 ### 使用主题 starter 创建新站点
 
-基于有主题配置的 starter 创建网站的过程，与基于**没有主题配置**的启动器创建网站的过程相同。 在此示例中，你可以使用 [使用官方 Gatsby 博客主题的新站点 starter](https://github.com/gatsbyjs/gatsby-starter-blog-theme)。
+基于有主题配置的 starter 创建网站的过程，与基于**没有主题配置**的启动器创建网站的过程相同。在此示例中，你可以使用 [使用官方 Gatsby 博客主题的新站点 starter](https://github.com/gatsbyjs/gatsby-starter-blog-theme)。
 
 #### 前置条件
 
@@ -854,7 +854,7 @@ query MyPokemonQuery {
 
 #### 操作步骤
 
-1. 在 `gatsby-config.js` 文件中, 配置 `gatsby-transformer-remark` 和 `gatsby-source-filesystem` 文件，让它们从一个源文件夹中获取 Markdown 文件。 如果你已经有其他 `gatsby-source-filesystem` 项目，比如图片，你应该添加到它们一起:
+1. 在 `gatsby-config.js` 文件中, 配置 `gatsby-transformer-remark` 和 `gatsby-source-filesystem` 文件，让它们从一个源文件夹中获取 Markdown 文件。如果你已经有其他 `gatsby-source-filesystem` 项目，比如图片，你应该添加到它们一起:
 
 ```js:title=gatsby-config.js
 module.exports = {
@@ -974,7 +974,7 @@ export const pageQuery = graphql`
 `
 ```
 
-6. 运行 `gatsby develop` 来重启开发服务器。 在你的浏览器里查看博文：<http://localhost:8000/my-first-post>
+6. 运行 `gatsby develop` 来重启开发服务器。在你的浏览器里查看博文：<http://localhost:8000/my-first-post>
 
 #### 补充资源
 
@@ -1177,7 +1177,7 @@ plugins: [
 
 7. 运行 `gatsby develop` 并确保站点成功编译。
 
-8. 在 <https://localhost:8000/___graphql> 使用 [GraphiQL editor](/docs/introducing-graphiql/) 查询数据。 Contentful 插件在你的站点中添加了一些新节点类型，包括你的的 Contentful 网站的每一个内容类型。你的示例 space包含了一个 “Blog Post” 内容类型，它为你在 GraphQL 中生成了一个 `allContentfulBlogPost` 节点类型。 
+8. 在 <https://localhost:8000/___graphql> 使用 [GraphiQL editor](/docs/introducing-graphiql/) 查询数据。Contentful 插件在你的站点中添加了一些新节点类型，包括你的的 Contentful 网站的每一个内容类型。你的示例 space包含了一个 “Blog Post” 内容类型，它为你在 GraphQL 中生成了一个 `allContentfulBlogPost` 节点类型。
 
 ![使用了下述查询的 GraphQL 界面](./images/recipe-sourcing-contentful-graphql.png)
 
@@ -1361,7 +1361,7 @@ module.exports = {
 }
 ```
 
-4. 要使用你的 Drupal 数据，在 Gatsby 中创建一个新页面 `src/pages/drupal.js`。 这个页面会列出所有 Drupal "Page" 节点。
+4. 要使用你的 Drupal 数据，在 Gatsby 中创建一个新页面 `src/pages/drupal.js`。这个页面会列出所有 Drupal "Page" 节点。
 
 _**注意：** 确切的 GraphQL 模式将取决于你的 Drupal 实例的结构。_
 
@@ -1503,7 +1503,7 @@ export default NonPageComponent
 
 ### 使用 useStaticQuery hook 查询数据
 
-从 Gatsby v2.1.0 版本起，你可以使用 `useStaticQuery` hook 来查询数据。它是一个 JavaScript 函数而不是一个组件。这个函数语法不再需要一个 `<StaticQuery>` 来包含所有东西。对于一些人来说更容易编写。 
+从 Gatsby v2.1.0 版本起，你可以使用 `useStaticQuery` hook 来查询数据。它是一个 JavaScript 函数而不是一个组件。这个函数语法不再需要一个 `<StaticQuery>` 来包含所有东西。对于一些人来说更容易编写。
 
 `useStaticQuery` hook 接收一个 GraphQL 查询命令并返回所查询的数据。它可以被存储到一个变量里，在之后的 JSX 模版中使用。
 
@@ -1556,9 +1556,9 @@ export default NonPageComponent
 
 ### 给 GraphQL 添加限制
 
-使用 GraphQL 查询数据时，可以使用具体数字限制返回的结果数。 如果你只需要少量数据或需要 [给数据分页](/docs/adding-pagination/)，这将很有帮助。
+使用 GraphQL 查询数据时，可以使用具体数字限制返回的结果数。如果你只需要少量数据或需要 [给数据分页](/docs/adding-pagination/)，这将很有帮助。
 
-为了限制数据，你需要一个Gatsby站点，该站点在 GraphQL 数据层中有一些节点。 所有站点都有一些自动创建的节点，例如  `allSitePage` 和 `sitePage`：可以通过在 `gatsby-config.js` 中安装数据源插件（如 `gatsby-source-filesystem`）来添加更多节点。
+为了限制数据，你需要一个Gatsby站点，该站点在 GraphQL 数据层中有一些节点。所有站点都有一些自动创建的节点，例如  `allSitePage` 和 `sitePage`：可以通过在 `gatsby-config.js` 中安装数据源插件（如 `gatsby-source-filesystem`）来添加更多节点。
 
 #### 前置条件
 
@@ -2235,7 +2235,7 @@ export const pageQuery = graphql`
 
 ## 8. 转换数据
 
-Gatsby中的数据转换是由插件驱动的。 数据转换插件会使用数据源插件获取的数据，并将其处理为更有用的内容（例如，将 JSON 转换为 JavaScript 对象等）。
+Gatsby中的数据转换是由插件驱动的。数据转换插件会使用数据源插件获取的数据，并将其处理为更有用的内容（例如，将 JSON 转换为 JavaScript 对象等）。
 
 ### 将 Markdown 转换为 HTML
 
@@ -2317,7 +2317,7 @@ module.exports = {
 }
 ```
 
-有一些原因导致你需要这么做——例如在一个域上托管一个由 Gatsby 构建的博客，而另一个域不是基于 Gatsby 构建的。 主站点将指向 `example.com`，而具有路径前缀的 Gatsby 网站可以位于 `example.com/blog`。
+有一些原因导致你需要这么做——例如在一个域上托管一个由 Gatsby 构建的博客，而另一个域不是基于 Gatsby 构建的。主站点将指向 `example.com`，而具有路径前缀的 Gatsby 网站可以位于 `example.com/blog`。
 
 4. 在 `gatsby-config.js` 中设置好路径前缀后，运行 `gatsby build` 并添加 `--prefix-paths` 标记来自动为所有 Gatsby 站点 URL 和 `<Link>` 标签添加前缀。
 
