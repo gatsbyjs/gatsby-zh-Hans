@@ -1900,7 +1900,7 @@ export default () => (
 #### 前置条件
 
 - 一个 [Gatsby 站点](/docs/quick-start)，其中包含一个导出 React 组件的 `.js` 文件
-- `src` 文件夹中有一个图片（`.jpg`、`.png`、`.gif`、`.svg` 等文件类型）
+- `static` 文件夹中有一个图片（`.jpg`、`.png`、`.gif`、`.svg` 等文件类型）
 
 #### 操作步骤
 
