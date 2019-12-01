@@ -346,7 +346,7 @@ export default () => <Layout>Hello world!</Layout>
 - [使用全局 CSS 文件的标准](/docs/global-css/)
 - [更多布局组件的信息](/tutorial/part-three)
 
-### 使用包含样式的组件
+### 使用样式化组件（Styled Components）
 
 #### 前置条件
 
@@ -421,7 +421,7 @@ export default () => (
 
 #### 补充资源
 
-- [更多关于使用包含样式的组件的信息](/docs/styled-components/)
+- [更多关于使用样式化组件的信息](/docs/styled-components/)
 - [Egghead 的教学](https://egghead.io/lessons/gatsby-style-gatsby-sites-with-styled-components)
 
 ### 使用 CSS 模块
@@ -611,7 +611,7 @@ export default () => (
 )
 ```
 
-4. 要使用 Emotion 的 [包含样式的组件](https://emotion.sh/docs/styled)，引入这个包并用  `styled` 函数定义组件。
+4. 要使用 Emotion 的 [样式化组件](https://emotion.sh/docs/styled)，引入这个包并用  `styled` 函数定义组件。
 
 ```jsx:title=src/pages/emotion-sample.js
 import React from "react"
