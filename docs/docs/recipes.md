@@ -92,7 +92,7 @@ const AboutPage = () => (
 export default AboutPage
 ```
 
-3. 运行 `gatsby develop` 以启动开发服务器.
+3. 运行 `gatsby develop` 以启动开发服务器。
 4. 在浏览器中访问你的新页面：<http://localhost:8000/about>
 
 #### 补充资源
@@ -101,7 +101,7 @@ export default AboutPage
 
 ### 连接不同页面
 
-Gatsby 中的页面路由依靠 `<Link />` 这个组件.
+Gatsby 中的页面路由依靠 `<Link />` 这个组件。
 
 #### 前置条件
 
@@ -291,7 +291,7 @@ p {
 import "./src/styles/global.css"
 ```
 
-> **注意：** 你也可以使用 `require('./src/styles/global.css')` 来向你的 `gatsby-config.js` 文件引入全局 CSS 文件.
+> **注意：** 你也可以使用 `require('./src/styles/global.css')` 来向你的 `gatsby-config.js` 文件引入全局 CSS 文件。
 
 3. 运行 `gatsby-develop` 来观察全局样式是否应用到你的整个网站了。
 
@@ -473,15 +473,15 @@ Sass 是一个 CSS 的扩展。它提供了更多诸如嵌套规则，变量和 
 
 Sass具有两种语法。最常用的语法是 “SCSS”，它是 CSS 的超集。这意味着所有有效的 CSS 语法都是有效的 SCSS 语法。SCSS 文件使用扩展名.scss。
 
-Sass 会为你把 .scss 和 .sass 文件编译成 .css 文件。因此你为样式表可以编写更多高级功能。
+Sass 会为你把 .scss 和 .sass 文件编译成 .css 文件。因此你可以为样式表编写更多高级功能。
 
 #### 前置条件
 
-- 一个 [Gatsby 站点](/docs/quick-start/).
+- 一个 [Gatsby 站点](/docs/quick-start/)。
 
 #### 操作步骤
 
-1. 安装 Gatsby 插件 [gatsby-plugin-sass](https://www.gatsbyjs.org/packages/gatsby-plugin-sass/) 和 `node-sass`.
+1. 安装 Gatsby 插件 [gatsby-plugin-sass](https://www.gatsbyjs.org/packages/gatsby-plugin-sass/) 和 `node-sass`。
 
 `npm install --save node-sass gatsby-plugin-sass`
 
@@ -775,7 +775,7 @@ yarn workspace example develop
 #### 补充资源
 
 - 阅读关于如何使用 Gatsby 主题工作区 starter 的 [更详细的指南](/docs/themes/building-themes/)。
-- 通过 [Egghead 上的 Gatsby Theme Authoring 视频](https://egghead.io/courses/gatsby-theme-authoring) 学习如何构建你自己的主题，或者通过 [视频课程的补充书面教程](/tutorial/building-a-theme).
+- 通过 [Egghead 上的 Gatsby Theme Authoring 视频](https://egghead.io/courses/gatsby-theme-authoring) 学习如何构建你自己的主题，或者通过 [视频课程的补充书面教程](/tutorial/building-a-theme)。
 
 ## 5. 处理数据源
 
@@ -813,7 +813,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
 }
 ```
 
-2. 运行 `gatsby develop`.
+2. 运行 `gatsby develop`。
 
    > _注意：在你修改了 `gatsby-node.js` 之后，你需要重新运行 `gatsby develop` 使改变生效。_
 
@@ -1130,7 +1130,7 @@ contentful login
 
 2. 创建一个新 space 如果你还没创建的话。确保你保存了命令最后给出的 space ID。如果你已经有一个 Contentful space 和 space ID，你可以跳过第 2 步和第 3 步。
 
-注意：对于新账户，你可以覆盖默认的引导 space。详情请查看 [账户中的 space](https://app.contentful.com/account/profile/space_memberships).
+注意：对于新账户，你可以覆盖默认的引导 space。详情请查看 [账户中的 space](https://app.contentful.com/account/profile/space_memberships)。
 
 ```shell
 contentful space create --name 'Gatsby example'
@@ -1322,7 +1322,7 @@ export default ({ pageContext: { allPokemon } }) => (
 
 #### 操作步骤
 
-1. 安装 `gatsby-source-drupal` 插件.
+1. 安装 `gatsby-source-drupal` 插件。
 
 ```
 npm install --save gatsby-source-drupal
@@ -1402,7 +1402,7 @@ export const query = graphql`
 }
 ```
 
-5. 运行开发服务器后，你可以通过访问以下页面来查看新页面 <http://localhost:8000/drupal>.
+5. 运行开发服务器后，你可以通过访问以下页面来查看新页面 <http://localhost:8000/drupal>。
 
 #### 补充资源
 
@@ -1567,7 +1567,7 @@ export default NonPageComponent
 #### 操作步骤
 
 1. 运行 `gatsby develop` 来启动开发服务器。
-2. 在你的浏览器中打开页面：<http://localhost:8000/___graphql>.
+2. 在你的浏览器中打开页面：<http://localhost:8000/___graphql>。
 3. 在编辑器中添加一个具有以下字段的 `allSitePage` 查询命令作为开始：
 
 ```graphql
