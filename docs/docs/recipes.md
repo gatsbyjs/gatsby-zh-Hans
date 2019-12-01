@@ -2134,7 +2134,7 @@ return (
 - [Gatsby Image API](/docs/gatsby-image/)
 - [使用 Gatsby Image](/docs/using-gatsby-image)
 - [有关在 Gatsby 中处理图像的更多信息](/docs/working-with-images/)
-- [免费的解释这些步骤的 egghead.io 视频](https://egghead.io/playlists/using-gatsby-image-with-gatsby-ea85129e)
+- [解释这些步骤的 egghead.io 免费视频](https://egghead.io/playlists/using-gatsby-image-with-gatsby-ea85129e)
 
 ### 使用 gatsby-image 在博文 frontmatter 中优化和查询图像
 
@@ -2235,7 +2235,7 @@ export const pageQuery = graphql`
 
 ## 8. 转换数据
 
-Gatsby中的数据转换是由插件驱动的。 数据转换插件会使用使用数据源插件获取的数据，并将其处理为更有用的内容（例如，将 JSON 转换为 JavaScript 对象等）。
+Gatsby中的数据转换是由插件驱动的。 数据转换插件会使用数据源插件获取的数据，并将其处理为更有用的内容（例如，将 JSON 转换为 JavaScript 对象等）。
 
 ### 将 Markdown 转换为 HTML
 
