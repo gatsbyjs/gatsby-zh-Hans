@@ -1795,7 +1795,7 @@ export default NonPageComponent
 
 ### GraphQL 查询指令片段（Fragments）
 
-GraphQL 片段（fragments）是可分享的可重用的一段段查询指令。
+GraphQL 片段（fragments）是可分享的可重用的一段查询指令。
 
 你可能想要使用它来在查询语句之间分享多个字段，或者在一个组件中使数据共存。
 
