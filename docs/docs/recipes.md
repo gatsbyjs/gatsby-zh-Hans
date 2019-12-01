@@ -1136,7 +1136,7 @@ contentful login
 contentful space create --name 'Gatsby example'
 ```
 
-3. Seed 新的 space 来包含示例博文内容。使用在上一个命令中返回的新 space ID 替换掉 `<space ID>`。
+3. 新建一个种子 space 来包含示例博文内容。使用在上一个命令中返回的新 space ID 替换掉 `<space ID>`。
 
 ```shell
 contentful space seed -s '<space ID>' -t blog
