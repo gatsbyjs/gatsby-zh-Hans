@@ -15,7 +15,6 @@ tableOfContentsDepth: 2
 - 查看 [文档模板](/docs/docs-templates/) 以了解格式规范
 
 ### 操作步骤
-Step-by-step directions. Each step should be repeatable and to-the-point. Anything not critical to the task should be omitted.
 一步一步地指导。每个步骤都应该是可重复的并且切中要点。对完成任务来说任何不重要的事物都应省略。
 
 #### 在线演示 (可选)
