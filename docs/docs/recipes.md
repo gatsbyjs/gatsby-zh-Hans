@@ -1779,7 +1779,7 @@ export default NonPageComponent
 }
 ```
 
-5. 在 GraphiQL 页面中点击播放按钮，两个带有你你提供的别名的对象就会显示出来。
+5. 在 GraphiQL 页面中点击播放按钮，两个带有你提供的别名的对象就会显示出来。
 
 #### 补充资源
 
