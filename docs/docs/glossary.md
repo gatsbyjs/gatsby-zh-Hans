@@ -277,7 +277,6 @@ Something that automatically happens based on your code and configuration. For e
 
 ### Schema（数据模式）
 
-An exact representation of how data is stored in a system, such as tables and fields in a database or a JSON file structure. In Gatsby, the GraphQL schema expresses all queryable data - or data that components can ask about as part of Gatsby's data layer.
 一种数据在系统中如何存储的准确表示方式，例如数据库中的表和字段，或 JSON 文件结构。在 Gatsby 中，GraphQL 模式表示所有可查询的数据，或作为 Gatsby 数据层的一部分的组件可以查询的数据。
 
 ### Server-side（服务器端）
