@@ -177,7 +177,7 @@ JAMStack 是指使用 [JavaScript](#javascript)，[API](#api) 和（[HTML](#html
 
 ### JavaScript
 
-、一种编程语言，可以帮助我们使网页内容动态可交互。[JavaScript](https://developer.mozilla.org/en-US/docs/Web/Javascript) 是在浏览器中广泛使用的 Web 技术。它也可以与 [Node.js](#node) 在服务器端一起使用。它是 [ECMAScript](#ECMAScript) 规范的一种实现。
+一种编程语言，可以帮助我们使网页内容动态可交互。[JavaScript](https://developer.mozilla.org/en-US/docs/Web/Javascript) 是在浏览器中广泛使用的 Web 技术。它也可以与 [Node.js](#node) 在服务器端一起使用。它是 [ECMAScript](#ECMAScript) 规范的一种实现。
 
 ### JSX
 
@@ -195,7 +195,7 @@ Linting 是运行程序时分析代码是否存在潜在错误的过程。Gatsby
 
 ### MDX
 
-一种扩展 [Markdown](#markdown) 以支持内容中的 [React](#react) [组件](#component)。
+一种用来支持在内容中显示 [React](#react) [组件](#component) 的 [Markdown](#markdown) 扩展。
 
 ### Markdown
 
@@ -268,7 +268,7 @@ Something that automatically happens based on your code and configuration. For e
 
 ### Runtime（运行时）
 
-运行时是指一个程序正在运行（或可执行）的时间。它可以指这么几件事：[Node.js](#nodejs) 是执行 JavaScript 代码的 [服务器端](#server-side) 运行时；另一方面，[客户端 JavaScript](#client-side) 是指执行传统 JavaScript 代码的浏览器运行时。Gatsby会在 [构建时](#build) 编译您的站点，并 [使用 React 运行时进行补水](#hydration) 来提供快速的，交互式的和动态的用户体验。
+运行时是指一个程序正在运行（或可执行）的时间。它可以指这么几件事：[Node.js](#nodejs) 时执行 JavaScript 代码的 [服务器端](#server-side) 运行时；另一方面，[客户端 JavaScript](#client-side) 是指执行传统 JavaScript 代码的浏览器运行时。Gatsby会在 [构建时](#build) 编译您的站点，并 [使用 React 运行时进行补水](#hydration) 来提供快速的，交互式的和动态的用户体验。
 
 ### Routing（路由）
 
