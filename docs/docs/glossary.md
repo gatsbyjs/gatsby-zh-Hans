@@ -238,7 +238,6 @@ Gatsby 使用 [数据节点](/docs/node-interface/) 来表示一条数据。一�
 
 ### Programmatically（以编程的方式）
 
-Something that automatically happens based on your code and configuration. For example, you might [configure](#config) your project to create a [page](#page) for every blog post written, or read and display the current year as part of a copyright in your site footer.
 某些事件会根据你的代码和配置自动执行。例如，您可以 [配置](#config) 项目来为每个撰写的博客文章创建一个 [页面](#page)，或者读取并显示当前年份，在站点页脚中作为版权的一部分。
 
 ### Progressive enhancement（渐进式增强）
