@@ -164,7 +164,6 @@ Gatsby是一个现代的网站框架，它利用[React](#react)，[GraphQL](#gra
 
 ### Hydration（补水）
 
-Once a site has been [built](#build) by Gatsby and loaded in a web browser, [client-side](#client-side) JavaScript assets will download and turn the site into a full React application that can manipulate the [DOM](#dom). This process is often called re-hydration as it runs some of the same JavaScript code used to generate Gatsby pages, but this time with browser DOM APIs like `window` available.
 一旦网站由 Gatsby [构建](#build) 并加载到网络浏览器中，[客户端](#client-side) JavaScript 资源就会被下载并将该站点转变为可以操纵的 [DOM](#dom)。这个过程通常称为 “补水”，因为它运行了一些用于生成 Gatsby 页面的 JavaScript 相同代码，但是这个过程中诸如 `window` 之类的浏览器 DOM API 可用。
 
 ## I
