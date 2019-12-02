@@ -1,11 +1,11 @@
 ---
-title: Glossary
+title: 词汇表
 disableTableOfContents: true
 ---
 
 import HorizontalNavList from "../../www/src/components/horizontal-nav-list.js"
 
-When you're new to Gatsby there can be a lot of words to learn. This glossary aims to give you a 10,000-foot overview of common terms and what they mean for Gatsby sites.
+当你不熟悉 Gatsby 时，可能会对很多词汇不熟悉。 本词汇表旨在为你提供一篇一万英尺长的的常用术语概述，以及这些术语在 Gatsby 站点中意味着什么。
 
 <HorizontalNavList
 items={"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")}
@@ -14,157 +14,158 @@ slug={props.slug}
 
 ## A
 
-### AST
+### AST（抽象语法树）
 
-Abstract Syntax Tree: A tree representation of the source code that is found during a [compilation](#compiler) step between two languages. For example, [gatsby-transformer-remark](/packages/gatsby-transformer-remark/) will create an AST from [Markdown](#markdown) to describe a Markdown document in a tree structure using the [Remark](#remark) parser.
+Abstract Syntax Tree（抽象语法树）：在两种语言之间的 [编译](#compiler) 阶段，源代码的树结构表示。例如 [gatsby-transformer-remark](/packages/gatsby-transformer-remark/) 会从 [Markdown](#markdown) 文件创建一个 AST，通过 [Remark](#remark) 解析器来描述一个树结构 Markdown 文档
 
-### API
+### API（应用程序编程接口）
 
-Application Programming Interface: A method for one application to communicate with another. For example, a [source plugin](#source-plugin) will often use an API to get its data.
+应用程序编程接口：一种应用程序与另一应用程序进行通信的方法。 例如 [数据源插件](#source-plugin) 通常会使用API来获取其数据。
 
-### Accessibility
+### Accessibility（可访问性）
 
-The inclusive practice of removing barriers that prevent interaction with, or access to websites, by people with disabilities. When sites are correctly designed, developed and edited for accessibility, generally all users have equal access to information and functionality. Read about [Gatsby's Commitment to Accessibility](/blog/2019-04-18-gatsby-commitment-to-accessibility/).
+为了消除阻碍残疾人与网站互动或访问网站障碍的一种包容性做法。 如果为了实现可访问性正确设计、开发和编辑了站点，则通常所有用户对信息和功能都有同等的访问权。 阅读 [Gatsby 对可访问性的承诺](/blog/2019-04-18-gatsby-commitment-to-accessibility/)。
 
 ## B
 
 ### Babel
 
-A tool that lets you write the most modern [JavaScript](#javascript), and on [build](#build) it gets [compiled](#compiler) to code that most web browsers can understand.
+一个让你编写最现代的 [JavaScript](#javascript) 代码的工具，并在 [构建](#build) 时将代码 [编译](#compiler) 为大多数浏览器可以理解的代码。
 
-### Backend
+### Backend（后端）
 
-The behind the scenes that the [public](#public) do not see. This often refers to the control panel of your [CMS](#cms). These are often powered by server-side programming languages such as Node.js, PHP, Go, ASP.net, Ruby, or Java.
+[公众（public）](#public) 看不到的幕后。通常指你的 [CMS](#cms) 的控制面板。 这些通常由服务器端编程语言提供支持，例如Node.js，PHP，Go，ASP.net，Ruby 或 Java。
 
-### Build
+### Build（构建）
 
-In Gatsby, this is the process of taking your code and content and packaging it into a website that can be hosted and accessed. Commonly referred to as _build time_. See also: [backend](#backend) and [server-side](#server-side).
+在 Gatsby 中，这是获取代码和内容并将其打包到可以托管和访问的网站中的过程。 我们通常说 _在构建时……_。 另请参见：[后端](#backend) and [服务器端](#server-side)。
 
 ## C
 
-### Cache
+### Cache（缓存）
 
-A storage of information locally that might be used again, so computations and lookups can be retrieved faster from one place. Gatsby uses a cache to store information so it can build your site faster when you're developing without needing to do the same work twice.
+一个可以再次使用的本地信息存储方式，使我们可以从某一位置更快地计算和查找。 Gatsby 使用缓存来存储信息，因此在你进行开发时，它可以更快地构建你的网站，而无需重复相同的工作。
 
-### CLI
+### CLI（命令行界面）
 
-Command Line Interface: An application that runs on your computer through the [command line](#command-line) and interacted with your keyboard.
+命令行界面：通过 [命令行](#command-line) 在计算机上运行并通过键盘交互的应用程序。
 
-Gatsby has two command line interfaces. One, [`gatsby`](/docs/gatsby-cli/), for day-to-day development with Gatsby and another, [`gatsby-dev`](/contributing/setting-up-your-local-dev-environment/#gatsby-repo-install-instructions), for those who contribute to the Gatsby project.
+Gatsby 有两个命令行界面。 一个是[`gatsby`](/docs/gatsby-cli/)，用于 Gatsby 日常开发；另一个是 [`gatsby-dev`](/contributing/setting-up-your-local-dev-environment/#gatsby-repo-install-instructions)，供那些参与贡献 Gatsby 项目的人使用。
 
-### Client-side
+### Client-side（客户端）
 
-Client-side refers to operations that are performed by the user's browser in a [client–server relationship](https://en.wikipedia.org/wiki/Client%E2%80%93server_model) in a computer network. In Gatsby, this is important when [working with packages](/docs/using-client-side-only-packages/) that rely on objects in the [browser DOM](#dom), such as `window` or `navigator`. See also: [server-side](#server-side), [frontend](#frontend), and [backend](#backend).
+客户端是指由用户浏览器在计算机网络中以 [客户与服务关系](https://en.wikipedia.org/wiki/Client%E2%80%93server_model) 执行的操作。 在 Gatsby 中，当使用依赖于 [浏览器 DOM](#dom) 中的对象（例如 `window` 或 `navigator`）的 [客户端包](/docs/using-client-side-only-packages/)时很重要。 另请参见：[服务器端](#server-side)，[前端](#frontend) 和 [后端](#backend)。
 
-### CMS
+### CMS（内容管理系统）
 
-Content Management System: an application where you can manage your content and have it saved to a database or file for accessing later. Examples of Content Management Systems include WordPress, Drupal, Contentful, and Netlify CMS.
+内容管理系统：你可以在其中管理内容并将其保存到数据库或文件中以供日后访问。 内容管理系统包括 WordPress，Drupal，Contentful 和 Netlify CMS 等等。
 
-### Command Line
+### Command Line（命令行）
 
-A text-based interface to run commands on your computer. The default Command Line applications for Mac and Windows are `Terminal` and `Command Prompt` respectively.
+一个基于文本的界面，用于在计算机上运行命令。 Mac 和 Windows 的默认命令行应用程序分别是 `Terminal` 和 `Command Prompt`。
 
-### Compiler
+### Compiler（编译器）
 
-A compiler is a program that translates code written in one language to another language. For example [Gatsby](#gatsby) can compile [React](#react) applications into static [HTML](#html) files.
+编译器是将一种语言编写的代码转换为另一种语言的程序。 例如，[Gatsby](#gatsby) 可以将 [React](#react) 应用程序编译成静态 [HTML](#html) 文件。
 
-### Component
+### Component（组件）
 
-Components are independent and re-usable chunks of code powered by [React](#react) that, when combined, make up your website or app.
+组件是由 [React](#react) 提供支持的独立且可重复使用的代码块，这些代码结合起来构成你的网站或应用。
 
-A component can include components within it. In fact, [pages](#page) and [templates](#template) are examples of components.
+组件中可以包含组件。 [pages](#page) 和 [templates](#template) 是两个很好的实际例子。
 
-### Config
+### Config（配置）
 
-The configuration file, `gatsby-config.js` tells Gatsby information about your website. A common option set in config is your sites metadata that can power your SEO meta tags.
+配置文件。`gatsby-config.js` 告诉 Gatsby 有关你的网站的信息。 一个常见的配置选项是你的网站元数据（meatadata），它可以为你的 SEO 元标记（meta tag）提供支持。
 
-### CSS
+### CSS（级联样式表）
 
-[CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) stands for Cascading Style Sheets, and it's a major part of the Web Platform with [HTML](#html) and [JavaScript](#javascript). CSS is a language for styling webpages designed to be highly backwards-compatible. As new features are rolled out to end users, [CSS parsers](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/#CSS_parsing) can safely ignore unsupported features and enhance with the properties they do support. CSS accomplishes this with its _cascading_ design, fundamental to styling with new techniques like [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_and_Progressive_Enhancement) while providing fallbacks for older browsers. Gatsby supports multiple [approaches to styling](/docs/styling/), including regular CSS files, CSS modules, and CSS-in-JS.
+[CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) 代表级联样式表，它是 [HTML](#html) 和 [JavaScript](#javascript) 在网络平台（Web Platform）中的重要组成部分。 CSS 是一种使网页样式化的语言，旨在使网页高度向后兼容。 随着向终端用户推出新功能，[CSS 解析器](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/#CSS_parsing) 可以安全地忽略不受支持的功能，并增强其支持的属性。 CSS通过 _级联_ 设计来完成任务，这是使用 [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_and_Progressive_Enhancement) 等新技术进行样式设置的基础。 Gatsby支持多种 [样式设计方法](/docs/styling/)，包括常规 CSS 文件，CSS 模块和 CSS-in-JS。
 
 ## D
 
-### Data Source
+### Data Source（数据源）
 
-Content and data's origin point, typically integrated into Gatsby with [source plugins](#source-plugin). A data source is often a [Headless CMS](#headless-cms), but it could also include Markdown, JSON, or YAML files.
+内容和数据的起点。通常通过 [数据源插件](#source-plugin) 集成到 Gatsby 中。 数据源通常是 [无头 CMS](#headless-cms)，但它也可以包含 Markdown，JSON 或 YAML 文件。
 
-### Database
+### Database（数据库）
 
-A database is a structured collection of data or content. Often a [CMS](#cms) will save to a database using [backend technologies](#backend). They're often accessed in Gatsby via a [source plugin](#source-plugin)
+数据库是数据或内容的结构化集合。 通常 [CMS](#cms) 使用 [后端技术](#backend) 将数据保存到数据库。 通常可以通过 [数据源插件](#source-plugin) 在 Gatsby 中访问它们。
 
-### Decoupled
+### Decoupled（解耦）
 
-Decoupling describes the separation of different concerns. With [Gatsby](#gatsby) this most commonly means decoupling the [frontend](#frontend) from the [backend](#backend), like with [Decoupled Drupal](https://dri.es/how-to-decouple-drupal-in-2019) or [Headless WordPress](https://www.smashingmagazine.com/2018/10/headless-wordpress-decoupled/).
+解耦描述了关注点的分离。 对于 [Gatsby](#gatsby)，这通常意味着将 [前端](#frontend) 与 [后端](#backend) 分离，比如 [Drupal 解耦](https://dri.es/how-to-decouple-drupal-in-2019) 或 [无头 WordPress](https://www.smashingmagazine.com/2018/10/headless-wordpress-decoupled/)。
 
-### Deploy
+### Deploy（部署）
 
-The process of [building](#build) your website or app and uploading onto a [hosting provider](#hosting).
+[构建](#build) 你的网站或应用并上传到 [托管服务提供商](#hosting) 的过程。
 
-### Development Environment
+### Development Environment（开发环境）
 
-The [environment](#environment) when you're developing your code. It's accessed through the [CLI](#cli) using `gatsby develop`, and provides extra error reporting and things to help you debug before building for [production](#production-environment).
+开发代码时的[环境](#environment)。 它可以通过使用 [CLI](#cli) `gatsby develop` 来访问，并提供额外的错误报告和帮助你在为 [生产环境](#production-environment) 构建之前进行调试的功能。
 
-### DOM
+### DOM（文档对象模型）
 
-The Document Object Model, commonly referred to as "the DOM", is a standard browser API that connects web pages to scripts or programming languages by representing the structure of an HTML document in memory. Developers commonly interact with the DOM through [HTML](#html) markup (written in [JSX](#jsx) in Gatsby), as well as both [React](https://reactjs.org/docs/react-dom.html) and [vanilla JavaScript](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction#DOM_and_JavaScript) code. Another important aspect of utilizing the DOM to its full potential is writing [accessible](#accessibility) HTML markup to expose a page's structure to assistive technology.
+文档对象模型（通常称为 “the DOM”）是一种标准的浏览器 API，它通过表示内存中 HTML 文档的结构，将网页连接到脚本或编程语言。 开发人员通常通过 [HTML](#html) 标记（在Gatsby 中以 [JSX](#jsx) 编写）以及 [React](https://reactjs.org/docs/react-dom.html) 和 [原生 JavaScript](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction#DOM_and_JavaScript) 与 DOM 进行交互。它充分利用 DOM 的另一个重要方面是编写 [可访问的](#accessibility) HTML 标记，以将页面结构暴露给残疾人辅助技术。
 
 ## E
 
 ### ECMAScript
 
-ECMAScript (often referred to as ES) is a specification for scripting languages. [JavaScript](#javascript) is an implementation of ECMAScript. Often developers will use [Babel](#babel) to [compile](#compiler) the latest ECMAScript code into more widely supported JavaScript.
+ECMAScript（通常称为ES）是脚本语言的规范。 [JavaScript](#javascript) 是 ECMAScript 的一种实现。 通常，开发人员会使用 [Babel](#babel) 将最新的 ECMAScript 代码 [编译](#compiler) 成更广泛支持的 JavaScript。
 
-### Environment
+### Environment（环境）
 
-The environment that Gatsby runs in. For example, when you are writing your code you probably want as much debugging as possible, but that's undesirable on the live website or app. As such, Gatsby can change its behavior depending on the environment it's in.
+Gatsby 所运行的环境。例如在编写代码时，你可能希望尽可能多地进行调试，但这在上线的网站或应用程序中是不可取的。 因此，Gatsby 可以根据所处的环境来更改其行为。
 
-Gatsby supports two environments by default, the [development environment](#development-environment) and the [production environment](#production-environment).
+Gatsby 默认情况下支持两种环境，即 [开发环境](#development-environment) 和 [生产环境](#production-environment)。
 
-### Environment Variables
+### Environment Variables（环境变量）
 
-[Environment Variables](/docs/environment-variables/) allow you to customize the behavior of your app depending on its [environment](#environment). For instance, you may wish to get content from a staging CMS during development and connect to your production CMS when you [build](#build) your site. With environment variables you can set a different URL for each environment.
+[环境变量](/docs/environment-variables/) 允许你根据应用程序的 [环境](#environment) 自定义其行为。 例如你可能希望在开发过程中从测试 CMS 获取内容，并在 [构建](#build) 网站时连接到生产 CMS。 使用环境变量，可以为每个环境设置不同的 URL。
 
 ## F
 
-### Filesystem
+### Filesystem（文件系统）
 
-The way files are organized. With Gatsby, it means having files in the same place as your website's or app's code instead of pulling data from an external [source](#data-source). Common filesystem usage in Gatsby includes Markdown content, images, data files, and other assets.
+文件的组织方式。 在 Gatsby 中，这意味着将文件与您的网站或应用程序的代码放在同一位置，而不是从外部 [数据源](#data-source) 中提取数据。 Gatsby 中常见的文件系统用法包括 Markdown 内容，图像，数据文件和其他资源。
 
-### Frontend
+### Frontend（前端）
 
-The [public-facing](#public) interface for your website or app, delivered using web technologies: HTML, CSS, and JavaScript. For more insight into how the Web Platform brings these technologies together, check out this article on [How Browsers Work](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/).
+您的网站或应用程序面向 [公众](#public) 的界面，使用 Web 技术（HTML，CSS 和 JavaScript）提供。 有关网络平台（Web Platform）如何将这些技术整合在一起的更多信息，请查看 [浏览器的工作原理](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)。
 
 ## G
 
 ### Gatsby
 
-Gatsby is a modern website framework that builds performance into every website or app by leveraging the latest web technologies such as [React](#react), [GraphQL](#graphql), and modern [JavaScript](#javascript). Gatsby makes it easy to create blazing fast, compelling web experiences without needing to become a performance expert.
+Gatsby是一个现代的网站框架，它利用[React](#react)，[GraphQL](#graphql) 和现代的 [JavaScript](#javascript) 等最新网络技术，为每个网站或应用程序构建卓越的性能。 通过 Gatsby，无需成为网站性能专家，你就可以轻松创建非常快速的引人入胜的 Web 体验。
 
 ### GraphQL
 
-A [query](#query) language that allows you to pull data into your website or app. It’s the [interface that Gatsby uses](/docs/graphql/) for managing site data.
+一种可让您将数据提取到您的网站或应用中的 [查询](#query) 语言。 这是 [Gatsby 用于管理网站数据的界面](/docs/graphql/)。
 
 ## H
 
-### HTML
+### HTML（超文本标记语言）
 
-A markup language that every web browser is able to understand. It stands for Hypertext Markup Language. [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) gives your web content a universal informational structure, defining things like headings, paragraphs, and more. It is also key to providing an accessible website.
+每个 Web 浏览器都能理解的标记语言。 它表示 Hypertext Markup Language（超文本标记语言）。 [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) 为您的 Web 内容提供了一种通用的信息结构，定义了标题，段落等内容。 这也是提供可访问网站的关键。
 
-### Headless CMS
+### Headless CMS（无头 CMS）
 
-A [CMS](#cms) that only handles the [backend](#backend) content management instead of handling both the backend and [frontend](#frontend). This type of setup is also referred to as [Decoupled](#decoupled).
+一个仅处理 [后端](#backend) 而不同时处理后端和 [前端](#frontend) 的 [CMS](#cms) 内容管理方式。 这种类型的设置也称为 [解耦](#decoupled)。
 
 ### Hosting
 
-A hosting provider keeps a copy of your website or app and makes it accessible to [the public](#public). [Common hosting providers for Gatsby](/docs/deploying-and-hosting/) projects include Netlify, AWS, S3, Surge, Heroku, and more.
+保留您的网站或应用程序副本的托管服务提供商，并允许 [公众](#public) 访问。 [Gatsby的常见托管服务提供商](/docs/deploying-and-hosting/) 包括了 Netlify，AWS，S3，Surge，Heroku 等。
 
-### Hot module replacement
+### Hot module replacement（模块热替换）
 
-A feature in use when you run `gatsby develop` that live updates your site on save of code in a text editor by automatically replacing modules, or chunks of code, in an open browser window.
+运行 `gatsby develop` 时使用的一项功能。在文本编辑器中实时保存代码后，可在打开的浏览器窗口中自动替换模块或代码块，从而实时更新网站。
 
-### Hydration
+### Hydration（补水）
 
 Once a site has been [built](#build) by Gatsby and loaded in a web browser, [client-side](#client-side) JavaScript assets will download and turn the site into a full React application that can manipulate the [DOM](#dom). This process is often called re-hydration as it runs some of the same JavaScript code used to generate Gatsby pages, but this time with browser DOM APIs like `window` available.
+一旦网站由 Gatsby [构建](#build) 并加载到网络浏览器中，[客户端](#client-side) JavaScript 资源就会被下载并将该站点转变为可以操纵的 [DOM](#dom)。 这个过程通常称为 “补水”，因为它运行了一些用于生成 Gatsby 页面的 JavaScript 相同代码，但是这个过程中诸如 `window` 之类的浏览器 DOM API 可用。
 
 ## I
 
@@ -172,15 +173,15 @@ Once a site has been [built](#build) by Gatsby and loaded in a web browser, [cli
 
 ### JAMStack
 
-JAMStack refers to a modern web architecture using [JavaScript](#javascript), [APIs](#api), and ([HTML](#html)) markup. From [JAMStack.org](https://jamstack.org): "It’s a new way of building websites and apps that delivers better performance, higher security, lower cost of scaling, and a better developer experience."
+JAMStack 是指使用 [JavaScript](#javascript)，[API](#api) 和（[HTML](#html)）标记的现代 Web 体系架构。 引用自 [JAMStack.org](https://jamstack.org)：“这是一种构建网站和应用程序的新方法，可提供更强的性能，更高的安全性，更低的扩展成本以及更好的开发人员体验。”
 
 ### JavaScript
 
-A programming language that helps us make the web dynamic and interactive. [JavaScript](https://developer.mozilla.org/en-US/docs/Web/Javascript) is a widely deployed web technology in browsers. It is also used on the server-side with [Node.js](#node). It is an implementation of the [ECMAScript](#ECMAScript) specification.
+、一种编程语言，可以帮助我们使网页内容动态可交互。[JavaScript](https://developer.mozilla.org/en-US/docs/Web/Javascript) 是在浏览器中广泛使用的 Web 技术。 它也可以与 [Node.js](#node) 在服务器端一起使用。 它是 [ECMAScript](#ECMAScript) 规范的一种实现。
 
 ### JSX
 
-JSX is an extension to JavaScript that allows developers to write HTML and custom components in the same piece of code. The [React team recommends](https://reactjs.org/docs/introducing-jsx.html) using it to describe what a [UI](#UI) should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript. Some important details to note are that because JSX uses JavaScript, some HTML attributes in your markup have to be swapped out to avoid reserved words in JavaScript (things like `htmlFor` and `className`).
+JSX 是 JavaScript 的扩展，允许开发人员在同一代码段中编写 HTML 和自定义组件。 [React团队推荐](https://reactjs.org/docs/introducing-jsx.html) 使用它来描述 [UI](#UI) 如何呈现。 JSX 可能会让您想起模板语言，但是它具有 JavaScript 的全部功能。 需要注意的重要细节：由于 JSX 使用 JavaScript，因此必须交换标记中的某些 HTML 属性，以避免使用 JavaScript 中的保留字（例如 `htmlFor` 和 `className`）。
 
 ## K
 
@@ -188,139 +189,141 @@ JSX is an extension to JavaScript that allows developers to write HTML and custo
 
 ### Linting
 
-Linting is the process of running a program that will analyze code for potential errors. The Gatsby project uses [prettier](https://prettier.io/) to identify and fix common style issues. Another example of a linter commonly used in React projects is [eslint-jsx-plugin-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y), which checks for common [accessibility](#accessibility) issues in development.
+Linting 是运行程序时分析代码是否存在潜在错误的过程。 Gatsby 项目使用 [prettier](https://prettier.io/) 来识别和修复常见样式问题。 React 项目中常用的另一个 linter 的例子是 [eslint-jsx-plugin-a11y](https://github.com/evcohen/eslint-plugin-jsx-a11y)，它检查开发中常见的 [可访问性](#accessibility) 问题。
 
 ## M
 
 ### MDX
 
-Extends [Markdown](#markdown) to support [React](#react) [components](#component) within your content.
+一种扩展 [Markdown](#markdown) 以支持内容中的 [React](#react) [组件](#component)。
 
 ### Markdown
 
-A way of writing HTML content with plain text, using special characters to denote content types such as hash symbols for [headings](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), and underscores and asterisks for text emphasis.
+一种使用纯文本编写 HTML 内容的方法，使用特殊字符来表示内容类型，比如表示的 [标题](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements) 的井号、下划线强调文本的星号。
 
 ## N
 
 ### NPM
 
-[Node](#node) [Package](#package) Manager. Allows you to install and update other packages that your project depends on. [Gatsby](#gatsby) and [React](#react) are examples of your project's dependencies. See also: [Yarn](#yarn).
+一个 [Node](#node) 的 [包](#package) 管理器。允许您安装和更新项目所依赖的其他软件包。 [Gatsby](#gatsby) 和 [React](#react) 是两个项目依赖项例子。 另请参见：[Yarn](#yarn)。
 
-### Node
+### Node（节点）
 
-Gatsby uses [data nodes](/docs/node-interface/) to represent a single piece of data. A [data source](#data-source) will create multiple nodes.
+Gatsby 使用 [数据节点](/docs/node-interface/) 来表示一条数据。 一个 [数据源](#data-source) 会创建多个数据节点。
 
 ### Node.js
 
-A program that lets you run [JavaScript](#javascript) on your computer. Gatsby is powered by Node.
+一个让你在计算机上运行 [JavaScript](#javascript) 的程序。 Gatsby 由 Node 驱动。
 
 ## O
 
 ## P
 
-### Package
+### Package（包）
 
-A package usually describes a [JavaScript](#javascript) program that has additional information about how it should be distributed and used, such as its version number. [NPM](#npm) and [Yarn](#yarn) manages and installs the packages your project uses. [Gatsby](#gatsby) itself is a package.
+包通常描述一个 [JavaScript](#javascript) 程序，该程序具有有关应如何分发和使用它的附加信息，例如其版本号。 [NPM](#npm) 和 [Yarn](#yarn) 管理和安装您的项目使用的软件包。 [Gatsby](#gatsby) 本身也是是一个包。
 
-### Page
+### Page（页面）
 
-An [HTML](#html) page.
+一个 [HTML](#html) 页面。
 
-This also often refers to [components](#component) that live in `/src/pages/` and are converted to pages by [Gatsby](#gatsby), as well as [pages created dynamically](/docs/creating-and-modifying-pages/#creating-pages-in-gatsby-nodejs) in your `gatsby-node.js` file.
+通常也指存在于 `/src/pages/` 的 [组件](#component)，它们通过 [Gatsby](#gatsby) 转换为页面。也可以指 `gatsby-node.js` 文件中 [动态生成的页面](/docs/creating-and-modifying-pages/#creating-pages-in-gatsby-nodejs)。
 
-### Plugin
+### Plugin（插件）
 
-Additional code that adds functionality to Gatsby that wasn't included out-of-the-box. Common [Gatsby plugins](/plugins/) include [source](#source-plugins) and [transformer](#transformer) plugins for pulling in and manipulating data, respectively.
+为 Gatsby 添加功能的没有被囊括其中的附加代码。常见的 [Gatsby 插件](/plugins/) 包括分别负责拉取和处理数据的 [数据源](#source-plugins) 和 [数据转换](#transformer) 插件。
 
-### Production Environment
+### Production Environment（生产环境）
 
-The [environment](#environment) for the [built](#build) website or app that users will experience when [deployed](#deploy). It can be accessed through the [CLI](#cli) using `gatsby build` or `gatsby serve`.
+[部署](#deploy) 后用户将要体验到的 [构建好](#build) 的站点或应用所在的 [环境](#environment)。它可以通过在 [CLI](#cli) 中使用 `gatsby build` 或 `gatsby serve` 访问到。
 
-### Programmatically
+### Programmatically（以编程的方式）
 
 Something that automatically happens based on your code and configuration. For example, you might [configure](#config) your project to create a [page](#page) for every blog post written, or read and display the current year as part of a copyright in your site footer.
+某些事件会根据你的代码和配置自动执行。 例如，您可以 [配置](#config) 项目来为每个撰写的博客文章创建一个 [页面](#page)，或者读取并显示当前年份，在站点页脚中作为版权的一部分。
 
-### Progressive enhancement
+### Progressive enhancement（渐进式增强）
 
-Progressive enhancement is a strategy for the web that emphasizes core page content is loaded from a server before anything else, without [JavaScript](#javascript) as a requirement to load. This strategy then progressively adds more complex layers of presentation and features on top of the content as the end user's browser/network connection allow. Gatsby's default approach to [building](#build) pages ahead-of-time means content will load first and enhance as scripts download and execute.
+渐进增强是一种强调首先从服务器加载核心页面内容，然后再加载其他内容的 Web 策略，而无需加载[JavaScript](#javascript)。 然后，此策略会在终端用户的浏览器或网络连接允许的情况下，在当前内容上逐步添加更复杂的表示层和功能层。 Gatsby 的默认方法是提前 [构建](#build) 页面，这意味着内容将首先加载出来，然后和随着脚本的下载和执行渐渐增强。
 
-### Public
+### Public（公众）
 
-This usually refers to either a member of the public (as opposed to your team) or the folder `/public` in which your [built](#build) website or app is saved.
+通常是指公众成员（而不是你的团队成员），也可以是指你 [构建好](#build) 的站点或应用中的 `/public` 文件夹。
 
 ## Q
 
-### Query
+### Query（查询）
 
-The process of requesting specific data from somewhere. With Gatsby you normally query with [GraphQL](#graphql).
+从某处请求特定数据的过程。 Gatsby 中通常使用 [GraphQL](#graphql) 进行查询。
 
 ## R
 
 ### React
 
-A code library (written with [JavaScript](#javascript)) for building user interfaces. It’s the framework that [Gatsby](#gatsby) uses to build pages and structure content.
+一个用于构建用户界面的代码库（使用[JavaScript](#javascript))编写）。 它是 [Gatsby](#gatsby) 用于构建页面和组织内容的框架。
 
-### Remark
+### Remark（备注）
 
-A parser to translate [Markdown](#markdown) to other formats like [HTML](#html) or [React](#react) code.
+一种用于将[Markdown](#markdown) 转换为其他格式的解析器，其他格式包括 [HTML](#html) 和 [React](#react)代码。
 
-### Runtime
+### Runtime（运行时）
 
-Runtime is when a program is running (or being executable); it can refer to a few things. [Node.js](#nodejs) is a [server-side](#server-side) runtime that executes JavaScript code. [Client-side JavaScript](#client-side), on the other hand, refers to the browser runtime where traditional JavaScript code executes. Gatsby compiles your site at [build time](#build) and [rehydrates with a React runtime](#hydration) to provide a fast, interactive, and dynamic user experience.
+运行时是指一个程序正在运行（或可执行）的时间。 它可以指这么几件事：[Node.js](#nodejs) 是执行 JavaScript 代码的 [服务器端](#server-side) 运行时；另一方面，[客户端 JavaScript](#client-side) 是指执行传统 JavaScript 代码的浏览器运行时。 Gatsby会在 [构建时](#build) 编译您的站点，并 [使用 React 运行时进行补水](#hydration) 来提供快速的，交互式的和动态的用户体验。
 
-### Routing
+### Routing（路由）
 
-Routing is the mechanism for loading the correct content in a website or app based on a network request - usually a URL. For example, it allows for routing URLs like `/about-us` to the appropriate [page](#page), [template](#template), or [component](#component).
+路由是一种根据网络请求（通常是 URL ）在网站或应用中加载正确内容的机制。 例如，它允许将 `/about-us` 之类的 URL 路由到适当的[page](#page)，[template](#template) 或 [component](#component)。
 
 ## S
 
-### Schema
+### Schema（数据模式）
 
 An exact representation of how data is stored in a system, such as tables and fields in a database or a JSON file structure. In Gatsby, the GraphQL schema expresses all queryable data - or data that components can ask about as part of Gatsby's data layer.
+一种数据在系统中如何存储的准确表示方式，例如数据库中的表和字段，或 JSON 文件结构。 在 Gatsby 中，GraphQL 模式表示所有可查询的数据，或作为 Gatsby 数据层的一部分的组件可以查询的数据。
 
-### Server-side
+### Server-side（服务器端）
 
-The server-side part of the [client-server relationship](https://en.wikipedia.org/wiki/Client%E2%80%93server_model) refers to operations performed by a computer program which manages access to a centralized resource or service in a computer network. Gatsby uses the server-side technology [Node.js](#nodejs) to compile pages at build time, as opposed to serving them at [browser runtime](#runtime) with [client-side](#client-side) JavaScript. See also: [frontend](#frontend) and [backend](#backend).
+[客户端-服务器关系](https://en.wikipedia.org/wiki/Client%E2%80%93server_model) 的服务器端部分是指：管理访问集中式资源或计算机网络中的服务的由计算机程序执行的操作。 Gatsby 使用服务器端技术 [Node.js](#nodejs) 在构建时编译页面，而不是在[浏览器运行时](#runtime) 中使用 [客户端](#client-side) JavaScript 来提供页面 。 另请参见：[frontend](#frontend) 和 [backend](#backend)。
 
-### Source Code
+### Source Code（源代码）
 
-Source code is your code that lives in `/src/` folder and makes up the unique aspects of your website or app. It is made up of [JavaScript](#javascript) and sometimes [CSS](#css) and other files.
+源代码是位于 `/src/` 目录中的代码，它们构成网站或应用程序的独特内容。 它由 [JavaScript](#javascript) 文件组成，有时也包括 [CSS](#css) 和其他文件。
 
-The source code gets [built](#build) into the site the [public](#public) will see.
+源代码在 [构建](#build) 站点时被编译，以使得 [公众](#public) 能看见。
 
-### Source Plugin
+### Source Plugin（数据源插件）
 
-A [plugin](#plugin) that adds additional [data sources](#data-source) to Gatsby that can then be [queried](#query) by your [pages](#page) and [components](#component).
+一个向 Gatsby 添加额外 [数据源](#data-source) 的插件，数据源可以之后被 [页面](#page) 和 [组件](#component) [查询](#query) 到。
 
 ### Starter
 
-A pre-configured Gatsby project that can be used as a starting point for your project. They can be discovered using the [Gatsby Starter Library](/starters/) and installed using the [Gatsby CLI](/docs/starters/).
+一个预先配置好的 Gatsby 项目，可以用作项目的起点。 可以在 [Gatsby Starter 库](/starters/) 中找到它们，并使用 [Gatsby CLI](/docs/starters/) 安装它们。
 
-### Static
+### Static（静态）
 
-Gatsby [builds](#build) static versions of your page that can be easily [hosted](#hosting). This is in contrast to dynamic systems in which each page is generated on-the-fly. Being static affords major performance gains because the work only needs to be done once per content or code change.
+Gatsby 构建页面的静态版本，可以轻松地被 [托管](#hosting)。 这与动态系统不同，在动态系统中，每个页面都是即时生成的。 保持静态状态可带来显著的性能提升，因为只有每次更改内容或代码时才需要工作。
 
-It also refers to the `/static` folder which is automatically copied into `/public` on each [build](#build) for files that don't need to be processed by Gatsby but do need to exist in [public](#public).
+它也可以指 `/static` 文件夹，该文件夹会自动复制到每个 [构建](#build) 后的文件里的 `/public` 中，用于不需要由 Gatsby 处理但确实需要存在于 [public](#public) 文件夹中的文件。
 
 ## T
 
-### Template
+### Template（模板）
 
-A [component](#component) that is [programmatically](#programmatically) turned into a page by Gatsby.
+一个 [以编程的方式](#programmatically) 由 Gatsby 转换为页面的 [组件](#component)。
 
-### Theme
+### Theme（主题）
 
-A Gatsby theme is like a WordPress theme that is composable (with other themes), extendable (with more logic), and replaceable ([shadowing](/blog/2019-04-29-component-shadowing/)). Gatsby themes can have any facet of a Gatsby app packaged inside of them, and can also offer any number of knobs to turn features on or off.
+Gatsby 主题就像 WordPress 主题一样，可组合（与其他主题），可扩展（具有更多逻辑）和可替换（[组件遮蔽](/blog/2019-04-29-component-shadowing/)）。 Gatsby 主题可以施加在使用它的 Gatsby 应用的任何方面，也可以提供任意数量的设置来打开或关闭功能。
 
-### Transformer
+### Transformer（数据转换插件）
 
-A [plugin](#plugin) that transforms one type of data to another. For example you might transform a spreadsheet into a [JavaScript](#javascript) array.
+一个可以将一种数据类型转换为另一种数据类型的 [插件](#plugin)。 例如你可以将电子表格转换为 [JavaScript](#javascript) 数组。
 
 ## U
 
-### UI
+### UI（用户界面）
 
-A UI refers to a User Interface. In the field of human-computer interaction, a UI is a space where interactions between humans and machines occur. The goal of this interaction is to allow effective operation and control of the machine from the human end, while the machine simultaneously feeds back information that aids the user's decision-making process (such as error messages or notifications).
+UI 是指用户界面。 在人机交互领域，UI 是人机之间交互的空间。 这种交互的目的是允许从人的角度对机器进行有效的操作和控制，机器同时反馈有助于用户决策过程的信息（例如错误消息或通知）。
 
 ## V
 
@@ -328,7 +331,7 @@ A UI refers to a User Interface. In the field of human-computer interaction, a U
 
 ### Webpack
 
-A [JavaScript](#javascript) application that Gatsby uses to bundle your website's code up. This happens automatically on [build](#build).
+一个 Gatsby 用来打包网站代码的 [JavaScript](#javascript) 应用程序。 它会自动在 [构建](#build) 是执行。
 
 ## X
 
@@ -336,6 +339,6 @@ A [JavaScript](#javascript) application that Gatsby uses to bundle your website'
 
 ### Yarn
 
-A [package](#package) manager that some prefer to [NPM](#npm). It is also required for [developing Gatsby](/contributing/setting-up-your-local-dev-environment/#using-yarn).
+一个 [包](#package) 管理器，有些人相对于 [NPM](#npm) 更喜欢它。 它也是 [开发 Gatsby 应用](/contributing/setting-up-your-local-dev-environment/#using-yarn) 所需要的。
 
 ## Z
