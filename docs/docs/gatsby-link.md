@@ -4,7 +4,7 @@ title: Gatsby Link API
 
 对于内部导航，Gatsby 包含了一个内置的 `<Link>` 组件和一个 用于在代码中导航的 `navigate` 函数。
 
-Gatsby 的 `<Link>` 组件可以链接到内部页面。它有着称为预加载的显著提升性能的功能。 预加载用于预获取资源，以便在用户使用此组件导航时取回资源。 当 `Link` 在视图中时，我们使用 `IntersectionObserver` 来获取低优先级的请求，然后当用户可能导航到所请求的资源时，使用 `onMouseOver` 事件来触发高优先级的请求。
+Gatsby 的 `<Link>` 组件可以链接到内部页面。它有着称为预加载的显著提升性能的功能。预加载用于预获取资源，以便在用户使用此组件导航时取回资源。当 `Link` 在视图中时，我们使用 `IntersectionObserver` 来获取低优先级的请求，然后使用 `onMouseOver` 事件来触发高优先级的请求来为用户导航到可能需要的资源。
 
 该组件是 [@reach/router's Link 组件](https://reach.tech/router/api/Link) 的一个包装，它添加了针对 Gatsby 的功能加强。所有的属性都传递到 @reach/router 的 `Link` 组件中。
 
@@ -82,7 +82,7 @@ const SiteNavigation = () => (
 
 ### 为高级链接样式使用 `getProps`
 
-Gatsby 的 `<Link>` 组件带有 `getProps` 这个属性（prop），这对于高级样式很有用。 它提供了一个具有以下属性的对象：
+Gatsby 的 `<Link>` 组件带有 `getProps` 这个属性（prop），这对于高级样式很有用。它提供了一个具有以下属性的对象：
 
 - `isCurrent`——当 `location.pathname` 和 `<Link>` 组件的 `to` 属性相同时，值为 true
 - `isPartiallyCurrent` — 当 `location.pathname` 以 `<Link>` 组件的 `to` 属性开头时，值为 true
@@ -93,7 +93,7 @@ Gatsby 的 `<Link>` 组件带有 `getProps` 这个属性（prop），这对于�
 
 ### 为部分匹配的链接和父链接显示活动样式
 
-默认情况下，仅在当前 URL 与其  `to` 属性（prop）_完全_ 匹配时，才在 `<Link>` 组件上设置 `activeStyle` 和 `activeClassName` 属性。 有时，你可能希望将 `<Link>` 设置为活动样式，即使它只部分匹配当前 URL。 例如：
+默认情况下，仅在当前 URL 与其 `to` 属性（prop）_完全_ 匹配时，才在 `<Link>` 组件上设置 `activeStyle` 和 `activeClassName` 属性。有时，你可能希望将 `<Link>` 设置为活动样式，即使它只部分匹配当前 URL。例如：
 
 - 你可能想要将 `/blog/hello-world` 匹配到 `<Link to="/blog">`
 - 或者将 `/gatsby-link/#passing-state-through-link-and-navigate` 匹配到 `<Link to="/gatsby-link">`
@@ -125,7 +125,7 @@ _**注意：**此功能仅在 Gatsby V2.1.3 及以后的版本中可用。如果
   lessonTitle="Include Information About State in Navigation With Gatsby’s Link Component"
 />
 
-有时您会想要将数据从源页面传递到连接的页面中。 您可以通过将 `state` 属性（prop）传递给  `Link` 组件或调用 `navigate` 函数来实现。 连接的页面中将有一个 `location` 属性，其中包含一个嵌套的 `state` 对象结构，该对象包含传递的数据。
+有时您会想要将数据从源页面传递到连接的页面中。您可以通过将 `state` 属性（prop）传递给  `Link` 组件或调用 `navigate` 函数来实现。连接的页面中将有一个 `location` 属性，其中包含一个嵌套的 `state` 对象结构，该对象包含传递的数据。
 
 ```jsx
 const PhotoFeedItem = ({ id }) => (
@@ -159,7 +159,7 @@ const Photo = ({ location, photoId }) => {
   lessonTitle="Replace Navigation History Items with Gatsby’s Link Component"
 />
 
-在某些情况下我们需要修改“后退”按钮的行为。 例如，如果你构建了一个页面，在页面上选择了一个东西，然后 “确定吗？” 页面出现以确保它是你真正想要的，最后看到成功确认页面。于是你可能希望在点击 “后退” 按钮后跳过 “确定吗？”页面。
+在某些情况下我们需要修改“后退”按钮的行为。例如，如果你构建了一个页面，在页面上选择了一个东西，然后 “确定吗？” 页面出现以确保它是你真正想要的，最后看到成功确认页面。于是你可能希望在点击 “后退” 按钮后跳过 “确定吗？”页面。
 
 这时就可以使用 `replace` 属性将历史记录中的当前 URL 替换为 `Link` 的目标。
 
@@ -185,17 +185,17 @@ const AreYouSureLink = () => (
   lessonTitle="Navigate to a New Page Programmatically in Gatsby"
 />
 
-有时，您需要以编程方式导航到页面，例如在表单提交期间。 在这种情况下，`Link` 将不起作用。
+有时，您需要以编程方式导航到页面，例如在表单提交期间。在这种情况下，`Link` 将不起作用。
 
-_**注意：** `navigate` 之前被命名为 `navigateTo`。 `navigateTo` 在 Gatsby v2 中不赞成使用，会在下一个重大更新时被移除。_
+_**注意：** `navigate` 之前被命名为 `navigateTo`。`navigateTo` 在 Gatsby v2 中不赞成使用，会在下一个重大更新时被移除。_
 
-作为另一种方案，Gatsby 导出了一个 `navigate` 帮助函数，该函数接受 `to` 和 `options` 参数。
+作为另一种方案，Gatsby 导出了一个 `navigate` 辅助函数，该函数接受 `to` 和 `options` 参数。
 
 | 参数              |  是否必要 | 描述                                                                                            |
 | ----------------- | -------- | ----------------------------------------------------------------------------------------------- |
 | `to`              | 是       | 导航到的页面（例如 `/blog/`）。                                                                   |
 | `options.state`   | 否       | 一个对象。传入的值会在目标页面属性的 `location.state` 中可用。                                       |
-| `options.replace` | 否       | 一个布尔值。 值为 true 时在历史记录中替换当前 URL。                                                  |
+| `options.replace` | 否       | 一个布尔值。值为 true 时在历史记录中替换当前 URL。                                                   |
 
 默认情况下，`navigate` 的操作方式与点击 `Link` 组件的方式相同。
 
@@ -277,7 +277,7 @@ const Form = () => (
 
 ## 使用 `withPrefix` 给路径添加路径前缀
 
-站点通常被托管在站点的子目录中。 通过 Gatsby，您可以[设置网站的路径前缀](/docs/path-prefix/)。 之后 Gatsby 的 `<Link>` 组件将自动在开发和生产环境中构造正确的 URL。
+站点通常被托管在站点的子目录中。通过 Gatsby，您可以[设置网站的路径前缀](/docs/path-prefix/)。之后 Gatsby 的 `<Link>` 组件将自动在开发和生产环境中构造正确的 URL。
 
 对于你手动构建的路径名，一个辅助函数 `withPrefix` 可以帮你在生产环境中添加路径前缀（在开发环境中不需要路径前缀）。
 
@@ -298,9 +298,9 @@ const IndexLayout = ({ children, location }) => {
 
 ## 提醒：仅将 `<Link>` 用于内部链接！
 
-该组件 _仅_ 用于链接到 Gatsby 处理的页面。 对于链接到其他域上页面的链接，或同一域上未由 Gatsby 处理的页面的链接，请使用常规的 `<a>` 元素。
+该组件 _仅_ 用于链接到 Gatsby 处理的页面。对于链接到其他域上页面的链接，或同一域上未由 Gatsby 处理的页面的链接，请使用常规的 `<a>` 元素。
 
-有时，您可能无法提前知道链接是否在内部，例如数据来自 CMS 的时候。 在这些情况下，您可能会发现制作一个组件来检查链接，并使用 Gatsby 的 `<Link>` 或常规的 `<a>` 标签进行渲染很有用。
+有时，您可能无法提前知道链接是否在内部，例如数据来自 CMS 的时候。在这些情况下，您可能会发现制作一个组件来检查链接，并使用 Gatsby 的 `<Link>` 或常规的 `<a>` 标签进行渲染很有用。
 
 由于确定链接是否为内部链接取决于站点本身，你可能需要针对您的环境自己构思新方案，但是以下内容可能是一个不错的起点：
 
@@ -366,7 +366,7 @@ export default Link
 
 ## 代码式的应用内部导航推荐
 
-带有哈希值或查询参数的 `<Link>` 和 `navigate` 都不能用于一个路由内部的导航。 如果你需要这么做，则应该使用 `<a>` 标签或导入 Gatsby 已经依赖的 `@reach/router` 包，以利用其 `navgate` 函数，如下所示：
+带有哈希值或查询参数的 `<Link>` 和 `navigate` 都不能用于一个路由内部的导航。如果你需要这么做，则应该使用 `<a>` 标签或导入 Gatsby 已经依赖的 `@reach/router` 包，以利用其 `navgate` 函数，如下所示：
 
 ```jsx
 import { navigate } from '@reach/router';
