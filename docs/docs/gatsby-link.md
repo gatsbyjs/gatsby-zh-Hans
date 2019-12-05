@@ -2,22 +2,22 @@
 title: Gatsby Link API
 ---
 
-For internal navigation, Gatsby includes a built-in `<Link>` component as well as a `navigate` function which is used for programmatic navigation.
+对于内部导航，Gatsby 包含了一个内置的 `<Link>` 组件和一个用于在代码中导航的 `navigate` 函数。
 
-Gatsby's `<Link>` component enables linking to internal pages as well as a powerful performance feature called preloading. Preloading is used to prefetch resources so that the resources are fetched by the time the user navigates with this component. We use an `IntersectionObserver` to fetch a low-priority request when the `Link` is in the viewport and then use an `onMouseOver` event to trigger a high-priority request when it is likely that a user will navigate to the requested resource.
+Gatsby 的 `<Link>` 组件可以链接到内部页面。它有着称为预加载的显著提升性能的功能。预加载用于预获取资源，以便在用户使用此组件导航时取回资源。当 `Link` 在视图中时，我们使用 `IntersectionObserver` 来获取低优先级的请求，然后使用 `onMouseOver` 事件来触发高优先级的请求来为用户导航到可能需要的资源。
 
-The component is a wrapper around [@reach/router's Link component](https://reach.tech/router/api/Link) that adds useful enhancements specific to Gatsby. All props are passed through to @reach/router's `Link` component.
+该组件是 [@reach/router's Link 组件](https://reach.tech/router/api/Link) 的一个包装，它添加了针对 Gatsby 的功能加强。所有的属性都传递到 @reach/router 的 `Link` 组件中。
 
-## How to use Gatsby Link
+## 如何使用 Gatsby Link
 
 <EggheadEmbed
   lessonLink="https://egghead.io/lessons/gatsby-why-and-how-to-use-gatsby-s-link-component"
   lessonTitle="Why and How to Use Gatsby’s Link Component"
 />
 
-### Replace `a` tags with the `Link` tag for local links
+### 为本地链接将 `a` 标签替换为 `Link` 标签
 
-In any situation where you want to link between pages on the same site, use the `Link` component instead of an `a` tag.
+如果你想在同一站点的页面之间进行链接，请使用 `Link` 组件而不是 `a` 标签。
 
 ```jsx
 import React from "react"
@@ -38,21 +38,21 @@ const Page = () => (
 )
 ```
 
-### Add custom styles for the currently active link
+### 为当前活动链接添加自定义样式
 
 <EggheadEmbed
   lessonLink="https://egghead.io/lessons/gatsby-add-custom-styles-for-the-active-link-using-gatsby-s-link-component"
   lessonTitle="Add Custom Styles for the Active Link Using Gatsby’s Link Component"
 />
 
-It’s often a good idea to show which page is currently being viewed by visually changing the link matching the current page.
+通常，最好从视觉上更改与当前页面匹配的链接，来显示当前正在查看哪个页面。
 
-`Link` provides two options for adding styles to the active link:
+`Link` 提供了两个向活动链接添加样式的选项：
 
-- `activeStyle` — a style object that will only be applied when the current item is active
-- `activeClassName` — a class name that will only be added to the `Link` when the current item is active
+- `activeStyle`——仅当当前项目处于活动状态时才会应用的样式对象
+- `activeClassName` — 一个仅在当前项目处于活动状态时才会添加到 `Link` 的类名
 
-For example, to turn the active link red, either of the following approaches is valid:
+如果要将活动链接变为红色，有这样两种有效的方法：
 
 ```jsx
 import React from "react"
@@ -80,25 +80,25 @@ const SiteNavigation = () => (
 )
 ```
 
-### Use `getProps` for advanced link styling
+### 为高级链接样式使用 `getProps`
 
-Gatsby's `<Link>` component comes with a `getProps` prop, which can be useful for advanced styling. It passes you an object with the following properties:
+Gatsby 的 `<Link>` 组件带有 `getProps` 这个属性（prop），这对于高级样式很有用。它提供了一个具有以下属性的对象：
 
-- `isCurrent` — true if the `location.pathname` is exactly the same as the `<Link>` component's `to` prop
-- `isPartiallyCurrent` — true if the `location.pathname` starts with the `<Link>` component's `to` prop
-- `href` — the value of the `to` prop
-- `location` — the page's `location` object
+- `isCurrent`——当 `location.pathname` 和 `<Link>` 组件的 `to` 属性相同时，值为 true
+- `isPartiallyCurrent` — 当 `location.pathname` 以 `<Link>` 组件的 `to` 属性开头时，值为 true
+- `href` — `to` 属性的值
+- `location` — 页面的 `location` 对象
 
-You can read more about it on [`@reach/router`'s documentation](https://reach.tech/router/api/Link).
+更多信息请参考 [`@reach/router` 的文档](https://reach.tech/router/api/Link)。
 
-### Show active styles for partially matched and parent links
+### 为部分匹配的链接和父链接显示活动样式
 
-By default the `activeStyle` and `activeClassName` props will only be set on a `<Link>` component if the current URL matches its `to` prop _exactly_. Sometimes, you may want to style a `<Link>` as active even if it partially matches the current URL. For example:
+默认情况下，仅在当前 URL 与其 `to` 属性（prop）_完全_ 匹配时，才在 `<Link>` 组件上设置 `activeStyle` 和 `activeClassName` 属性。有时，你可能希望将 `<Link>` 设置为活动样式，即使它只部分匹配当前 URL。例如：
 
-- You may want `/blog/hello-world` to match `<Link to="/blog">`
-- Or `/gatsby-link/#passing-state-through-link-and-navigate` to match `<Link to="/gatsby-link">`
+- 你可能想要将 `/blog/hello-world` 匹配到 `<Link to="/blog">`
+- 或者将 `/gatsby-link/#passing-state-through-link-and-navigate` 匹配到 `<Link to="/gatsby-link">`
 
-In instances like these, just add the `partiallyActive` prop to your `<Link>` component and the style will also be applied even if the `to` prop only is a partial match:
+在这种情况下，只需将 `partiallyActive` 属性添加到你的 `<Link>` 组件中，即使 `to` 属性只是部分匹配，样式也会被应用：
 
 ```jsx
 import React from "react"
@@ -116,16 +116,16 @@ const Header = <>
 </>;
 ```
 
-_**Note:** Available from Gatsby V2.1.31, if you are experiencing issues please check your version and/or update._
+_**注意：**此功能仅在 Gatsby V2.1.3 及以后的版本中可用。如果你遇到问题请检查版本并更新。_
 
-### Pass state as props to the linked page
+### 将状态（state）作为属性（prop）传递到连接的页面中
 
 <EggheadEmbed
   lessonLink="https://egghead.io/lessons/gatsby-include-information-about-state-in-navigation-with-gatsby-s-link-component"
   lessonTitle="Include Information About State in Navigation With Gatsby’s Link Component"
 />
 
-Sometimes you'll want to pass data from the source page to the linked page. You can do this by passing a `state` prop to the `Link` component or on a call to the `navigate` function. The linked page will have a `location` prop containing a nested `state` object structure containing the passed data.
+有时您会想要将数据从源页面传递到连接的页面中。您可以通过将 `state` 属性（prop）传递给  `Link` 组件或调用 `navigate` 函数来实现。连接的页面中将有一个 `location` 属性，其中包含一个嵌套的 `state` 对象结构，该对象包含传递的数据。
 
 ```jsx
 const PhotoFeedItem = ({ id }) => (
@@ -152,16 +152,16 @@ const Photo = ({ location, photoId }) => {
 }
 ```
 
-### Replace history to change “back” button behavior
+### 替换历史记录来改变 “后退” 按钮的行为
 
 <EggheadEmbed
   lessonLink="https://egghead.io/lessons/gatsby-replace-navigation-history-items-with-gatsby-s-link-component"
   lessonTitle="Replace Navigation History Items with Gatsby’s Link Component"
 />
 
-There are a few cases where it might make sense to modify the “back” button’s behavior. For example, if you build a page where you choose something, then see an “are you sure?” page to make sure it’s what you really wanted, and finally see a confirmation page, it may be desirable to skip the “are you sure?” page if the “back” button is clicked.
+在某些情况下我们需要修改“后退”按钮的行为。例如，如果你构建了一个页面，在页面上选择了一个东西，然后 “确定吗？” 页面出现以确保它是你真正想要的，最后看到成功确认页面。于是你可能希望在点击 “后退” 按钮后跳过 “确定吗？”页面。
 
-In those cases, use the `replace` prop to replace the current URL in history with the target of the `Link`.
+这时就可以使用 `replace` 属性将历史记录中的当前 URL 替换为 `Link` 的目标。
 
 ```jsx
 import React from "react"
@@ -178,26 +178,26 @@ const AreYouSureLink = () => (
 )
 ```
 
-## How to use the `navigate` helper function
+## 如何使用 `navigate` 辅助函数
 
 <EggheadEmbed
   lessonLink="https://egghead.io/lessons/gatsby-navigate-to-a-new-page-programmatically-in-gatsby"
   lessonTitle="Navigate to a New Page Programmatically in Gatsby"
 />
 
-Sometimes you need to navigate to pages programmatically, such as during form submissions. In these cases, `Link` won’t work.
+有时，您需要以编程方式导航到页面，例如在表单提交期间。在这种情况下，`Link` 将不起作用。
 
-_**Note:** `navigate` was previously named `navigateTo`. `navigateTo` is deprecated in Gatsby v2 and will be removed in the next major release._
+_**注意：** `navigate` 之前被命名为 `navigateTo`。`navigateTo` 在 Gatsby v2 中不赞成使用，会在下一个重大更新时被移除。_
 
-Instead, Gatsby exports a `navigate` helper function that accepts `to` and `options` arguments.
+作为另一种方案，Gatsby 导出了一个 `navigate` 辅助函数，该函数接受 `to` 和 `options` 参数。
 
-| Argument          | Required | Description                                                                                     |
+| 参数              |  是否必要 | 描述                                                                                            |
 | ----------------- | -------- | ----------------------------------------------------------------------------------------------- |
-| `to`              | yes      | The page to navigate to (e.g. `/blog/`).                                                        |
-| `options.state`   | no       | An object. Values passed here will be available in `location.state` in the target page’s props. |
-| `options.replace` | no       | A boolean value. If true, replaces the current URL in history.                                  |
+| `to`              | 是       | 导航到的页面（例如 `/blog/`）。                                                                   |
+| `options.state`   | 否       | 一个对象。传入的值会在目标页面属性的 `location.state` 中可用。                                       |
+| `options.replace` | 否       | 一个布尔值。值为 true 时在历史记录中替换当前 URL。                                                   |
 
-By default, `navigate` operates the same way as a clicked `Link` component.
+默认情况下，`navigate` 的操作方式与点击 `Link` 组件的方式相同。
 
 ```jsx
 import React from "react"
@@ -218,9 +218,9 @@ const Form = () => (
 )
 ```
 
-### Add state to programmatic navigation
+### 将状态添加到代码式的导航
 
-To include state information, add an `options` object and include a `state` prop with the desired state.
+要包含状态信息，添加一个 `options` 对象，并包含具有所需状态的 `state` 属性。
 
 ```jsx
 import React from "react"
@@ -249,9 +249,9 @@ const Form = () => (
 )
 ```
 
-### Replace history during programmatic navigation
+### 在代码式的导航中替换历史记录
 
-If the navigation should replace history instead of pushing a new entry into the navigation history, add the `replace` prop with a value of `true` to the `options` argument of `navigate`.
+如果导航行为应该替换历史记录而不是在导航历史记录中添加新条目，则将值为 `true` 的 `replace` 属性添加到 `navigate` 的 `options` 参数中。
 
 ```jsx
 import React from "react"
@@ -275,12 +275,11 @@ const Form = () => (
 )
 ```
 
-## Add the path prefix to paths using `withPrefix`
+## 使用 `withPrefix` 给路径添加路径前缀
 
-It is common to host sites in a sub-directory of a site. Gatsby lets you [set
-the path prefix for your site](/docs/path-prefix/). After doing so, Gatsby's `<Link>` component will automatically handle constructing the correct URL in development and production.
+站点通常被托管在站点的子目录中。通过 Gatsby，您可以[设置网站的路径前缀](/docs/path-prefix/)。之后 Gatsby 的 `<Link>` 组件将自动在开发和生产环境中构造正确的 URL。
 
-For pathnames you construct manually, there's a helper function, `withPrefix` that prepends your path prefix in production (but doesn't during development where paths don't need prefixed).
+对于你手动构建的路径名，一个辅助函数 `withPrefix` 可以帮你在生产环境中添加路径前缀（在开发环境中不需要路径前缀）。
 
 ```jsx
 import { withPrefix } from "gatsby"
@@ -297,19 +296,13 @@ const IndexLayout = ({ children, location }) => {
 }
 ```
 
-## Reminder: use `<Link>` only for internal links!
+## 提醒：仅将 `<Link>` 用于内部链接！
 
-This component is intended _only_ for links to pages handled by Gatsby. For links to pages on other domains or pages on the same domain not handled by the current Gatsby site, use the normal `<a>` element.
+该组件 _仅_ 用于链接到 Gatsby 处理的页面。对于链接到其他域上页面的链接，或同一域上未由 Gatsby 处理的页面的链接，请使用常规的 `<a>` 元素。
 
-Sometimes you won't know ahead of time whether a link will be internal or not,
-such as when the data is coming from a CMS.
-In these cases you may find it useful to make a component which inspects the
-link and renders either with Gatsby's `<Link>` or with a regular `<a>` tag
-accordingly.
+有时，您可能无法提前知道链接是否在内部，例如数据来自 CMS 的时候。在这些情况下，您可能会发现制作一个组件来检查链接，并使用 Gatsby 的 `<Link>` 或常规的 `<a>` 标签进行渲染很有用。
 
-Since deciding whether a link is internal or not depends on the site in
-question, you may need to customize the heuristic to your environment, but the
-following may be a good starting point:
+由于确定链接是否为内部链接取决于站点本身，你可能需要针对您的环境自己构思新方案，但是以下内容可能是一个不错的起点：
 
 ```jsx
 import { Link as GatsbyLink } from "gatsby"
@@ -346,9 +339,9 @@ const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
 export default Link
 ```
 
-### File Downloads
+### 文件下载
 
-You can similarly check for file downloads:
+您可以类似地检查文件下载：
 
 ```jsx
   const file = /\.[0-9a-z]+$/i.test(to)
@@ -371,9 +364,9 @@ You can similarly check for file downloads:
   }
 ```
 
-## Recommendations for programmatic, in-app navigation
+## 代码式的应用内部导航推荐
 
-Neither `<Link>` nor `navigate` can be used for in-route navigation with a hash or query parameter. If you need this behavior, you should either use an anchor tag or import the `@reach/router` package--which Gatsby already depends upon--to make use of its `navigate` function, like so:
+带有哈希值或查询参数的 `<Link>` 和 `navigate` 都不能用于一个路由内部的导航。如果你需要这么做，则应该使用 `<a>` 标签或导入 Gatsby 已经依赖的 `@reach/router` 包，以利用其 `navgate` 函数，如下所示：
 
 ```jsx
 import { navigate } from '@reach/router';
@@ -387,6 +380,6 @@ onClick = () => {
 }
 ```
 
-## Additional resources
+## 补充资源
 
-- [Authentication tutorial for client-only routes](/tutorial/authentication-tutorial/)
+- [仅在客户端中路由的身份验证教程](/tutorial/authentication-tutorial/)
