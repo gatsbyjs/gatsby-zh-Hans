@@ -2,7 +2,7 @@
 title: Gatsby Link API
 ---
 
-对于内部导航，Gatsby 包含了一个内置的 `<Link>` 组件和一个 用于在代码中导航的 `navigate` 函数。
+对于内部导航，Gatsby 包含了一个内置的 `<Link>` 组件和一个用于在代码中导航的 `navigate` 函数。
 
 Gatsby 的 `<Link>` 组件可以链接到内部页面。它有着称为预加载的显著提升性能的功能。预加载用于预获取资源，以便在用户使用此组件导航时取回资源。当 `Link` 在视图中时，我们使用 `IntersectionObserver` 来获取低优先级的请求，然后使用 `onMouseOver` 事件来触发高优先级的请求来为用户导航到可能需要的资源。
 
