@@ -1,26 +1,26 @@
 ---
-title: Working with Images in Gatsby
+title: 用 Gatsby 处理图片
 ---
 
-Optimizing images is a challenge on any website. To utilize best practices for performance across devices, you need multiple sizes and resolutions of each image. Luckily, Gatsby has several useful [plugins](/docs/plugins/) that work together to do that for images on [page components](/docs/building-with-components/#page-components).
+优化图片对于任何站点来说一直都是一个挑战。在不同设备下都可以提升性能的最佳方法是为每一张图片提供多种不同的尺寸和分辨率。幸运的是，Gatsby 已经有很多 [插件](/docs/plugins/) 能一起在 [图片组件](/docs/building-with-components/#page-components) 中处理图片。
 
-The recommended approach is to use [GraphQL queries](/docs/querying-with-graphql/) to get images of the optimal size or resolution, then, display them with the [`gatsby-image`](/packages/gatsby-image/) component.
+推荐的做法是使用 [GraphQL 查询](/docs/querying-with-graphql/) 来获取图片的最佳尺寸或者分辨率，然后用 [`gatsby-image`](/packages/gatsby-image/) 组件来展示它们。
 
-## Query images with GraphQL
+## 通过 GraphQL 查询图片
 
-Querying images with GraphQL allows you to access the image's data as well as perform transformations with [Sharp](https://github.com/lovell/sharp), a high-performance image processing library.
+通过 GraphQL 查询图片允许你获取图片的数据以及利用 [Sharp](https://github.com/lovell/sharp)，一个高效的图片处理库，完成数据转换。
 
-You'll need a few plugins for this:
+你需要如下几个插件：
 
-- [`gatsby-source-filesystem`](/packages/gatsby-source-filesystem/) plugin allows you to [query files with GraphQL](/docs/querying-with-graphql/#images)
-- [`gatsby-plugin-sharp`](/packages/gatsby-plugin-sharp) powers the connections between Sharp and Gatsby Plugins
-- [`gatsby-transformer-sharp`](/packages/gatsby-transformer-sharp/) allows you to create multiples images of the right sizes and resolutions with a query
+- [`gatsby-source-filesystem`](/packages/gatsby-source-filesystem/) 插件允许你 [用 GraphQL 查询文件](/docs/querying-with-graphql/#images)
+- [`gatsby-plugin-sharp`](/packages/gatsby-plugin-sharp) 连接 Sharp 和 Gatsby 插件
+- [`gatsby-transformer-sharp`](/packages/gatsby-transformer-sharp/) 允许你在一个查询里创建多张尺寸和分辨率都合适的图片
 
-If the final image is of a fixed size, optimization relies on having multiple resolutions of the image. If it is responsive, that is it stretches to fill a container or page, optimization relies on having different sizes of the same image. See the [Gatsby Image documentation for more information](/packages/gatsby-image/#two-types-of-responsive-images).
+如果最终的图片尺寸是固定的，那么优化是通过生成多种不同的分辨率。如果图片是响应式的，也就是说它会延伸到装满整个容器或者页面，那么优化是通过生成多种不同的尺寸。查看 [Gatsby 的图片说明文档来了解更多](/packages/gatsby-image/#two-types-of-responsive-images)。
 
-You can also use arguments in your query to specify exact, minimum, and maximum dimensions. See the [Gatsby Image documentation for complete options](/packages/gatsby-image/#two-types-of-responsive-images).
+你也可以在查询里用参数来说明准确的最小和最大尺寸。查看 [Gatsby 的图片说明文档来了解所有的选项](/packages/gatsby-image/#two-types-of-responsive-images)。
 
-This example is for an image gallery where images stretch when the page is resized. It uses the `fluid` method and the fluid fragment to grab the right data to use in `gatsby-image` component and arguments to set the maximum width as 400px and maximum height as 250px.
+下面是一个画廊例子。当页面改变时，画廊里的图片尺寸会拉伸。它使用了 `fluid` 方法和 fluid 片段来获取正确的数据，这些数据会在 `gatsby-image` 组件中使用。例子的参数被设置为最大宽度是 400px 以及最大高度是 250px。
 
 ```js
 export const query = graphql`
@@ -36,28 +36,28 @@ export const query = graphql`
 `
 ```
 
-## Optimizing images with gatsby-image
+## 通过 gatsby-image 优化图片
 
-[`gatsby-image`](/packages/gatsby-image/) is a plugin that automatically creates React components for optimized images that:
+[`gatsby-image`](/packages/gatsby-image/) 是一个插件，这个插件能自动创建一些能优化图片的 React 组件：
 
-> - Loads the optimal size of image for each device size and screen resolution
-> - Holds the image position while loading so your page doesn't jump around as images load
-> - Uses the "blur-up" effect i.e. it loads a tiny version of the image to show while the full image is loading
-> - Alternatively provides a "traced placeholder" SVG of the image
-> - Lazy loads images, which reduces bandwidth and speeds the initial load time
-> - Uses [WebP](https://developers.google.com/speed/webp/) images, if browser supports the format
+> - 为各种设备尺寸和屏幕分辨率加载最好的图片尺寸
+> - 为加载中的图片占位，这样你的页面内容就不会因为图片加载而跳动
+> - 运用 “模糊化（blur-up）” 效果，例如，当整张图片在加载时，图片会先显示一小部分
+> - 或者提供一张图片的 “跟踪占位（traced placeholder）” SVG
+> - 延迟加载图片，这样可以减少带宽和加快初始加载的时间
+> - 如果浏览器也支持 [WebP](https://developers.google.com/speed/webp/) 格式的话就可以使用这种图片
 
-Here is an image component that uses the query from the previous example:
+这里是一个用了之前查询例子的图片组件：
 
 ```jsx
 <Img fluid={data.fileName.childImageSharp.fluid} alt="" />
 ```
 
-## Using fragments to standardize formatting
+## 通过片段把格式标准化
 
-What if you have a bunch of images and you want them all to use the same formatting?
+假如你有很多的图片，然后你想让它们都用同样的格式，那么你应该怎么做呢？
 
-A custom fragment is an easy way to standardize formatting and re-use it on multiple images:
+自定义片段是一个很好的方法。这个片段很容易就可以把多张图片的格式标准化然后重复使用：
 
 ```js
 export const squareImage = graphql`
@@ -71,7 +71,7 @@ export const squareImage = graphql`
 `
 ```
 
-The fragment can then be referenced in the image query:
+这个片段然后可以在图片查询中引用：
 
 ```js
 export const query = graphql`
@@ -91,10 +91,10 @@ export const query = graphql`
 `
 ```
 
-### Additional resources
+### 更多资料
 
-- [Gatsby Image API docs](/docs/gatsby-image/)
-- [Using gatsby-image with Gatsby](https://egghead.io/playlists/using-gatsby-image-with-gatsby-ea85129e), free egghead.io playlist
-- [gatsby-image plugin README file](/packages/gatsby-image/)
-- [gatsby-plugin-sharp README file](/packages/gatsby-plugin-sharp/)
-- [gatsby-transformer-sharp README file](/packages/gatsby-transformer-sharp/)
+- [Gatsby 图片 API 文档](/docs/gatsby-image/)
+- [在 Gatsby 中使用 gatsby-image](https://egghead.io/playlists/using-gatsby-image-with-gatsby-ea85129e)，egghead.io 的免费播放列表
+- [gatsby-image 插件 README 文件](/packages/gatsby-image/)
+- [gatsby-plugin-sharp README 文件](/packages/gatsby-plugin-sharp/)
+- [gatsby-transformer-sharp README 文件](/packages/gatsby-transformer-sharp/)
