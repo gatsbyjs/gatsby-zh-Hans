@@ -71,7 +71,7 @@ export const squareImage = graphql`
 `
 ```
 
-这个片段然后可以在图片查询中引用：
+然后可以在图片查询中引用这个片段：
 
 ```js
 export const query = graphql`
