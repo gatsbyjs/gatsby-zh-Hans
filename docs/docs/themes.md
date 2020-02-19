@@ -1,6 +1,7 @@
 ---
 title: 主题
 overview: true
+disableTableOfContents: true
 ---
 
 Gatsby 主题将一个网站的默认配置（共享的功能，数据源，设计）简化成一个安装包。

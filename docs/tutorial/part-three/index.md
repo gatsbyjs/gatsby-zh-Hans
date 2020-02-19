@@ -268,7 +268,7 @@ export default ({ children }) => (
 )
 ```
 
-![with-navigation2](with-navigation2.png)
+![with-navigation2](with-navigation.png)
 
 很好！ 一个三个子页面的网站，具有基本的全局导航。
 

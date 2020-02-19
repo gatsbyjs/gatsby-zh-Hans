@@ -87,7 +87,7 @@ _**注意**: 当你首次安装并运行 Gatsby 时，会看到一条通知你�
 
 <video controls="controls" autoplay="true" loop="true">
   <source type="video/mp4" src="./03-create-site.mp4" />
-  <p>Sorry! You browser doesn't support this video.</p>
+  <p>Sorry! Your browser doesn't support this video.</p>
 </video>
 
 刚刚发生了什么？

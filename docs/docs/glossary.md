@@ -140,7 +140,7 @@ Gatsby 默认情况下支持两种环境，即 [开发环境](#development-envir
 
 Gatsby是一个现代的网站框架，它利用[React](#react)，[GraphQL](#graphql) 和现代的 [JavaScript](#javascript) 等最新网络技术，为每个网站或应用程序构建卓越的性能。通过 Gatsby，无需成为网站性能专家，你就可以轻松创建非常快速的引人入胜的 Web 体验。
 
-### GraphQL
+### [GraphQL](/docs/glossary/graphql)
 
 一种可让您将数据提取到您的网站或应用中的 [查询](#query) 语言。这是 [Gatsby 用于管理网站数据的界面](/docs/graphql/)。
 
@@ -153,6 +153,10 @@ Gatsby是一个现代的网站框架，它利用[React](#react)，[GraphQL](#gra
 ### Headless CMS（无头 CMS）
 
 一个仅处理 [后端](#backend) 而不同时处理后端和 [前端](#frontend) 的 [CMS](#cms) 内容管理方式。这种类型的设置也称为 [解耦](#decoupled)。
+
+### [Headless WordPress](/docs/glossary/headless-wordpress)
+
+The practice of using JSON returned from the WordPress REST API as a [headless CMS](#headless-cms). It allows you to use WordPress to write and edit content that can be consumed by any client capable of parsing JSON.
 
 ### Hosting
 
@@ -168,9 +172,13 @@ Gatsby是一个现代的网站框架，它利用[React](#react)，[GraphQL](#gra
 
 ## I
 
+### Inference
+
+As part of its data layer and [build](#build) process, Gatsby will automatically **infer** a [schema](#schema), or type-based structure, based on available data sources (e.g. Markdown file nodes, WordPress posts, etc.). More control can be gained over this structure by using Gatsby's [Schema Customization API](/docs/schema-customization/).
+
 ## J
 
-### JAMStack
+### [JAMStack](/docs/glossary/jamstack)
 
 JAMStack 是指使用 [JavaScript](#javascript)，[API](#api) 和（[HTML](#html)）标记的现代 Web 体系架构。引用自 [JAMStack.org](https://jamstack.org)：“这是一种构建网站和应用程序的新方法，可提供更强的性能，更高的安全性，更低的扩展成本以及更好的开发人员体验。”
 
@@ -210,7 +218,7 @@ Linting 是运行程序时分析代码是否存在潜在错误的过程。Gatsby
 
 Gatsby 使用 [数据节点](/docs/node-interface/) 来表示一条数据。一个 [数据源](#data-source) 会创建多个数据节点。
 
-### Node.js
+### [Node.js](/docs/glossary/node)
 
 一个让你在计算机上运行 [JavaScript](#javascript) 的程序。Gatsby 由 Node 驱动。
 
@@ -256,7 +264,7 @@ Gatsby 使用 [数据节点](/docs/node-interface/) 来表示一条数据。一�
 
 ## R
 
-### React
+### [React](/docs/glossary/react)
 
 一个用于构建用户界面的代码库（使用[JavaScript](#javascript))编写）。它是 [Gatsby](#gatsby) 用于构建页面和组织内容的框架。
 
@@ -302,6 +310,10 @@ Gatsby 构建页面的静态版本，可以轻松地被 [托管](#hosting)。这
 
 它也可以指 `/static` 文件夹，该文件夹会自动复制到每个 [构建](#build) 后的文件里的 `/public` 中，用于不需要由 Gatsby 处理但确实需要存在于 [public](#public) 文件夹中的文件。
 
+### [Static Site Generator](/docs/glossary/static-site-generator)
+
+A software application that creates HTML pages from templates or [components](#component) and a given content source.
+
 ## T
 
 ### Template（模板）
@@ -326,7 +338,7 @@ UI 是指用户界面。在人机交互领域，UI 是人机之间交互的空�
 
 ## W
 
-### Webpack
+### [webpack](/docs/glossary/webpack)
 
 一个 Gatsby 用来打包网站代码的 [JavaScript](#javascript) 应用程序。它会自动在 [构建](#build) 是执行。
 
