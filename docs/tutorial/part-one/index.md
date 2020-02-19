@@ -167,7 +167,11 @@ export default () => (
 )
 ```
 
+<<<<<<< HEAD
 2.  访问这个页面 http://localhost:8000/about/。
+=======
+2.  Navigate to `http://localhost:8000/about/`
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ![新的 About 页面](05-about-page.png)
 
@@ -230,7 +234,11 @@ export default () => (
 
 你应该重新看到了你想要的 “About Gatsby” 标题！
 
+<<<<<<< HEAD
 ### 什么是 “props”?
+=======
+Earlier, you defined React components as reusable pieces of code describing a UI. To make these reusable pieces dynamic you need to be able to supply them with different data. You do that with input called "props". Props are (appropriately enough) properties supplied to React components.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 你刚刚定义了 React 组件作为描述 UI 的可复用片段。要使这些可复用片段动态化，你需要给它们提供不同的数据。你可以通过一种叫做 “props" 的输入。Props，正如其名，是给 React 组件使用的属性（property）。
 
@@ -329,16 +337,22 @@ export default () => (
 
 <video controls="controls" loop="true">
   <source type="video/mp4" src="./10-linking-between-pages.mp4"></source>
-  <p>Sorry! You browser doesn't support this video.</p>
+  <p>Sorry! Your browser doesn't support this video.</p>
 </video>
 
 `<Link />` 这个 Gatsby 组件的作用，是在你的网站里连接不同页面。对于那些不是你的 Gatsby 网站所处理的外部链接，请使用常规的 HTML `<a>` 标签。
 
 ## 部署 Gatsby 网站
 
+<<<<<<< HEAD
 Gatsby.js 是一个 _现代网站生成器_。这意味着部署既不需要设置服务器，也不需要部署复杂的数据库。相反地，Gatsby 的 `build` 命令仅仅生成了一个包含静态 HTML 和 JavaScript 文件的目录。你只需要把这个目录部署到一个静态网站托管服务中。
 
 不妨试一试使用 [Surge](http://surge.sh/) 来部署你的第一个 Gatsby 网站。Surge 是众多能够部署 Gatsby 网站的 “静态网站托管” 服务中的一个。
+=======
+Gatsby.js is a _modern site generator_, which means there are no servers to set up or complicated databases to deploy. Instead, the Gatsby `build` command produces a directory of static HTML and JavaScript files which you can deploy to a static site hosting service.
+
+Try using [Surge](http://surge.sh/) for deploying your first Gatsby website. Surge is one of many "static site hosts" which makes it possible to deploy Gatsby sites.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 如果你还没有安装并设置好 Surge，打开一个终端窗口并安装他们的命令行工具：
 
@@ -369,7 +383,13 @@ ls public
 surge public/
 ```
 
+<<<<<<< HEAD
 运行结束后，你应该会在终端中看到类似这样的内容：
+=======
+> Note that you will have to press the `enter` key after you see the `domain: some-name.surge.sh` information on your command-line interface.
+
+Once this finishes running, you should see in your terminal something like:
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ![使用 Surge 发布 Gatsby 网站的截图](surge-deployment.png)
 

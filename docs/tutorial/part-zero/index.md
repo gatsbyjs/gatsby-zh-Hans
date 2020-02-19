@@ -10,6 +10,7 @@ disableTableOfContents: true
 
 命令行是基于文本的人机交互界面，用于在计算机上运行命令，也经常被称为终端。在本教程中，我们混用这两种叫法。像在 Mac 系统上使用 Finder 或在 Windows 系统上使用资源管理器一样。Finder 和资源管理器是图形用户界面（GUI）。而命令行是一种强大的基于文本的与计算机交互的方式。
 
+<<<<<<< HEAD
 找到并打开计算机的命令行界面（CLI）。 根据你使用的操作系统，请参阅 **[Mac 指令](http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/)**，**[Windows 指令](https://www.quora.com/How-do-I-open-terminal-in-windows) **或 **[Linux 指令](https://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/)**。
 
 ## 为 Node.js 安装 Homebrew
@@ -49,10 +50,96 @@ _注意：Gatsby 支持的最低 Node.js 版本是 Node v8.0.0，可以随时使
 2. 运行 `npm --version`。
 
 每个命令的输出结果应为版本号。 你的版本号可能与下面显示的版本不同！ 如果输入的命令没有显示版本号，请返回并确保 Node.js 是否已安装成功。
+=======
+Take a moment to locate and open up the command line interface (CLI) for your computer. Depending on which operating system you are using, see [**instructions for Mac**](http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/), [**instructions for Windows**](https://www.lifewire.com/how-to-open-command-prompt-2618089) or [**instructions for Linux**](https://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/).
+
+_Note: If you’re new to the command line, "running" a command, means "writing a given set of instructions in your command prompt, and hitting the Enter key". Commands will be shown in a highlighted box, something like `node --version`, but not every highlighted box is a command! If something is a command it will be mentioned as something you have to run/execute._
+
+## Install Node.js for your appropriate operating system
+
+Node.js is an environment that can run JavaScript code outside of a web browser. Gatsby is built with Node.js. To get up and running with Gatsby, you’ll need to have a recent version installed on your computer. npm comes bundled with Node.js so if you don't have npm, chances are that you don't have Node.js either.
+
+### Mac instructions
+
+To install Gatsby and Node.js on a Mac, it is recommended to use [Homebrew](https://brew.sh/). A little set-up in the beginning can save you from some headaches later on!
+
+#### How to install or verify Homebrew on your computer:
+
+1. Open your Terminal.
+2. See if Homebrew is installed by running `brew -v`. You should see "Homebrew" and a version number.
+3. If not, download and install [Homebrew with the instructions](https://docs.brew.sh/Installation).
+4. Once you've installed Homebrew, repeat step 2 to verify.
+
+#### Install Xcode Command Line Tools:
+
+1. Open your Terminal.
+2. Install Xcode Command line tools by running `xcode-select --install`.
+   - If that fails, download it [directly from Apple's site](https://developer.apple.com/download/more/), after signing-in with an Apple developer account
+3. After being prompted to start the installation, you'll be prompted again to accept a software license for the tools to download.
+
+#### Install Node
+
+1. Open your Terminal
+2. Run `brew install node`
+   - If you don't want to install it through Homebrew, download the latest Node.js version from [the official Node.js website](https://nodejs.org/en/), double click on the downloaded file and go through the installation process.
+
+### Windows Instructions
+
+- Download and install the latest Node.js version from [the official Node.js website](https://nodejs.org/en/)
+
+### Linux Instructions
+
+Install nvm (Node Version Manager) and needed dependencies. nvm is used to manage Node.js and all its associated versions.
+
+_💡 If when installing a package, it asks for confirmation, type `y` and press enter._
+
+#### Ubuntu, Debian, and other `apt` based distros:
+
+1. Run `sudo apt update` and then `sudo apt -y upgrade` to make sure your Linux distribution is ready to go.
+2. Run `sudo apt-get install curl` to install curl which allows you to transfer data and download additional dependencies.
+3. After it finishes installing, run `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash` to download the latest nvm version.
+4. To confirm this has worked, use the following command. `nvm --version`. The output should be a version number.
+5. [Set default Node.js version](#set-default-nodejs-version)
+
+#### Arch, Manjaro and other `pacman` based distros:
+
+1. Run `sudo pacman -Sy` to make sure your distribution is ready to go.
+2. These distros come installed with curl, so you can use that to download nvm.
+   `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash`
+3. Before using nvm, you need to install additional dependencies by running `sudo pacman -S grep awk tar`.
+4. To confirm this has worked, use the following command. `nvm --version`. The output should be a version number.
+5. [Set default Node.js version](#set-default-nodejs-version)
+
+#### Fedora, RedHat, and other `dnf` based distros:
+
+1. These distros come installed with curl, so you can use that to download nvm.
+   `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash`
+2. To confirm this has worked, use the following command. `nvm --version`. The output should be a version number.
+3. [Set default Node.js version](#set-default-nodejs-version)
+
+If the Linux distribution you are using is not listed here, please find instructions on the web.
+
+#### Set default Node.js version
+
+When nvm is installed, it does not default to a particular node version. You’ll need to install the version you want and give nvm instructions to use it. This example uses the latest release of version 10, but more recent version numbers can be used instead.
+
+```shell
+nvm install 10
+nvm use 10
+```
+
+To confirm that this worked, you can run `npm --version` and `node --version`. The output should look similar to the screenshot below, showing version numbers in response to the commands.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ![命令行检查 node 和 npm 的版本](01-node-npm-versions.png)
 
+<<<<<<< HEAD
 ## 安装Git
+=======
+Once you have followed the installation steps and you have checked everything is installed properly, you can continue to the next step.
+
+## Install Git
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 Git 是一个免费的开源分布式版本管理系统，旨在快速高效地管理从小型到大型项目的所有内容。 当你创建一个 Gatsby “starter”（模版）站点时，Gatsby 会在后台使用 Git 来下载并安装启动程序所需的文件。 你将需要安装 Git 才能设置你的第一个 Gatsby 网站。
 
@@ -87,7 +174,7 @@ _**注意**: 当你首次安装并运行 Gatsby 时，会看到一条通知你�
 
 <video controls="controls" autoplay="true" loop="true">
   <source type="video/mp4" src="./03-create-site.mp4" />
-  <p>Sorry! You browser doesn't support this video.</p>
+  <p>Sorry! Your browser doesn't support this video.</p>
 </video>
 
 刚刚发生了什么？
@@ -114,15 +201,25 @@ gatsby develop
 
 ### 本地查看你的网站
 
+<<<<<<< HEAD
 在浏览器中打开一个新标签，然后打开网址 [**http://localhost:8000**](http://localhost:8000/)。
+=======
+Open up a new tab in your browser and navigate to `http://localhost:8000/`
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ![查看首页](04-home-page.png)
 
 恭喜！ 这是你第一个 Gatsby 网站的开始！ 🎉
 
+<<<<<<< HEAD
 只要你的开发服务器正在运行，你就可以通过链接 [**_http://localhost:8000_**](http://localhost:8000/) 在本地访问该网站。这就是你通过运行 `gatsby develop` 命令开启的进程。 要停止运行该进程（或 “停止运行开发服务器” ），请返回到命令行终端窗口，按住 “Control” 键，然后单击 “c” 键（ctrl+c）。 要重新启动，请再次运行 `gatsby develop`！
 
 **注意：** 如果你正在使用 VM 虚拟机（如 “vagrant”）并希望能通过你的本地 IP 地址进行访问，请运行 `gatsby develop -- --host=0.0.0.0`。 现在，开发服务器已经运行在 “localhost” 和你的本地 IP 上。
+=======
+You’ll be able to visit the site locally at `http://localhost:8000/` for as long as your development server is running. That’s the process you started by running the `gatsby develop` command. To stop running that process (or to “stop running the development server”), go back to your terminal window, hold down the “control” key, and then hit “c” (ctrl-c). To start it again, run `gatsby develop` again!
+
+**Note:** If you are using VM setup like `vagrant` and/or would like to listen on your local IP address, run `gatsby develop --host=0.0.0.0`. Now, the development server listens on both `http://localhost` and your local IP.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ## 设置代码编辑器
 
@@ -138,9 +235,15 @@ Gatsby 文档有时包含的屏幕截图是来自于 VS Code，因此，如果�
 
 你可以在编辑器中直接使用 Prettier，安装 [Prettier VS Code plugin](https://github.com/prettier/prettier-vscode)：
 
+<<<<<<< HEAD
 1. 在 VS Code 上打开扩展视图（查看=>扩展）。
 2. 搜索 “Prettier - Code formatter”。
 3. 单击 “安装”。 （安装后，系统将提示你重新启动 VS Code 以启用扩展。较新版本的 VS Code 将在下载后自动启用该扩展。）
+=======
+1.  Open the extensions view on VS Code (View => Extensions).
+2.  Search for "Prettier - Code formatter".
+3.  Click "Install". (After installation, you'll be prompted to restart VS Code to enable the extension. Newer versions of VS Code will automatically enable the extension after download.)
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 > 💡 如果你不是使用 VS Code，请查看 Prettier 文档获取 [安装指引](https://prettier.io/docs/en/install.html) 或查看 [其他编辑器集成](https://prettier.io/docs/en/editors.html)。
 

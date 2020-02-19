@@ -31,27 +31,27 @@ tableOfContentsDepth: 2
 
 想要在阅读 [完整教程](/tutorial/) 和搜索 [文档](/docs/) 之间找到一个折衷方案? 可以参考这本 Gatsby 风格的指导手册。我们将告诉你构建各种东西的 “配方”。
 
+<<<<<<< HEAD
 ## 1. 页面和布局
 
 ### 项目结构
 
 在 Gatsby 项目中，你会看到这些文件和文件夹，可能是一些，可能是全部：
+=======
+## [1. Pages and layouts](/docs/recipes/pages-layouts)
 
-```
-|-- /.cache
-|-- /plugins
-|-- /public
-|-- /src
-    |-- /pages
-    |-- /templates
-    |-- html.js
-|-- /static
-|-- gatsby-config.js
-|-- gatsby-node.js
-|-- gatsby-ssr.js
-|-- gatsby-browser.js
-```
+Add pages to your Gatsby site, and use layouts to manage common page elements.
 
+- [Project structure](/docs/recipes/pages-layouts#project-structure)
+- [Creating pages automatically](/docs/recipes/pages-layouts#creating-pages-automatically)
+- [Linking between pages](/docs/recipes/pages-layouts#linking-between-pages)
+- [Creating a layout component](/docs/recipes/pages-layouts#creating-a-layout-component)
+- [Creating pages programmatically with createPage](/docs/recipes/pages-layouts#creating-pages-programmatically-with-createpage)
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
+
+## [2. Styling with CSS](/docs/recipes/styling-css)
+
+<<<<<<< HEAD
 一些值得注意的文件和它们的定义：
 
 - `gatsby-config.js`——配置 Gatsby 站点的选项，比如项目标题和项目描述的元数据，插件等等
@@ -2152,77 +2152,67 @@ return (
 #### 操作步骤
 
 1. 验证 Markdown 文件包含了一个指向有效图片文件路径的图片 URL
+=======
+There are so many ways to add styles to your website; Gatsby supports almost every possible option, through official and community plugins.
 
-```mdx:title=post.mdx
----
-title: My First Post
-featuredImage: ./corgi.png // highlight-line
----
+- [Using global CSS files without a Layout component](/docs/recipes/styling-css#using-global-css-files-without-a-layout-component)
+- [Using global styles in a layout component](/docs/recipes/styling-css#using-global-styles-in-a-layout-component)
+- [Using Styled Components](/docs/recipes/styling-css#using-styled-components)
+- [Using CSS Modules](/docs/recipes/styling-css#using-css-modules)
+- [Using Sass/SCSS](/docs/recipes/styling-css#using-sassscss)
+- [Adding a Local Font](/docs/recipes/styling-css#adding-a-local-font)
+- [Using Emotion](/docs/recipes/styling-css#using-emotion)
+- [Using Google Fonts](/docs/recipes/styling-css#using-google-fonts)
 
-Post content...
-```
+## [3. Working with starters](/docs/recipes/working-with-starters)
 
+[Starters](/docs/starters/) are boilerplate Gatsby sites maintained officially, or by the community.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
+
+- [Using a starter](/docs/recipes/working-with-starters#using-a-starter)
+
+## [4. Working with themes](/docs/recipes/working-with-themes)
+
+<<<<<<< HEAD
 2. 验证在 `gatsby-node.js` 中调用 `createPages` 时，是否在上下文中传递了唯一标识符（在本示例中为 slug），该标识符随后将传递到布局组件中的 GraphQL 查询语句中
+=======
+A Gatsby theme lets you centralize the look-and-feel of your site. You can seamlessly update a theme, compose themes together, and even swap out one compatible theme for another.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
-```js:title=gatsby-node.js
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+- [Creating a new site using a theme](/docs/recipes/working-with-themes#creating-a-new-site-using-a-theme)
+- [Creating a new site using a theme starter](/docs/recipes/working-with-themes#creating-a-new-site-using-a-theme-starter)
+- [Building a new theme](/docs/recipes/working-with-themes#building-a-new-theme)
 
-  // query for all markdown
+## [5. Sourcing data](/docs/recipes/sourcing-data)
 
-  result.data.allMdx.edges.forEach(({ node }) => {
-    createPage({
-      path: node.fields.slug,
-      component: path.resolve(`./src/components/markdown-layout.js`),
-      // highlight-start
-      context: {
-        slug: node.fields.slug,
-      },
-      // highlight-end
-    })
-  })
-}
-```
+Pull data from multiple locations, like the filesystem or database, into your Gatsby site.
 
+<<<<<<< HEAD
 3. 现在，从 `gatsby-image` 中引入 `Img`，从 `gatsby` 中引入 `graphql` 到模版组件中。编写一个 [pageQuery](/docs/page-query/) 来根据 `slug` 中传入的数据来获取图片数据，并将数据传入到 `<Img />` 组件当中：
+=======
+- [Adding data to GraphQL](/docs/recipes/sourcing-data#adding-data-to-graphql)
+- [Sourcing Markdown data for blog posts and pages with GraphQL](/docs/recipes/sourcing-data#sourcing-markdown-data-for-blog-posts-and-pages-with-graphql)
+- [Sourcing from WordPress](/docs/recipes/sourcing-data#sourcing-from-wordpress)
+- [Sourcing data from Contentful](/docs/recipes/sourcing-data#sourcing-data-from-contentful)
+- [Pulling data from an external source and creating pages without GraphQL](/docs/recipes/sourcing-data#pulling-data-from-an-external-source-and-creating-pages-without-graphql)
+- [Sourcing content from Drupal](/docs/recipes/sourcing-data#sourcing-content-from-drupal)
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
-```jsx:title=markdown-layout.jsx
-import React from "react"
-import { graphql } from "gatsby" // highlight-line
-import Img from "gatsby-image" // highlight-line
+## [6. Querying data](/docs/recipes/querying-data)
 
-export default ({ children, data }) => (
-  <main>
-    // highlight-start
-    <Img
-      fluid={data.markdown.frontmatter.image.childImageSharp.fluid}
-      alt="A corgi smiling happily"
-    />
-    // highlight-end
-    {children}
-  </main>
-)
+Gatsby lets you access your data across all sources using a single GraphQL interface.
 
-// highlight-start
-export const pageQuery = graphql`
-  query PostQuery($slug: String) {
-    markdown: mdx(fields: { slug: { eq: $slug } }) {
-      id
-      frontmatter {
-        image {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-  }
-`
-// highlight-end
-```
+- [Querying data with a Page Query](/docs/recipes/querying-data#querying-data-with-a-page-query)
+- [Querying data with the StaticQuery Component](/docs/recipes/querying-data#querying-data-with-the-staticquery-component)
+- [Querying data with the useStaticQuery hook](/docs/recipes/querying-data/#querying-data-with-the-usestaticquery-hook)
+- [Limiting with GraphQL](/docs/recipes/querying-data#limiting-with-graphql)
+- [Sorting with GraphQL](/docs/recipes/querying-data#sorting-with-graphql)
+- [Filtering with GraphQL](/docs/recipes/querying-data#filtering-with-graphql)
+- [GraphQL Query Aliases](/docs/recipes/querying-data#graphql-query-aliases)
+- [GraphQL Query Fragments](/docs/recipes/querying-data#graphql-query-fragments)
+- [Querying data client-side with fetch](/docs/recipes/querying-data#querying-data-client-side-with-fetch)
 
+<<<<<<< HEAD
 4. 运行 `gatsby develop`，会依据文件系统中的文件生成图像
 
 #### 补充资源
@@ -2234,9 +2224,22 @@ export const pageQuery = graphql`
 - [有关在 Gatsby 中处理图像的更多信息](/docs/working-with-images/)
 
 ## 8. 转换数据
+=======
+## [7. Working with images](/docs/recipes/working-with-images)
+
+Access images as static resources, or automate the process of optimizing them through powerful plugins.
+
+- [Import an image into a component with webpack](/docs/recipes/working-with-images#import-an-image-into-a-component-with-webpack)
+- [Reference an image from the static folder](/docs/recipes/working-with-images#reference-an-image-from-the-static-folder)
+- [Optimizing and querying local images with gatsby-image](/docs/recipes/working-with-images#optimizing-and-querying-local-images-with-gatsby-image)
+- [Optimizing and querying images in post frontmatter with gatsby-image](/docs/recipes/working-with-images#optimizing-and-querying-images-in-post-frontmatter-with-gatsby-image)
+
+## [8. Transforming data](/docs/recipes/transforming-data)
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 Gatsby中的数据转换是由插件驱动的。数据转换插件会使用数据源插件获取的数据，并将其处理为更有用的内容（例如，将 JSON 转换为 JavaScript 对象等）。
 
+<<<<<<< HEAD
 ### 将 Markdown 转换为 HTML
 
 `gatsby-transformer-remark` 插件可以转换 Markdown 文件为 HTML。
@@ -2289,9 +2292,16 @@ export const query = graphql`
 - 在 [Gatsby 插件库](/plugins/?=transformer) 中浏览可用的数据转换插件
 
 ## 9. 部署你的站点
+=======
+- [Transforming Markdown into HTML](/docs/recipes/transforming-data#transforming-markdown-into-html)
+- [Transforming images into grayscale using GraphQL](/docs/recipes/transforming-data#transforming-images-into-grayscale-using-graphql)
+
+## [9. Deploying your site](/docs/recipes/deploying-your-site)
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 请开始你的表演！当你对你的站点满意的时候，你可以准备将它部署上线了！
 
+<<<<<<< HEAD
 ### 准备部署
 
 #### 前置条件
@@ -2391,3 +2401,8 @@ gatsby build && gatsby serve
 #### 补充资源
 
 - [部署到 ZEIT Now](/docs/deploying-to-zeit-now/)
+=======
+- [Preparing for deployment](/docs/recipes/deploying-your-site#preparing-for-deployment)
+- [Deploying to Netlify](/docs/recipes/deploying-your-site#deploying-to-netlify)
+- [Deploying to ZEIT Now](/docs/recipes/deploying-your-site#deploying-to-zeit-now)
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc

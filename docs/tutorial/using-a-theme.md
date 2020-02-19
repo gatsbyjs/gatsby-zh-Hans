@@ -65,11 +65,15 @@ module.exports = {
 
 使用 Gatsby 主题时，你可以利用称为组件遮蔽（Gatsby 会优先使用自定义的同名组件渲染）的功能。 这使你可以使用已创建的自定义组件覆盖主题中包含的默认组件。
 
+<<<<<<< HEAD
 Gatsby 博客主题包中包含一个组件，其内容为网站作者的传记内容。 该组件（在博客主题包中，而不是你的站点中）的文件路径是 `gatsby-theme-blog/src/components/bio-content.js`。 通过浏览 `node_modules/gatsby-theme-blog` 这个目录下的内容，你可以找到此路径
+=======
+The Gatsby blog theme package has a component that contains the content of the site author's biography. The file path to that component (in the blog theme package, not your site) is `src/gatsby-theme-blog/components/bio-content.js`. You can find this path by looking through the theme in your site's `node_modules/gatsby-theme-blog` directory.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 如果你看一下站点的文件结构，你将会看到下面这样的内容:
 
-```
+```text
 my-blog
 ├── content
 │   ├── assets
@@ -94,6 +98,8 @@ my-blog
 打开 `bio-content.js` 文件，然后做一些编辑：
 
 ```jsx:title=bio-content.js
+import React, { Fragment } from "react"
+
 export default () => (
   {/* highlight-start */}
   <Fragment>
@@ -144,6 +150,9 @@ date: 2019-07-03
 打开 `/src/gatsby-theme-blog/gatsby-plugin-theme-ui/colors.js`，取消代码的注释。
 
 ```javascript:title=colors.js
+import merge from "deepmerge"
+import defaultThemeColors from "gatsby-theme-blog/src/gatsby-plugin-theme-ui/colors"
+
 {/* highlight-start */}
 const darkBlue = `#007acc`
 const lightBlue = `#66E0FF`

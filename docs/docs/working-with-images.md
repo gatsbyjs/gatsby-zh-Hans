@@ -4,7 +4,11 @@ title: 用 Gatsby 处理图片
 
 优化图片对于任何站点来说一直都是一个挑战。在不同设备下都可以提升性能的最佳方法是为每一张图片提供多种不同的尺寸和分辨率。幸运的是，Gatsby 已经有很多 [插件](/docs/plugins/) 能一起在 [图片组件](/docs/building-with-components/#page-components) 中处理图片。
 
+<<<<<<< HEAD
 推荐的做法是使用 [GraphQL 查询](/docs/querying-with-graphql/) 来获取图片的最佳尺寸或者分辨率，然后用 [`gatsby-image`](/packages/gatsby-image/) 组件来展示它们。
+=======
+The recommended approach is to use [GraphQL queries](/docs/graphql-concepts/) to get images of the optimal size or resolution, then, display them with the [`gatsby-image`](/packages/gatsby-image/) component.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ## 通过 GraphQL 查询图片
 
@@ -12,11 +16,19 @@ title: 用 Gatsby 处理图片
 
 你需要如下几个插件：
 
+<<<<<<< HEAD
 - [`gatsby-source-filesystem`](/packages/gatsby-source-filesystem/) 插件允许你 [用 GraphQL 查询文件](/docs/querying-with-graphql/#images)
 - [`gatsby-plugin-sharp`](/packages/gatsby-plugin-sharp) 连接 Sharp 和 Gatsby 插件
 - [`gatsby-transformer-sharp`](/packages/gatsby-transformer-sharp/) 允许你在一个查询里创建多张尺寸和分辨率都合适的图片
 
 如果最终的图片尺寸是固定的，那么优化是通过生成多种不同的分辨率。如果图片是响应式的，也就是说它会延伸到装满整个容器或者页面，那么优化是通过生成多种不同的尺寸。查看 [Gatsby 的图片说明文档来了解更多](/packages/gatsby-image/#two-types-of-responsive-images)。
+=======
+- [`gatsby-source-filesystem`](/packages/gatsby-source-filesystem/) plugin allows you to [query files with GraphQL](/docs/graphql-concepts/#images)
+- [`gatsby-plugin-sharp`](/packages/gatsby-plugin-sharp) powers the connections between Sharp and Gatsby Plugins
+- [`gatsby-transformer-sharp`](/packages/gatsby-transformer-sharp/) allows you to create multiples images of the right sizes and resolutions with a query
+
+If the final image is of a fixed size, optimization relies on having multiple resolutions of the image. If it is responsive, meaning it stretches to fill a container or page, optimization relies on having different sizes of the same image. See the [Gatsby Image documentation for more information](/packages/gatsby-image/#two-types-of-responsive-images).
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 你也可以在查询里用参数来说明准确的最小和最大尺寸。查看 [Gatsby 的图片说明文档来了解所有的选项](/packages/gatsby-image/#two-types-of-responsive-images)。
 

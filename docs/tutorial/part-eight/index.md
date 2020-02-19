@@ -44,7 +44,11 @@ gatsby build
 gatsby serve
 ```
 
+<<<<<<< HEAD
 当启动完成后，你可以个在 [`localhost:9000`](http://localhost:9000) 这个页面访问你的网站。
+=======
+Once this starts, you can view your site at `http://localhost:9000`.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ### 运行一次 Lighthouse 审查
 
@@ -355,9 +359,15 @@ Lighthouse 是一个用于改进和学习网站的非常好的工具——继续
 
 ### 官方 Starters
 
+<<<<<<< HEAD
 1.  [Gatsby 的默认 Starter](https://github.com/gatsbyjs/gatsby-starter-default)：使用此默认样板启动你的项目。这个入门 Starter 包含了你可能需要的主要 Gatsby 配置文件。_[效果演示](http://gatsbyjs.github.io/gatsby-starter-default/)_
 2.  [Gatsby 的博客 Starter](https://github.com/gatsbyjs/gatsby-starter-blog)：能创建一个又好又快的博客的 Gatsby starter。_[效果演示](http://gatsbyjs.github.io/gatsby-starter-blog/)_
 3.  [Gatsby 的 Hello-World Starter](https://github.com/gatsbyjs/gatsby-starter-hello-world): 一个最基础的能让 Gatsby 网站运行的 Gatsby starter。_[效果演示](https://gatsby-starter-hello-world-demo.netlify.com/)_
+=======
+1.  [Gatsby's Default Starter](https://github.com/gatsbyjs/gatsby-starter-default): Kick off your project with this default boilerplate. This barebones starter ships with the main Gatsby configuration files you might need. _[working example](https://gatsbyjs.github.io/gatsby-starter-default/)_
+2.  [Gatsby's Blog Starter](https://github.com/gatsbyjs/gatsby-starter-blog): Gatsby starter for creating an awesome and blazing-fast blog. _[working example](https://gatsbyjs.github.io/gatsby-starter-blog/)_
+3.  [Gatsby's Hello-World Starter](https://github.com/gatsbyjs/gatsby-starter-hello-world): Gatsby Starter with the bare essentials needed for a Gatsby site. _[working example](https://gatsby-starter-hello-world-demo.netlify.com/)_
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ## 咱们终于全整完了
 

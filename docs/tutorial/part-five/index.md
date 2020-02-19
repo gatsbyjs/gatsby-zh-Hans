@@ -14,8 +14,13 @@ disableTableOfContents: true
 
 GraphiQL 是 GraphQL 的集成开发环境（IDE）。它功能强大，且各方面都很棒，在你构建 Gatsby 网站时会经常使用。
 
+<<<<<<< HEAD
 你可以在站点的开发服务器正在运行的时候访问它——地址通常是：
 <http://localhost:8000/___graphql>。
+=======
+You can access it when your site's development server is running—normally at
+`http://localhost:8000/___graphql`.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 <video controls="controls" autoplay="true" loop="true">
   <source type="video/mp4" src="/graphiql-explore.mp4"></source>
@@ -93,7 +98,12 @@ module.exports = {
 
 ![文件系统的自动完成](filesystem-autocomplete.png)
 
+<<<<<<< HEAD
 尝试在查询中添加许多字段，每次要重新运行查询的时候按下 <kbd>Ctrl + Enter</kbd>。你会看到更新后的查询结果：
+=======
+Try adding a number of fields to your query, press <kbd>Ctrl + Enter</kbd>
+each time to re-run the query. You'll see the updated query results:
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ![所有文件的查询](allfile-query.png)
 
@@ -201,7 +211,11 @@ export const query = graphql`
 `
 ```
 
+<<<<<<< HEAD
 然后访问 [http://localhost:8000/my-files](http://localhost:8000/my-files)… 😲
+=======
+And now visit `http://localhost:8000/my-files`… 😲
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ![我的文件页面](my-files-page.png)
 

@@ -268,11 +268,15 @@ export default ({ children }) => (
 )
 ```
 
-![with-navigation2](with-navigation2.png)
+![with-navigation2](with-navigation.png)
 
 很好！ 一个三个子页面的网站，具有基本的全局导航。
 
+<<<<<<< HEAD
 _扩展：_ 使用新的 “布局组件” 功能，尝试向 Gatsby 网站添加页眉、页脚、全局导航和侧边栏等！
+=======
+_Challenge:_ With your new "layout component" powers, try adding headers, footers, global navigation, sidebars, etc. to your Gatsby sites!
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ## 下一步
 

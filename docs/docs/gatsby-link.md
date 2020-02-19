@@ -249,7 +249,13 @@ const Form = () => (
 )
 ```
 
+<<<<<<< HEAD
 ### 在代码式的导航中替换历史记录
+=======
+Then from the receiving page you can access the `location` state as demonstrated in [Pass state as props to the linked page](#pass-state-as-props-to-the-linked-page).
+
+### Replace history during programmatic navigation
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 如果导航行为应该替换历史记录而不是在导航历史记录中添加新条目，则将值为 `true` 的 `replace` 属性添加到 `navigate` 的 `options` 参数中。
 
@@ -382,4 +388,10 @@ onClick = () => {
 
 ## 补充资源
 
+<<<<<<< HEAD
 - [仅在客户端中路由的身份验证教程](/tutorial/authentication-tutorial/)
+=======
+- [Authentication tutorial for client-only routes](/tutorial/authentication-tutorial/)
+- [Routing: Getting Location Data from Props](/docs/location-data-from-props/)
+- [`gatsby-plugin-catch-links`](https://www.gatsbyjs.org/packages/gatsby-plugin-catch-links/) to automatically intercept local links in Markdown files for `gatsby-link` like behavior
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc

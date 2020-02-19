@@ -13,35 +13,61 @@ title: 快速开始
 
 **注**: 视频中使用的是 `npx`，它是一个工具，允许你执行一个 npm 包命令而不需要事先安装这个包。 在你的电脑安装 gatsby-cli 之后，运行命令 `npx gatsby new` 和运行命令 `gatsby new` 的效果相同。
 
+<<<<<<< HEAD
 ### 安装 Gatsby CLI.
+=======
+### Install the Gatsby CLI
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ```shell
 npm install -g gatsby-cli
 ```
 
+<<<<<<< HEAD
 ### 创建站点
+=======
+> The above command installs Gatsby CLI globally on your machine.
+
+### Create a new site
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ```shell
 gatsby new gatsby-site
 ```
 
+<<<<<<< HEAD
 ### 切换到站点目录
+=======
+### Change directories into site folder
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ```shell
 cd gatsby-site
 ```
 
+<<<<<<< HEAD
 ### 启动开发服务器
+=======
+### Start development server
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ```shell
 gatsby develop
 ```
 
+<<<<<<< HEAD
 Gatsby 将会启动一个热更新的开发环境，你可以通过 `localhost:8000` 访问。
+=======
+Gatsby will start a hot-reloading development environment accessible by default at `http://localhost:8000`.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 尝试修改位于 `src/pages` 下的页面中的 JavaScript。 保存变更，浏览器中的内容会自动热更新。
 
+<<<<<<< HEAD
 ### 构建生产版本
+=======
+### Create a production build
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ```shell
 gatsby build
@@ -49,7 +75,11 @@ gatsby build
 
 Gatsby 将会为你站点的生产版本执行一些优化工作，生产静态 HTML 和预加载的 JavaScript 代码包。
 
+<<<<<<< HEAD
 ### 在本地启动生产版本服务器
+=======
+### Serve the production build locally
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ```shell
 gatsby serve
