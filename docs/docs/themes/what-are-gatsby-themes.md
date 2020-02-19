@@ -2,11 +2,19 @@
 title: 什么是 Gatsby 主题?
 ---
 
+<<<<<<< HEAD
 为了介绍主题，我们先回顾一下历史。这将有助于我们理解，为什么要推出主题这一功能。
+=======
+**Gatsby themes** are plugins that include a `gatsby-config.js` file and add pre-configured functionality, data sourcing, and/or UI code to Gatsby sites. You can think of Gatsby themes as separate Gatsby sites that can be put together and allow you to split up a larger Gatsby project!
+
+## Introduction
+
+To introduce themes, let's walk through the journey that led to the creation of themes.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 如果你曾经从头到尾地创建过一个 Gatsby 站点，你肯定有这种体会，你需要做很多的决定。以博客为例，你需要决定博文数据放在哪里（是在本地以 Markdown 形式存储，还是存储在远程的 CMS 服务中），怎样获取数据（是通过 transformer 转化 Markdown 文件，还是从 API 中获取），展示哪些内容，主题如何配色，使用什么风格的组件等等。
 
-## Gatsby starters
+### Gatsby starters
 
 使用 “[Gatsby starters](/docs/starters/)” 可以快速搭建一个与 Starter 功能相同的站点。 Starter 本质上是一些配置好特定功能的 Gatbsy 站点。你下载的是一个完整的 Gatsby 站点，它们通常是为特定场景构建的 (例如：博客、 作品集展示站点等等) 并且是这些都是定制好的。
 
@@ -15,7 +23,11 @@ title: 什么是 Gatsby 主题?
 - 通过 Starter 创建的站点，已经和 Starter 脱离了关系。即它们已经不再受到 Starter 影响，出现了分叉。如果上游的 Starter 后续有了变更，这些通过 Starter 创建的站点，则没有很好的办法与上游 Starter 保持同步。
 - 如果你使用同一个 Starter 创建了多个站点，后来你又想对这多个站点进行相同的更改，你将不得不逐个地去修改这些站点。
 
+<<<<<<< HEAD
 ## Gatsby 主题
+=======
+### Gatsby themes
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 言归正传，该讲讲主题了。Gatsby 主题允许你将站点功能作为一个单独的产品打包，它有助于自己和他人轻松地复用这些功能。 使用传统的 Starter，所有的默认配置都是直接存储在你的站点中。使用主题，这些默认配置则存储在 npm 包中。
 

@@ -13,7 +13,7 @@ title: 将资源直接引入到文件里
 
 请看下面的例子：
 
-```js
+```jsx
 import React from "react"
 import logo from "./logo.png" // 这里告诉 Webpack 这个 JS 文件用了这张图片
 
@@ -50,7 +50,11 @@ Webpack 会在 CSS 里查找所有的相对模块引用（它们都是以 `./` �
 
 ### 更多资料
 
+<<<<<<< HEAD
 - 更多关于 [使用引入的字体](https://www.gatsbyjs.org/docs/recipes/#adding-a-local-font)。
+=======
+- More on [using an imported font](/docs/recipes/styling-css#adding-a-local-font).
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ## 通过 gatsby-source-filesystem 用 GraphQL 查询 `File`
 

@@ -27,7 +27,7 @@ Gatsby CLI (`gatsby-cli`) 是一个全局可执行的 npm 包， Gatsby CLI 发�
 
 ### `new`
 
-```
+```shell
 gatsby new [<site-name> [<starter-url>]]
 ```
 
@@ -78,10 +78,17 @@ gatsby new
 
 |     选项      | 说明                                     |
 | :-------------: | ----------------------------------------------- |
+<<<<<<< HEAD
 | `-H`, `--host`  | 设置主机地址。默认是 localhost                 |
 | `-p`, `--port`  | 设置端口。默认是 8000                      |
 | `-o`, `--open`  | 在浏览器中打开站点 |
 | `-S`, `--https` | 使用 HTTPS                                      |
+=======
+| `-H`, `--host`  | Set host. Defaults to localhost                 |
+| `-p`, `--port`  | Set port. Defaults to env.PORT or 8000          |
+| `-o`, `--open`  | Open the site in your (default) browser for you |
+| `-S`, `--https` | Use HTTPS                                       |
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 参照[本地 HTTPS 指南](/docs/local-https/)，了解如何使用 Gatsby 配置一个本地 HTTPS 的开发服务器。
 
@@ -96,14 +103,18 @@ gatsby develop -H 0.0.0.0
 
 终端会照常打印日志。但是会附加一个 URL，你可以通过同一网络下的其它客户端访问这个 URL，以便查看站点在其它设备上如何展示（适用于手机真机调试）。
 
-```
+```shell
 You can now view gatsbyjs.org in the browser.
 ⠀
   Local:            http://0.0.0.0:8000/
   On Your Network:  http://192.168.0.212:8000/ // highlight-line
 ```
 
+<<<<<<< HEAD
 **注**：在 Windows 上你无法访问 0.0.0.0:8000 （但是在 Windows 上可以通过 localhost:8000 或者 "On Your Network" 中给出的 URL 访问）
+=======
+**Note**: To access Gatsby on your local machine, use either `http://localhost:8000` or the "On Your Network" URL.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ### `build`
 

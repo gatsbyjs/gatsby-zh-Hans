@@ -1,6 +1,7 @@
 ---
 title: 主题
 overview: true
+disableTableOfContents: true
 ---
 
 Gatsby 主题将一个网站的默认配置（共享的功能，数据源，设计）简化成一个安装包。
@@ -9,8 +10,21 @@ Gatsby 主题将一个网站的默认配置（共享的功能，数据源，设�
 
 <GuideList slug={props.slug} />
 
+<<<<<<< HEAD
 ## 其它资源
 
 - [Gatsby 关于主题的博文](/blog/tags/themes)
 - [Jason Lengstorf 和 Brent Jackson 现场创作一个主题](https://www.youtube.com/watch?v=6Z4p-qjnKCQ)
 - [Jason Lengstorf 和 Emma Wedekind 现场创作一个主题](https://www.youtube.com/watch?v=W2uTfay3doo)
+=======
+## Browse themes
+
+- [Themes in Plugin Library](/plugins/?=gatsby-theme)
+- [Theme Jam Showcase](https://themejam.gatsbyjs.org/showcase)
+
+## Other resources
+
+- [Gatsby theme tutorials](/tutorial/theme-tutorials/)
+- [Gatsby blog posts on themes](/blog/tags/themes)
+- [Plugins, Themes, and Starters](/docs/plugins-themes-and-starters/)
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc

@@ -245,7 +245,14 @@ exports.createPages = async ({ graphql, actions }) => {
 }
 ```
 
+<<<<<<< HEAD
 重启开发服务器后，你会看到页面已经创建好了！在开发过程中，找到新创建页面的一种简单方法是：随便转到一个不存在的路径，在该路径中 Gatsby 会帮你显示出站点的页面列表。比如转到 <http://localhost:8000/sdf>，就会看到你创建的新页面。
+=======
+Restart the development server and your pages will be created! An easy way to
+find new pages you create while developing is to go to a random path where
+Gatsby will helpfully show you a list of pages on the site. If you go to
+`http://localhost:8000/sdf`, you'll see the new pages you created.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ![新页面](new-pages.png)
 
@@ -339,7 +346,7 @@ export default ({ data }) => {
                 {node.frontmatter.title}{" "}
                 <span
                   css={css`
-                    color: #bbb;
+                    color: #555;
                   `}
                 >
                   — {node.frontmatter.date}
@@ -382,7 +389,13 @@ export const query = graphql`
 
 ## 一个小挑战
 
+<<<<<<< HEAD
 好好把玩一下这个网站。添加更多 Markdown 文件，从 `MarkdownRemark` 节点中查询其他数据然后添加到主页或博文页面中。
+=======
+Try playing more with the site. Try adding some more markdown files. Explore
+querying other data from the `MarkdownRemark` nodes and adding them to the
+front page or blog posts pages.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 在这一系列教程中，你学习到了构建 Gatsby 数据层的基础知识。你学会了如何使用插件从 _数据源_ 中获取数据并 _转换_ 数据，如何使用 GraphQL 将数据 _映射_ 到页面里，以及如何构建查询每个页面数据的 _页面模板组件_。
 

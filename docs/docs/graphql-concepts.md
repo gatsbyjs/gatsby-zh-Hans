@@ -2,9 +2,15 @@
 title: GraphQL 概念
 ---
 
+<<<<<<< HEAD
 import LayerModel from "../../www/src/components/layer-model"
 
 把数据加载到 React 组件里有许多方式。[GraphQL](http://graphql.org/) 是一个非常受欢迎且强大的技术。
+=======
+There are many options for loading data into React components. One of the most
+popular and powerful of these is a technology called
+[GraphQL](https://graphql.org/).
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 GraphQL 是 Facebook 发明的，它能帮助项目工程师 _提取_ 所需数据到组件里。
 
@@ -331,6 +337,7 @@ export const query = graphql`
       totalCount
       edges {
         node {
+          id
           ...IndexPostFragment
         }
       }

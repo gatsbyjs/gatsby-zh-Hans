@@ -28,7 +28,11 @@ disableTableOfContents: true
 
 Gatsby 主题是将所有默认配置（共享功能模块，数据源，设计）从您的站点中提取为一个可安装的程序包。
 
+<<<<<<< HEAD
 这意味着配置和功能模块不是直接写到您的项目中，而是版本化，集中管理并作为依赖项安装。 您可以无缝更新主题，将主题组合在一起，甚至可以将一个主题换成另一个兼容的主题。
+=======
+This means that the configuration and functionality aren’t directly written into your project, but rather versioned, centrally managed, and installed as a dependency. You can seamlessly update a theme, compose themes together, and even swap out one compatible theme for another.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 通过 [Gatsby 主题教程](/tutorial/theme-tutorials/)可以了解更多有关主题的使用和构建的相关信息。
 

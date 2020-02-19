@@ -153,7 +153,7 @@ Gatsby 可与 CSS 模块一起使用。 强烈建议 Gatsby（以及 React）新
 
 1. 在 `src/components` 目录下创建一个新目录，然后在此目录中创建一个名为 `container.js` 的文件并粘贴以下内容：
 
-```javascript:title=src/components/container.js
+```jsx:title=src/components/container.js
 import React from "react"
 import containerStyles from "./container.module.css"
 
@@ -177,7 +177,7 @@ export default ({ children }) => (
 
 3. 创建新的页面组件文件 `src/pages/about-css-modules.js`:
 
-```javascript:title=src/pages/about-css-modules.js
+```jsx:title=src/pages/about-css-modules.js
 import React from "react"
 
 import Container from "../components/container"
@@ -248,7 +248,11 @@ import Container from "../components/container"
 console.log(styles)
 ```
 
+<<<<<<< HEAD
 代码 `console.log(styles)` 将在控制台打印出已处理的被导入的 `./about-css-modules.module.css` 文件的结果。 如果你在浏览器中打开开发者控制台（使用 Firefox 或 Chrome 的开发者工具），则会看到：
+=======
+The `console.log(styles)` code will log the resulting import so you can see the result of your processed `./about-css-modules.module.css` file. If you open the developer console (using e.g. Firefox or Chrome's developer tools, often by the F12 key) in your browser, you'll see:
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ![在控制台中导入的 CSS 模块的结果](https://github.com/gatsbyjs/gatsby/raw/master/docs/tutorial/part-two/css-modules-console.png)
 

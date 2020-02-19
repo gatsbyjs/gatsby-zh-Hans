@@ -4,13 +4,21 @@ title: 使用多个 Gatsby 主题
 
 Gatsby 主题的宗旨就是可组合。这意味着你可以同时安装多个主题。
 
+<<<<<<< HEAD
 `gatsby-starter-theme` 由两个主题组合而成：`gatsby-theme-blog` 和 `gatsby-theme-notes`
+=======
+For example, `gatsby-starter-theme` composes two Gatsby themes: `gatsby-theme-blog` and `gatsby-theme-notes`
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ```shell
 gatsby new my-notes-blog https://github.com/gatsbyjs/gatsby-starter-theme
 ```
 
+<<<<<<< HEAD
 这个 Starter 包含了2个主题包（`gatsby-theme-blog` 和 `gatsby-theme-notes`），在 Starter 的 `gatsby-config.js` 文件中你可以找到它们。
+=======
+You can include multiple theme packages in your `gatsby-config.js`. `gatsby-starter-theme` includes both theme packages: `gatsby-theme-blog` and `gatsby-theme-notes`.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ```javascript:title=gatsby-config.js
 module.exports = {
