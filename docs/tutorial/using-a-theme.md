@@ -69,7 +69,7 @@ Gatsby 博客主题包中包含一个组件，其内容为网站作者的传记�
 
 如果你看一下站点的文件结构，你将会看到下面这样的内容:
 
-```
+```text
 my-blog
 ├── content
 │   ├── assets
@@ -94,6 +94,8 @@ my-blog
 打开 `bio-content.js` 文件，然后做一些编辑：
 
 ```jsx:title=bio-content.js
+import React, { Fragment } from "react"
+
 export default () => (
   {/* highlight-start */}
   <Fragment>
@@ -144,6 +146,9 @@ date: 2019-07-03
 打开 `/src/gatsby-theme-blog/gatsby-plugin-theme-ui/colors.js`，取消代码的注释。
 
 ```javascript:title=colors.js
+import merge from "deepmerge"
+import defaultThemeColors from "gatsby-theme-blog/src/gatsby-plugin-theme-ui/colors"
+
 {/* highlight-start */}
 const darkBlue = `#007acc`
 const lightBlue = `#66E0FF`

@@ -13,7 +13,7 @@ title: 将资源直接引入到文件里
 
 请看下面的例子：
 
-```js
+```jsx
 import React from "react"
 import logo from "./logo.png" // 这里告诉 Webpack 这个 JS 文件用了这张图片
 

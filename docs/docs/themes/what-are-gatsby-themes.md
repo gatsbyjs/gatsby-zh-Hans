@@ -6,7 +6,7 @@ title: 什么是 Gatsby 主题?
 
 如果你曾经从头到尾地创建过一个 Gatsby 站点，你肯定有这种体会，你需要做很多的决定。以博客为例，你需要决定博文数据放在哪里（是在本地以 Markdown 形式存储，还是存储在远程的 CMS 服务中），怎样获取数据（是通过 transformer 转化 Markdown 文件，还是从 API 中获取），展示哪些内容，主题如何配色，使用什么风格的组件等等。
 
-## Gatsby starters
+### Gatsby starters
 
 使用 “[Gatsby starters](/docs/starters/)” 可以快速搭建一个与 Starter 功能相同的站点。 Starter 本质上是一些配置好特定功能的 Gatbsy 站点。你下载的是一个完整的 Gatsby 站点，它们通常是为特定场景构建的 (例如：博客、 作品集展示站点等等) 并且是这些都是定制好的。
 

@@ -329,7 +329,7 @@ export default () => (
 
 <video controls="controls" loop="true">
   <source type="video/mp4" src="./10-linking-between-pages.mp4"></source>
-  <p>Sorry! You browser doesn't support this video.</p>
+  <p>Sorry! Your browser doesn't support this video.</p>
 </video>
 
 `<Link />` 这个 Gatsby 组件的作用，是在你的网站里连接不同页面。对于那些不是你的 Gatsby 网站所处理的外部链接，请使用常规的 HTML `<a>` 标签。

@@ -153,7 +153,7 @@ Gatsby 可与 CSS 模块一起使用。 强烈建议 Gatsby（以及 React）新
 
 1. 在 `src/components` 目录下创建一个新目录，然后在此目录中创建一个名为 `container.js` 的文件并粘贴以下内容：
 
-```javascript:title=src/components/container.js
+```jsx:title=src/components/container.js
 import React from "react"
 import containerStyles from "./container.module.css"
 
@@ -177,7 +177,7 @@ export default ({ children }) => (
 
 3. 创建新的页面组件文件 `src/pages/about-css-modules.js`:
 
-```javascript:title=src/pages/about-css-modules.js
+```jsx:title=src/pages/about-css-modules.js
 import React from "react"
 
 import Container from "../components/container"
